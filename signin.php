@@ -20,6 +20,8 @@ if((isset($_POST['submit']))){
     }
 
 if($password_set=="0" && $username_set=="0")    {
+    echo "$username" . "$password";
+    //It will actually use the database
 }
 
 }
@@ -74,16 +76,14 @@ if($password_set=="0" && $username_set=="0")    {
 
 
 <footer>
-Designed By:<br />
-Jonathan Kogan
-<br />
-Jonathan Stemple
-<br />
-Sam Gertler<br />
-Teddy Dubno
-<br />
-Eric Martin<br />
+Designed By:<br /><br />
+
+Jonathan Kogan  |  
+Jonathan Stemple  |  
+Sam Gertler  |  
+Teddy Dubno |  
 Marty Reider
+
 </footer>
 </body>
 </html>

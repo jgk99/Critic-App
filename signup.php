@@ -83,7 +83,8 @@ $result = $mailer->send($message);
 
 
 if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0"&& $password1_set=="0"&& $password2_set=="0"&& $password_match=="0"){
-    echo "$username . $password1" ."name" . "gender" . "email";
+    echo "$username" . "$password1" . "$name" . "$gender" . "$email";
+    //In the actual thing these values will go in the database
 }
 }
 ?>
@@ -129,7 +130,7 @@ if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0"&&
 			Username: <input type="text" name="username" value="<?php echo $username; ?>" /><font color=red><?php echo $username_blank;?></font><br /><br /><br />
 			Email   : <input type="text" name="email" value="<?php echo $email; ?>" /><font color=red><?php echo $email_blank;?></font><br /><br /><br />
 			Password: <input type="password" name="password1" value="<?php echo $password1; ?>" /><font color=red><?php echo $password1_blank;?></font><br /><br /><br />
-			Confirm Password: <input type="password" name="password2" value="<?php echo $password2; ?>" /><font color=red><?php echo $password2_blank;?></font><br /><?php echo $password_problem;?><br /><br />
+			Confirm Password: <input type="password" name="password2" value="<?php echo $password2; ?>" /><font color=red><?php echo $password2_blank;?><br /><?php echo $password_problem;?><br /><br /></font>
 			Gender  : <input type="radio" name="gender" value="male">Male     
             <input type="radio" name="gender" value="female">Female  <font color=red><?php echo $gender_blank;?></font><br /><br />
  			<br />
@@ -141,15 +142,12 @@ if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0"&&
 
 
 <footer>
-Designed By:<br />
-Jonathan Kogan
-<br />
-Jonathan Stempel
-<br />
-Sam Gertler<br />
-Teddy Dubno
-<br />
-Eric Martin<br />
+Designed By:<br /><br />
+
+Jonathan Kogan  |  
+Jonathan Stemple  |  
+Sam Gertler  |  
+Teddy Dubno |  
 Marty Reider
 </footer>
 </body>
