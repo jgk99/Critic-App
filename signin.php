@@ -87,7 +87,7 @@ p { margin:20px; }
 <li><a href="books.html">MOVIES<a> </li>
 
 <li><a href="bio.html">CRITICS</a> </li>
-li><a href="bio.html">my account</a> </li>
+<li><a href="bio.html">My Account</a> </li>
 
 </ul>
 </nav>
