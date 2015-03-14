@@ -175,7 +175,7 @@ If you already have an account click <a href="signin.php">here</a><br /><br /><b
 Designed By:<br /><br />
 
 Jonathan Kogan  |  
-Jonathan Stemple  |  
+Jonathan Stempel  |  
 Sam Gertler  |  
 Teddy Dubno |  
 Robert Klayenberg
