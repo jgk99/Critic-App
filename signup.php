@@ -26,7 +26,7 @@ error_reporting(E_ALL | ~E_STRICT);
     $password1 = "";
     $password2 = "";
     $username = "";
-
+ 
     
 if(isset($_POST['submit'])){
     $name = $_POST["name"];
@@ -34,7 +34,7 @@ if(isset($_POST['submit'])){
     $username = $_POST["username"];
     $password1 = $_POST["password1"];
     $password2 = $_POST["password2"];
-    $gender = $_POST["gender"];
+ 
 
     
 
@@ -47,10 +47,7 @@ if(isset($_POST['submit'])){
         $email_set="1";
 
     }
-    if(!isset($_POST["gender"]))    {
-        $gender_blank .= "Gender is required";
-        $gender_set="1";
-    }
+    
     if(!isset($_POST["username"]))    {
         $username_blank .= "Username is required";
         $username_set="1";
@@ -59,13 +56,17 @@ if(isset($_POST['submit'])){
         $password1_blank .= "Password is required";
         $password1_set="1";
     }
-      if(!isset($_POST["password2"]))    {
+      if(!isset($_POST["password2"]) || $password2 === "")    {
         $password2_blank .= "Password is required";
         $password2_set="1";
     }
     if(($_POST["password2"])!=($_POST["password1"]))    {
         $password_problem .= "Passwords do not match";
         $password_match="1";
+    }
+    if(!isset($_POST["username"]) || $username === "")    {
+        $username_blank .= "Username is required";
+        $username_set="1";
     }
     
 
@@ -82,7 +83,7 @@ $result = $mailer->send($message);
 }
 
 
-if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0"&& $password1_set=="0"&& $password2_set=="0"&& $password_match=="0"){
+if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0" && $password1_set=="0" && $password2_set== "0" && $password_match=="0"){
     echo "$username" . "$password1" . "$name" . "$gender" . "$email";
     //In the actual thing these values will go in the database
 }
@@ -100,7 +101,37 @@ if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0"&&
 <head><title>Your Personal Movie Critic</title>
 
 <link rel="stylesheet" type="text/css" href="style.css">
+<style>
+header {  text-align:center; }
+ul { list-style-type:none; }
+li { display:inline; padding:8px; font-size:20px; bold;}
 
+body { background-color:#ECECE4;   font-family:Cambria; font-size:20px; margin:0;}
+nav { text-align:center; border:5px solid black;}
+article { background-image:URL(hey.png); text-align:center; width:1000px; float:left; border:0px solid grey; float: left; }
+.article2 { background-image:URL(hey.png); text-align:center; width:1000px; float:left; border:0px solid grey; float: left; } 
+
+
+aside { background-image:URL(hey.png); float:left; width:00px; padding: 10px; }
+footer { clear:left; text-align:center; background-color:#000; color:#fff; font-size:small;  padding: 20px;  }
+
+a:link { color:#FF9933;  font-family:Cambria; text-decoration:none; }
+a:visited { color:#FF9933; font-family:Cambria; text-decoration:none; }
+a:hover { color:black; font-family:Cambria; text-decoration:none }
+a:active { color:black;  font-family:Cambria; text-decoration:none  }
+
+.container { background-image:URL(hey.png); width:1000px; margin:0 auto; border:0px solid grey;}
+.article-menu { background-image:URL(hey.png); text-align:center; width:1000px; float:left; border:0px solid grey; float: left; } 
+.colorblack { color:black }
+
+p { margin:20px; }
+
+
+
+
+
+
+</style>
 </head>
 
 <body>
@@ -123,6 +154,7 @@ if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0"&&
 </ul>
 </nav>
 <article>
+
 <h2> Sign Up Here</h2>
 
 <form action="signup.php" method="post">
@@ -130,13 +162,11 @@ if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0"&&
 			Username: <input type="text" name="username" value="<?php echo $username; ?>" /><font color=red><?php echo $username_blank;?></font><br /><br /><br />
 			Email   : <input type="text" name="email" value="<?php echo $email; ?>" /><font color=red><?php echo $email_blank;?></font><br /><br /><br />
 			Password: <input type="password" name="password1" value="<?php echo $password1; ?>" /><font color=red><?php echo $password1_blank;?></font><br /><br /><br />
-			Confirm Password: <input type="password" name="password2" value="<?php echo $password2; ?>" /><font color=red><?php echo $password2_blank;?><br /><?php echo $password_problem;?><br /><br /></font>
-			Gender  : <input type="radio" name="gender" value="male">Male     
-            <input type="radio" name="gender" value="female">Female  <font color=red><?php echo $gender_blank;?></font><br /><br />
- 			<br />
+			Confirm Password: <input type="password" name="password2" value="<?php echo $password2; ?>" /><font color=red><?php echo $password2_blank;?><br /><br /><?php echo $password_problem;?><br /></font>
+			
 			<input type="submit" name="submit" value="Submit" />
 		</form> <br /><br /><br />
-
+If you already have an account click <a href="signin.php">here</a><br /><br /><br />
 <article>
 </div>
 
@@ -148,7 +178,7 @@ Jonathan Kogan  |
 Jonathan Stemple  |  
 Sam Gertler  |  
 Teddy Dubno |  
-Marty Reider
+Robert Klayenberg
 </footer>
 </body>
 </html>
