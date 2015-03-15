@@ -8,7 +8,8 @@ echo '
 		Jonathan Stempel | 
 		Sam Gertler | 
 		Teddy Dubno | 
-		Robert Klaynberg
+		Robert Klaynberg |
+		Eric Martin
 	</footer>'
 
 ?>

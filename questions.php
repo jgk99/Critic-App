@@ -180,14 +180,6 @@ p { margin:20px; }
 </div>
 
 
-<footer>
-Designed By:<br /><br />
-
-Jonathan Kogan  |  
-Jonathan Stemple  |  
-Sam Gertler  |  
-Teddy Dubno |  
-Robert Klayenberg
-</footer>
+<?php require_once("footer.php"); ?>
 </body>
 </html>
