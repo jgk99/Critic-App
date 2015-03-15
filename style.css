@@ -4,11 +4,10 @@ li { display:inline; padding:8px; font-size:20px; bold;}
 
 body { background-color:#ECECE4;   font-family:Cambria; font-size:20px; margin:0;}
 nav { text-align:center; border:5px solid black;}
-article { background-image:URL(hey.png); text-align:center; width:650px; float:left; border:0px solid grey; float: left; }
+article { background-image:URL(hey.png); text-align:center; width:1000px; float:left; border:0px solid grey; float: left; }
 .article2 { background-image:URL(hey.png); text-align:center; width:1000px; float:left; border:0px solid grey; float: left; } 
 
-
-aside { background-image:URL(hey.png); float:left; width:300px; padding: 10px; }
+aside { background-image:URL(hey.png); float:left; width:00px; padding: 10px; }
 footer { clear:left; text-align:center; background-color:#000; color:#fff; font-size:small;  padding: 20px;  }
 
 a:link { color:#FF9933;  font-family:Cambria; text-decoration:none; }
@@ -21,6 +20,3 @@ a:active { color:black;  font-family:Cambria; text-decoration:none  }
 .colorblack { color:black }
 
 p { margin:20px; }
-
-
-
