@@ -1,22 +1,103 @@
-header {  text-align:center; }
-ul { list-style-type:none; }
-li { display:inline; padding:8px; font-size:20px; bold;}
+header {
+	text-align: center;
+}
 
-body { background-color:#ECECE4;   font-family:Cambria; font-size:20px; margin:0;}
-nav { text-align:center; border:5px solid black;}
-article { background-image:URL(hey.png); text-align:center; width:1000px; float:left; border:0px solid grey; float: left; }
-.article2 { background-image:URL(hey.png); text-align:center; width:1000px; float:left; border:0px solid grey; float: left; } 
+ul {
+	list-style-type: none;
+}
 
-aside { background-image:URL(hey.png); float:left; width:00px; padding: 10px; }
-footer { clear:left; text-align:center; background-color:#000; color:#fff; font-size:small;  padding: 20px;  }
+li {
+	display: inline;
+	padding: 8px;
+	font-size: 20px;
+}
 
-a:link { color:#FF9933;  font-family:Cambria; text-decoration:none; }
-a:visited { color:#FF9933; font-family:Cambria; text-decoration:none; }
-a:hover { color:black; font-family:Cambria; text-decoration:none }
-a:active { color:black;  font-family:Cambria; text-decoration:none  }
+body {
+	background-color: #ECECE4;
+	font-family: Helvetica, Serif;
+	font-size: 20px;
+	margin: 0;
+}
 
-.container { background-image:URL(hey.png); width:1000px; margin:0 auto; border:0px solid grey;}
-.article-menu { background-image:URL(hey.png); text-align:center; width:1000px; float:left; border:0px solid grey; float: left; } 
-.colorblack { color:black }
+nav {
+	text-align: center;
+	border: 5px solid black;
+}
 
-p { margin:20px; }
+article {
+	background-image: URL(hey.png);
+	text-align: center;
+	width: 1000px;
+	float: left;
+	border: 0px solid grey;
+	float: left;
+}
+
+.article2 {
+	background-image: URL(hey.png);
+	text-align: center;
+	width: 1000px;
+	float: left;
+	border: 0px solid grey;
+	float: left;
+} 
+
+aside {
+	background-image: URL(hey.png);
+	float: left;
+	width: 00px;
+	padding: 10px;
+}
+
+footer {
+	clear: left;
+	text-align: center;
+	background-color: #000;
+	color: #fff;
+	font-size: small; 
+	padding: 10px;
+}
+
+a:link {
+	color: #FF9933;
+	text-decoration: none;
+}
+
+a:visited {
+	color: #FF9933;
+	text-decoration: none;
+}
+
+a:hover {
+color: black;
+text-decoration: none
+}
+
+a:active {
+	color: black;
+	text-decoration: none
+}
+
+.container {
+	background-image: URL(hey.png);
+	width: 1000px;
+	margin: 0 auto;
+	border: 0px solid grey;
+}
+
+.article-menu {
+	background-image: URL(hey.png);
+	text-align: center;
+	width: 1000px;
+	float: left;
+	border: 0px solid grey;
+	float: left;
+}
+
+.colorblack {
+	color: black
+}
+
+p {
+	margin: 20px;
+}
