@@ -7,7 +7,7 @@ function redirect_to($new_location) {
 
 
 
-<<<<<<< HEAD
+
     $name_blank=""; 
     $email_blank="";
     $gender_blank="";
@@ -100,7 +100,7 @@ if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0" &
     redirect_to("questions.php");
     //In the actual thing these values will go in the database
 }
-=======
+
 $name_blank=""; 
 $email_blank="";
 $gender_blank="";
@@ -178,16 +178,18 @@ if(isset($_POST['submit'])) {
 	}
 
 	if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0" && $password1_set=="0" && $password2_set== "0" && $password_match=="0") {
-		echo "$username" . "$password1" . "$name" . "$gender" . "$email";
-		//In the actual thing these values will go in the database
+		$_SESSION["name"]="$name";
+		$_SESSION["username"]="$username";
+		$_SESSION["password"]="$password1";
+		$_SESSION["email"]="$email";
+		
 	}
->>>>>>> origin/master
+}
 }
 ?>
 
-<!DOCTYPE html>
 
-<<<<<<< HEAD
+
 
 
 
@@ -229,23 +231,20 @@ p { margin:20px; }
 
 
 </style>
-=======
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Your Personal Movie Critic</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
->>>>>>> origin/master
+
+
+	
 </head>
 <body>
 
-<div class="container">
-<<<<<<< HEAD
- 
+
+ <div class="container">
+ <head><title>My Film Critic</title>
   <header>
 
 
  <h1>My Film Critic</h1>
+</header>
 <nav>
 <ul>
 <li><a href="index.php">HOME</a> </li>
@@ -259,26 +258,13 @@ p { margin:20px; }
 </nav>
 <article>
 
-<h2> Sign Up Here</h2>
 
-<form action="signup.php" method="post">
-			Name    : <input type="text" name="name" value="<?php echo $name; ?>" /><font color=red><?php echo $name_blank;?></font><br /><br /><br />
-=======
-	<header>
-		<h1>The Movie Critic</h1>
-	</header>
-	<nav>
-		<ul>
-			<li><a href="index.php">HOME</a> </li>
-			<li><a href="movies.php">MOVIES<a> </li>
-			<li><a href="bio.html">CRITICS</a> </li>
-		</ul>
-	</nav>
-	<article>
+	
+	
+	
 		<h2> Sign Up Here</h2>
 		<form action="signup.php" method="post">
 			Name	: <input type="text" name="name" value="<?php echo $name; ?>" /><font color=red><?php echo $name_blank;?></font><br /><br /><br />
->>>>>>> origin/master
 			Username: <input type="text" name="username" value="<?php echo $username; ?>" /><font color=red><?php echo $username_blank;?></font><br /><br /><br />
 			Email   : <input type="text" name="email" value="<?php echo $email; ?>" /><font color=red><?php echo $email_blank;?></font><br /><br /><br />
 			Password: <input type="password" name="password1" value="<?php echo $password1; ?>" /><font color=red><?php echo $password1_blank;?></font><br /><br /><br />
@@ -291,7 +277,14 @@ p { margin:20px; }
 	<article>
 </div>
 
-<?php require_once("footer.php"); ?>
+<footer>
+		Designed By:<br /><br />
+		Jonathan Kogan  |  
+		Jonathan Stempel  |  
+		Sam Gertler  |  
+		Teddy Dubno |  
+		Robert Klaynberg
+	</footer>'
 
 </body>
 </html>

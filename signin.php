@@ -29,9 +29,9 @@ if((isset($_POST['submit']))) {
 
 ?>
 
-<!DOCTYPE html>
 
-<<<<<<< HEAD
+
+
 
 
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN"
@@ -72,18 +72,14 @@ p { margin:20px; }
 
 
 </style>
-=======
-<html>
-<head>
-	<meta charset="UTF-8">
-	<title>Your Personal Movie Critic</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
->>>>>>> origin/master
+
+
+	
 </head>
 <body>
 
 <div class="container">
-<<<<<<< HEAD
+
  
   <header>
 
@@ -105,23 +101,11 @@ p { margin:20px; }
 
 <form action="signin.php" method="post">
 			
-=======
-	<header>
-		<h1>The Movie Critic</h1>
-	</header>
-	<nav>
-		<ul>
-			<li><a href="index.php">HOME</a> </li>
-			<li><a href="books.html">MOVIES<a> </li>
-			<li><a href="bio.html">CRITICS</a> </li>
-			<li><a href="bio.html">My Account</a> </li>
-		</ul>
-	</nav>
-	<article>
-		<h2> Sign In Here</h2>
+
+		
 
 		<form action="signin.php" method="post">
->>>>>>> origin/master
+
 			Username: <input type="text" name="username" value="<?php echo $username; ?>" /><font color=red><?php echo $username_blank;?></font><br /><br /><br />
 			Password: <input type="password" name="password" value="<?php echo $password; ?>" /><font color=red><?php echo $password_blank;?></font><br /><br /><br />
 			<input type="submit" name="submit" value="Submit" />
