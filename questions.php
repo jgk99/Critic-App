@@ -15,6 +15,8 @@ $password = $_SESSION["password"];
 $email = $_SESSION["email"];
 session_destroy();
 echo "$name" . "$username" . "$email" . "$password";
+
+// if All questions answered open the database and add the user
 ?>
 
 
