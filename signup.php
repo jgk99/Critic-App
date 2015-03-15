@@ -3,7 +3,6 @@ error_reporting(E_ALL | ~E_STRICT);
 
 $name_blank=""; 
 $email_blank="";
-$gender_blank="";
 $username_blank="";
 $password1_blank="";
 $password2_blank="";
@@ -11,10 +10,8 @@ $password_problem="";
 
 $name_set="0";
 $email_set="0";
-$gender_set="0";
 $password1_set="0";
 $password2_set="0";
-$gender_set="0";
 $username_set="0";
 $password_match="0";
 $never="100";
@@ -66,7 +63,7 @@ if(isset($_POST['submit'])) {
 		$username_set="1";
 	}
 	
-	if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0"&& $password1_set=="0"&& $password2_set=="0"&& $password_match=="0" && $never=="0") {
+	if($name_set=="0" && $email_set=="0" && $username_set=="0"&& $password1_set=="0"&& $password2_set=="0"&& $password_match=="0" && $never=="0") {
 		require_once 'lib/swift_required.php';$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")->setUsername('')
 		  ->setPassword('');
 		$mailer = Swift_Mailer::newInstance($transport);
@@ -77,8 +74,8 @@ if(isset($_POST['submit'])) {
 		$result = $mailer->send($message);
 	}
 
-	if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0" && $password1_set=="0" && $password2_set== "0" && $password_match=="0") {
-		echo "$username" . "$password1" . "$name" . "$gender" . "$email";
+	if($name_set=="0" && $email_set=="0" && $username_set=="0" && $password1_set=="0" && $password2_set== "0" && $password_match=="0") {
+		echo "$username" . "$password1" . "$name" . "$email";
 		//In the actual thing these values will go in the database
 	}
 }
