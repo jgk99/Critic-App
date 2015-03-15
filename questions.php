@@ -67,9 +67,9 @@ p { margin:20px; }
 
 <div class="container">
  
-  <header>
 
 
+<header>
  <h1>My Film Critic</h1>
 </header>
 <nav>
