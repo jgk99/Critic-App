@@ -1,5 +1,11 @@
 <?php 
 error_reporting(E_ALL | ~E_STRICT);
+function redirect_to($new_location) {
+        header("Location: " . $new_location);
+        exit;
+    }
+
+
 
     $name_blank=""; 
     $email_blank="";
@@ -84,7 +90,13 @@ $result = $mailer->send($message);
 
 
 if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0" && $password1_set=="0" && $password2_set== "0" && $password_match=="0"){
-    echo "$username" . "$password1" . "$name" . "$gender" . "$email";
+    session_start();
+    $_SESSION["in"]="378";
+    $_SESSION["name"]="$name";
+    $_SESSION["username"]="$username";
+    $_SESSION["password"]="$password1";
+    $_SESSION["email"]="$email";
+    redirect_to("questions.php");
     //In the actual thing these values will go in the database
 }
 }
@@ -98,7 +110,7 @@ if($name_set=="0" && $email_set=="0" && $gender_set=="0" && $username_set=="0" &
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
-<head><title>Your Personal Movie Critic</title>
+<head><title>My Film Critic</title>
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -142,14 +154,15 @@ p { margin:20px; }
   <header>
 
 
- <h1>The Movie Critic</h1>
-</header>
+ <h1>My Film Critic</h1>
 <nav>
 <ul>
 <li><a href="index.php">HOME</a> </li>
 <li><a href="movies.php">MOVIES<a> </li>
 
 <li><a href="bio.html">CRITICS</a> </li>
+<li><a href="bio.html">MY ACCOUNT</a> </li>
+
 
 </ul>
 </nav>

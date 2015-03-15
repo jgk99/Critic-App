@@ -35,7 +35,7 @@ if($password_set=="0" && $username_set=="0")    {
    "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
-<head><title>Your Personal Movie Critic</title>
+<head><title>My Film Critic</title>
 
 <link rel="stylesheet" type="text/css" href="style.css">
 <style>
@@ -79,7 +79,7 @@ p { margin:20px; }
   <header>
 
 
- <h1>The Movie Critic</h1>
+ <h1>My Film Critic</h1>
 </header>
 <nav>
 <ul>
@@ -87,7 +87,7 @@ p { margin:20px; }
 <li><a href="books.html">MOVIES<a> </li>
 
 <li><a href="bio.html">CRITICS</a> </li>
-li><a href="bio.html">my account</a> </li>
+<li><a href="bio.html">MY ACCOUNT</a> </li>
 
 </ul>
 </nav>
