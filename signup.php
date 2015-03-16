@@ -69,8 +69,8 @@ if(isset($_POST['submit'])) {
 		$username_blank .= "Username is required";
 		$username_set="1";
 	}
-	
-	if($name_set=="0" && $email_set=="0" && $username_set=="0"&& $password1_set=="0"&& $password2_set=="0"&& $password_match=="0" && $never=="0") {
+	// No need to send email just yet
+	/* if($name_set=="0" && $email_set=="0" && $username_set=="0"&& $password1_set=="0"&& $password2_set=="0"&& $password_match=="0" && $never=="0") {
 		require_once 'lib/swift_required.php';$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")->setUsername('')
 		  ->setPassword('');
 		$mailer = Swift_Mailer::newInstance($transport);
@@ -80,7 +80,7 @@ if(isset($_POST['submit'])) {
 		  ->setBody($comments);
 		$result = $mailer->send($message);
 	}
-
+	*/
 	if($name_set=="0" && $email_set=="0"  && $username_set=="0" && $password1_set=="0" && $password2_set== "0" && $password_match=="0") {
         session_start();
         $_SESSION["in"]="378";
