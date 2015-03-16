@@ -14,7 +14,7 @@ li {
 
 body {
 	background-color: #ECECE4;
-	font-family: Helvetica, Serif;
+	font-family: Helvetica, Sans-Serif;
 	font-size: 20px;
 	margin: 0;
 }
@@ -119,7 +119,41 @@ h1, h2, h3, h4, h5, h6 {
 	margin-bottom: -15px;
 }
 
-.form-label {
-	text-align: right;
-	width: 175px;
+.movie-poster {
+	width: 100px;
+}
+
+.rating span {
+	float: right; 
+	position: relative;
+}
+
+.rating span input {
+	position: absolute;
+	top: 0px;
+	left: 0px;
+	opacity: 0;
+}
+
+.rating span label {
+	display: inline-block;
+	width: 30px;
+	height: 30px;
+	text-align: center;
+	color: #FFF;
+	background-image: url("images/star_empty.png");
+	font-size: 30px;
+	margin-right: 2px;
+	line-height: 30px;
+}
+
+.rating span.checked label,
+.rating span.checked ~ span label {
+	background-image: url("images/star_full.png");
+	color: #FFF;
+}
+
+.rating span:hover ~ span label,
+.rating span:hover label {
+	background-image: url("images/star_hover.png") !important;
 }
