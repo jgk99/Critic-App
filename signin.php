@@ -62,6 +62,7 @@ if((isset($_POST['submit']))) {
 		<br />
 		If you don't have an account click <a href="signup.php">here</a>.
 		<br /><br />
+	</article>
 </div>
 
 <?php require_once("includes/footer.php"); ?>
