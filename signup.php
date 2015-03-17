@@ -142,7 +142,6 @@ if(isset($_POST['submit'])) {
 		</table>
 		<br />
 		If you already have an account click <a href="signin.php">here</a>.
-		<br /><br />
 	<article>
 </div>
 

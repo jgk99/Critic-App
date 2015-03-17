@@ -61,7 +61,7 @@ if((isset($_POST['submit']))) {
 		</table>
 		<br />
 		If you don't have an account click <a href="signup.php">here</a>.
-		<br /><br />
+		<br />
 	</article>
 </div>
 

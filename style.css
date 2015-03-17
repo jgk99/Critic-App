@@ -25,16 +25,16 @@ nav {
 }
 
 article {
-	background-image: URL(hey.png);
+	background-image: URL(images/hey.png);
 	text-align: center;
 	width: 1000px;
 	float: left;
 	border: 0px solid grey;
-	float: left;
+	padding: 15px;
 }
 
 .article2 {
-	background-image: URL(hey.png);
+	background-image: URL(images/hey.png);
 	text-align: center;
 	width: 1000px;
 	float: left;
@@ -43,7 +43,7 @@ article {
 } 
 
 aside {
-	background-image: URL(hey.png);
+	background-image: URL(images/hey.png);
 	float: left;
 	width: 00px;
 	padding: 10px;
@@ -115,6 +115,10 @@ h1, h2, h3, h4, h5, h6 {
 	margin: 0;
 }
 
+.form-label {
+	text-align: right;
+}
+
 .movie-title {
 	margin-bottom: -15px;
 }
@@ -156,4 +160,19 @@ h1, h2, h3, h4, h5, h6 {
 .rating span:hover ~ span label,
 .rating span:hover label {
 	background-image: url("images/star_hover.png") !important;
+}
+
+#slideshow a {
+	position: absolute;
+	z-index: 8;
+	opacity: 0.0;
+}
+
+#slideshow a.slideshow-active {
+	z-index: 10;
+	opacity: 1.0;
+}
+
+#slideshow a.slideshow-last-active {
+	z-index: 9;
 }
