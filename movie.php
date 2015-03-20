@@ -6,6 +6,7 @@
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
+	<script type="text/javascript" src="js/ratings.js"></script>
 </head>
 <body>
 
@@ -38,6 +39,16 @@
 				document.write("<div id=\"movie-description\">" + omdb_movie.Plot + "</span>");
 			}
 		</script>
+		<form action="" method="post">
+			<div class="rating">
+				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating5" value="5"><label for="movie-rating5"></label></span>
+				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating4" value="4"><label for="movie-rating4"></label></span>
+				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating3" value="3"><label for="movie-rating3"></label></span>
+				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating2" value="2"><label for="movie-rating2"></label></span>
+				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating1" value="1"><label for="movie-rating1"></label></span>
+				<input type="submit" value="Rate" name="submit" style="float: right;"/>
+			</div>
+		</form>
 	</article>
 </div>
 
