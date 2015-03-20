@@ -1,10 +1,6 @@
 <?php
 
-<<<<<<< HEAD
 //error_reporting(E_ALL | ~E_ubTRICT);
-=======
-error_reporting(E_ALL | ~E_ubTRICT);
->>>>>>> origin/master
 
 /*function redirect_to($new_location) {
 	header("Location: " . $new_location);
@@ -21,7 +17,6 @@ if(isset($_POST['submit'])) {
 	$name = $_POST["fullname"];
 	$email = $_POST["email"]; 
 	$username = $_POST["username"];
-<<<<<<< HEAD
 	$password1 = $_POST["pw"];
 	session_start();
 	$_SESSION["in"]="378";
@@ -34,73 +29,7 @@ if(isset($_POST['submit'])) {
 	$first=$nameArr[0];
 	$last=$nameArr[1];
 	addUser($last, $first, $username, $email, $password1);
-	redirect_to("questions.php");
-=======
-	$password1 = $_POST["password1"];
-	$password2 = $_POST["password2"];
-
-	if(!isset($name) || $name === "") {
-		$name_blank .= "Name is required";
-		$name_set="1";
-	}
-	
-	if(!isset($email) || $email === "") {
-		$email_blank .= "Email is required";
-		$email_set="1";
-	}
-	
-	if(!isset($_POST["username"])) {
-		$username_blank .= "Username is required";
-		$username_set="1";
-	}
-	
-	if(!isset($_POST["password1"]) || $password1 === "") {
-		$password1_blank .= "Password is required";
-		$password1_set="1";
-	}
-	
-	if(!isset($_POST["password2"]) || $password2 === "") {
-		$password2_blank .= "Password is required";
-		$password2_set="1";
-	}
-	
-	if(($_POST["password2"])!=($_POST["password1"])) {
-		$password_problem .= "Passwords do not match";
-		$password_match="1";
-	}
-	
-	if(!isset($_POST["username"]) || $username === "") {
-		$username_blank .= "Username is required";
-		$username_set="1";
-	}
-	
-	// No need to send email just yet
-	/* if($name_set=="0" && $email_set=="0" && $username_set=="0"&& $password1_set=="0"&& $password2_set=="0"&& $password_match=="0" && $never=="0") {
-		require_once 'lib/swift_required.php';$transport = Swift_SmtpTransport::newInstance('smtp.gmail.com', 465, "ssl")->setUsername('')
-		  ->setPassword('');
-		$mailer = Swift_Mailer::newInstance($transport);
-		$message = Swift_Message::newInstance('Test Subject')
-		  ->setFrom(array('jkogan18@cgps.org' => 'ABC'))
-		  ->setTo(array($email))
-		  ->setBody($comments);
-		$result = $mailer->send($message);
-	}
-	*/
-	
-	if($name_set=="0" && $email_set=="0"  && $username_set=="0" && $password1_set=="0" && $password2_set== "0" && $password_match=="0") {
-		session_start();
-		$_SESSION["in"]="378";
-		$_SESSION["name"]="$name";
-		$_SESSION["username"]="$username";
-		$_SESSION["password"]="$password1";
-		$_SESSION["email"]="$email";
-		include 'dbfuncs.php';
-		$nameArr=explode(" ",$name);
-		$first=$nameArr[0];
-		$last=$nameArr[1];
-		addUser($last, $first, $username, $email, $password1);
-		redirect_to("questions.php");
->>>>>>> origin/master
+	header("questions.php");
 	}
 ?>
 
