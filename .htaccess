@@ -1,0 +1,3 @@
+DirectoryIndex index.html index.php parking-page.html
+AuthName "Site Under Construction"
+AuthUserFile "/home/mymozlsy/.htpasswds/public_html/passwd"

@@ -26,7 +26,6 @@ nav {
 
 article {
 	background-image: URL(images/hey.png);
-	text-align: center;
 	width: 1000px;
 	float: left;
 	border: 0px solid grey;
@@ -35,7 +34,6 @@ article {
 
 .article2 {
 	background-image: URL(images/hey.png);
-	text-align: center;
 	width: 1000px;
 	float: left;
 	border: 0px solid grey;
@@ -175,4 +173,9 @@ h1, h2, h3, h4, h5, h6 {
 
 #slideshow a.slideshow-last-active {
 	z-index: 9;
+}
+
+#movie-description {
+	float: right;
+	width: 74%;
 }
