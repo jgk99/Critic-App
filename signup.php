@@ -1,6 +1,6 @@
 <?php
 
-error_reporting(E_ALL | ~E_STRICT);
+error_reporting(E_ALL | ~E_ubTRICT);
 
 function redirect_to($new_location) {
 	header("Location: " . $new_location);
@@ -92,7 +92,11 @@ if(isset($_POST['submit'])) {
 		$_SESSION["username"]="$username";
 		$_SESSION["password"]="$password1";
 		$_SESSION["email"]="$email";
-		
+		include 'dbfuncs.php';
+		$nameArr=explode(" ",$name);
+		$first=$nameArr[0];
+		$last=$nameArr[1];
+		addUser($last, $first, $username, $email, $password1);
 		redirect_to("questions.php");
 	}
 }

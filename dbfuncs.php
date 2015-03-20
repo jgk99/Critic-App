@@ -1,25 +1,47 @@
 <?php
 function dbconnect() {
 	//Create connection
-	$con = new mysqli("localhost","happycritic",base64_decode("Y2dwc2NyMXRpYyE="),"mymozlsy_mymoviecritic")
+	$con=new mysqli("localhost","mymozlsy_happy",base64_decode("Y2dwc2NyMXRpYyE="),"mymozlsy_mymoviecritic");
 
 	//Test Connection
-	if (mysqli_connect_ernro()) {
+	if (mysqli_connect_errno()) {
 		throw new Exception("Connection failed with error %s\n", mysqli_connect_error());
 	}
+
+	//Return connection
+	return $con;
 }
 
-function dbquery(string $queryStr) {
+function validateUser($usrname, $passwd) {
 	//Connect to database
-	dbconnect();
+	$con=dbconnect();
+
+	//Sanitize Variables
+	$usrname = $con->real_escape_string($usrname);
+	$passwd = $con->real_escape_string(hash("sha256",$passwd)); //Hash password using SHA256 algorithm
+
+	//Build query string
+	$query = "SELECT `username` FROM `Login` WHERE `username` == $usrname and `password` == $passwd";
 
 	//Execute query and check for errors
-	if (!$con->query($queryStr)) {
-		throw new Exception("Query failed with error %s\n", $con->sqlstate)
+	$data = $con->query($query);
+	if (!$data) {
+		throw new Exception("Query failed with error: $con->sqlstate");
+	} else {
+		//Check if query returned a row results
+		if ($data->num_rows == 1) {
+			//User is valid
+			return true;
+		} else {
+			return false;
+		}
 	}
 }
 
-function addUser(string $lname, string $fname, string $usrname, string $email, string $pass) {
+function addUser($lname, $fname, $usrname, $email, $pass) {
+	//Connecto to database
+	$con=dbconnect();
+
 	//Sanitize Variables
 	$lname = $con->real_escape_string($lname);
 	$fname = $con->real_escape_string($fname);
@@ -28,9 +50,13 @@ function addUser(string $lname, string $fname, string $usrname, string $email, s
 	$pass = $con->real_escape_string(hash("sha256",$pass)); //Hash password using SHA256 algorithm
 
 	//Build query string
-	$query = "INSERT INTO Login (lastname, firstname, username, email, passwd) VALUES ($lname, $fname, $usrname, $email, $pass)"
+	$query = "INSERT INTO `Login` (`Last Name`, `First Name`, `username`, `Email`, `Password`) VALUES ('$lname', '$fname', '$usrname', '$email', '$pass')";
 
-	//Connect to database and execute query
-	dbquery($query);
+	//Execute query and check for errors
+	if (!$con->query($query)) {
+		throw new Exception("Query failed with error: $con->sqlstate");
+	}
+
+	$con->close();
 }
 ?>
