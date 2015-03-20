@@ -1,7 +1,7 @@
 <?php
 function dbconnect() {
 	//Create connection
-	$con = new mysqli("54.174.198.68","happycritic",base64_decode("Y2dwc2NyMXRpYyE="),"MyMovieCritic")
+	$con = new mysqli("localhost","happycritic",base64_decode("Y2dwc2NyMXRpYyE="),"mymozlsy_mymoviecritic")
 
 	//Test Connection
 	if (mysqli_connect_ernro()) {
@@ -28,7 +28,7 @@ function addUser(string $lname, string $fname, string $usrname, string $email, s
 	$pass = $con->real_escape_string(hash("sha256",$pass)); //Hash password using SHA256 algorithm
 
 	//Build query string
-	$query = "INSERT INTO AppUsers (lastname, firstname, username, email, passwd) VALUES ($lname, $fname, $usrname, $email, $pass)"
+	$query = "INSERT INTO Login (lastname, firstname, username, email, passwd) VALUES ($lname, $fname, $usrname, $email, $pass)"
 
 	//Connect to database and execute query
 	dbquery($query);
