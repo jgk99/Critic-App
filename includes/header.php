@@ -13,6 +13,10 @@ echo'
 			<li><a href="bio.html">MY ACCOUNT</a></li>
 		</ul>
 	</nav>
+	<form action="search.php" method="post">
+                                <input type="text" placeholder="Search..." required>
+                                <input type="submit" value="Search">
+	</form>
 	<br />
 '
 	
