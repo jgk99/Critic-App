@@ -21,8 +21,8 @@ function validateUser($usrname, $passwd) {
 	$passwd = $con->real_escape_string(hash("sha256",$passwd)); //Hash password using SHA256 algorithm
 
 	//Build query string
-	$query = "SELECT `username` FROM `Login` WHERE `username` == $usrname and `password` == $passwd";
-
+	$query = "SELECT `username` FROM `Login` WHERE `username` = '$usrname' and `password` = '$passwd'";
+	
 	//Execute query and check for errors
 	$data = $con->query($query);
 	if (!$data) {

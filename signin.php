@@ -22,7 +22,12 @@ if((isset($_POST['submit']))) {
 	}
 
 	if($password_set=="0" && $username_set=="0") {
-		echo "$username" . "$password";
+		include 'dbfuncs.php';
+		if(validateUser($username,$password)) {
+			echo "Log in Successful";
+		} else {
+			echo "Log in failed";
+		}
 		//It will actually use the database
 	}
 }
