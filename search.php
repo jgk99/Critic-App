@@ -2,26 +2,15 @@
 
 <html>
 <head>
-<<<<<<< HEAD
-	<title>My Film Critic</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
-	<meta charset="UTF-8">
-=======
 	<title>My Movie Critic</title>
 	<link rel="stylesheet" type="text/css" href="style.css">
 	<meta charset="UTF-8">
 	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
->>>>>>> origin/master
 </head>
 <body>
 
 <div class="container">
 	<?php require_once("includes/header.php"); ?>
-<<<<<<< HEAD
-	<article>
-		<h2> Sign In</h2>
-		If you don't have an account click <a href="signup.php">here</a>.
-=======
 
 	<article>
 		<form action="" method="post">
@@ -45,7 +34,6 @@
 				document.write("<a href=\"movie.php?id=" + movies.movies[i].alternate_ids['imdb'] + "\">" + movies.movies[i].title + "</a><br />");
 			}
 		</script>
->>>>>>> origin/master
 	</article>
 </div>
 
