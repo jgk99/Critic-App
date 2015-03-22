@@ -9,7 +9,8 @@ echo '
 		Sam Gertler | 
 		Teddy Dubno | 
 		Robert Klaynberg | 
-		Eric Martin
+		Eric Martin |
+		Sammy Geller
 	</footer>
 '
 
