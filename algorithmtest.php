@@ -14,24 +14,16 @@
 
 	<article>
 		<?php
+		
+		require_once("similarity_algorithm.php");
 
-		include 'dbfuncs.php';
-
-		$con=dbconnect();
-		$query = "SELECT * FROM `userreviews` WHERE `UserID` = '1'";
-		$data = $con->query($query);
+		$similarities = get_similarities(1);
+		foreach ($similarities as $critic => $similarity) { 
+			echo $critic . "'s average difference from user with ID 1: " . $similarity;
+			echo "<br />";
+		}
 
 		?>
-
-		<script type="text/javascript">
-			<?php
-
-			$php_array = array('abc','def','ghi');
-			$js_array = json_encode($php_array);
-			echo "var javascript_array = ". $js_array . ";\n";
-
-			?>
-		</script>
 	</article>
 </div>
 
