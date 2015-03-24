@@ -37,7 +37,7 @@ if(isset($_POST['submit'])) {
 	$_SESSION["email"]="$email";
 	*/ 
 	if($error==="nhappened"){
-	include 'dbfuncs.php';
+	include 'includes/dbfuncs.php';
 	$nameArr=explode(" ",$name);
 	$first=$nameArr[0];
 	$last=$nameArr[1];

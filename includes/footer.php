@@ -7,7 +7,10 @@
 			Jonathan Stempel | 
 			Sam Gertler | 
 			Robert Klaynberg | 
-			Eric Martin</p>
+			Eric Martin | 
+			Sammy Geller
+
+		</p>
 	</div>
 
 
