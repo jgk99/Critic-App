@@ -93,7 +93,7 @@ function store_critic_ratings($movieID) {
 		foreach ($result as $rating) {
 			if (isset($rating->author)) {
 				$check_query = "SELECT * FROM `criticreviews` WHERE `Name` = '" . $rating->author . "' AND `MovieID` = '" . $movieID . "'";
-				$check_query_sql = $con->query();
+				$check_query_sql = $con->query($check_query);
 
 				$exists = false;
 				while ($row = mysqli_fetch_assoc($check_query_sql)) {
@@ -106,6 +106,7 @@ function store_critic_ratings($movieID) {
 					$link = preg_replace("/ {2,}/", " ", $link);
 					$link = str_replace(" ", "-", $link);
 					$link = strtr(utf8_decode($link), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+					$link = strtolower($link);
 					$add_query = "INSERT INTO `criticreviews` (`Name`, `Link`, `MovieID`, `Rating`) VALUES ('" . $rating->author . "', '$link', '$movieID', '" . $rating->score/20 . "')";
 					if (!$con->query($add_query)) {
 						throw new Exception("Query failed with error: $con->sqlstate");
