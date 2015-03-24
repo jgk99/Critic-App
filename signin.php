@@ -38,13 +38,11 @@ if(isset($_POST['submit'])) {
 
 <div class="container">
 	<br />
-	<p class="lead col-md-12 text-center">
-			You must be signed in to access all aspects of My Movie Critic!!!
-		</p>
+	
 	<div class="col-md-6 col-md-offset-3 ">
 <br />
 
-      <h2>Login</h2>
+      <h2>Sign In</h2>
 		<br />
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
