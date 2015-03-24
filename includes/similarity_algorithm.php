@@ -63,4 +63,11 @@ function get_similarities($userID) {
 	return $similarities;
 }
 
+function get_top_matches($userID, $quantity) {
+	$similarities=get_similarities($userID);
+	asort($similarities);
+	$criticNames = array_keys($similarities);
+	return array_slice($criticNames, 0, $quantity);
+}
+
 ?>
