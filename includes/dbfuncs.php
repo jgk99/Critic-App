@@ -5,7 +5,7 @@ function dbconnect() {
 
 	//Test Connection
 	if (mysqli_connect_errno()) {
-		throw new Exception("Connection failed with error %s\n", mysqli_connect_error());
+		throw new Exception("Connection failed with error %s", mysqli_connect_error());
 	}
 
 	//Return connection
@@ -26,7 +26,7 @@ function validateUser($usrname, $passwd) {
 	//Execute query and check for errors
 	$data = $con->query($query);
 	if (!$data) {
-		throw new Exception("Query failed with error: $con->sqlstate");
+		throw new mysqli_sql_exception("Query failed with error: $con->sqlstate");
 	} else {
 		//Check if query returned a row results
 		if ($data->num_rows == 1) {
@@ -56,7 +56,6 @@ function addUser($lname, $fname, $usrname, $email, $pass) {
 	if (!$con->query($query)) {
 		throw new Exception("Query failed with error: $con->sqlstate");
 	}
-
 	$con->close();
 }
 ?>
