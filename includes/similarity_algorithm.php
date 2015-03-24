@@ -92,7 +92,7 @@ function store_critic_ratings($movieID) {
 		
 		foreach ($result as $rating) {
 			if (isset($rating->author)) {
-				$check_query = "SELECT * FROM `criticreviews` WHERE `Name` = '" . $rating->author . "' AND `MovieID` = '" . $movieID . "'"
+				$check_query = "SELECT * FROM `criticreviews` WHERE `Name` = '" . $rating->author . "' AND `MovieID` = '" . $movieID . "'";
 
 				$exists = false;
 				while ($row = mysqli_fetch_assoc($critic_ratings_sql)) {
