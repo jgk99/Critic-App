@@ -1,23 +1,58 @@
 <?php
+  $login = "";
+  $loginlink = "";
+  $account = "";
+  $accountlink = "";
 
+  if (isset($_COOKIE["userId"])) {
+    $login = "Log Out";
+    $account = "Account";
+    $accountlink ="account.php";
+    $loginlink = "logout.php";
+    $signin ='<form class="navbar-form navbar-right" action="search.php" method="post" role="search">
+        <div class="form-group">
+          <input type="text" name="query" class="form-control" placeholder="Movie Title">
+        </div>
+        <button type="submit" class="btn btn-default">Submit</button>
+      </form>';
+  }
+  else {
+    $signin='<form class="navbar-form navbar-right form-inline" action="signup.php">
+ <div class="form-group">
+    <input type="password" class="form-control" id="inputPassword2" placeholder="Email">
+  </div>
+  <div class="form-group">
+    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+  </div>
+  <button type="submit" class="btn btn-default">Sign In</button>
+</form>';
+    $account = "Sign Up";
+    $accountlink ="signup.php";
+    $login = "Log In";
+    $loginlink = "logout.php";
+  }
 echo'
-	<br />
-	<header>
-		<h1>My Movie Critic</h1>
-	</header>
-	<nav>
-		<ul>
-			<li><a href="index.php">HOME</a></li>
-			<li><a href="movie.php">MOVIES<a></li>
-			<li><a href="bio.html">CRITICS</a></li>
-			<li><a href="bio.html">MY ACCOUNT</a></li>
-		</ul>
-	</nav>
-	<form action="search.php" method="post">
-                                <input type="text" placeholder="Search..." required>
-                                <input type="submit" value="Search">
-	</form>
-	<br />
+	<nav class="navbar navbar-default">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">My Movie Critic</a>
+    </div>
+
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav">
+        <li><a href="mission.php">Our Mission<span class="sr-only">(current)</span>
+        </a></li>
+        <li><a href="'.$accountlink.'">'.$account.'</a></li>
+      </ul>
+      '.$signin.'
+    </div>
+  </div>
+</nav>
 '
-	
 ?>

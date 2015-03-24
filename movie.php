@@ -1,19 +1,31 @@
+<?php
+	if (isset($_GET['id'])) { 
+
+		}
+	else {
+			header("Location: index.php");
+			die();
+
+	}
+
+?>
+
 <!DOCTYPE html>
 
 <html>
 <head>
 	<title>My Movie Critic</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<meta charset="UTF-8">
-	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-	<script type="text/javascript" src="js/ratings.js"></script>
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <div class="container">
-	<?php require_once("includes/header.php"); ?>
+	
+	<?php require_once("includes/header.php"); ?> 
 
-	<article>
 		<?php
 
 		if($_GET["id"])
@@ -33,25 +45,47 @@
 			if (id_exists) {
 				var movie = <?php echo $movie_query; ?>;
 				var omdb_movie = <?php echo $omdb_movie ?>;
-				document.write("<h3><div style=\"text-align: center\">" + movie.title + "</div></h3><br />");
-				document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\" width=\"24%\" />");
+				/* document.write("<h2><div class=\"col-md-5\">" + movie.title + "</div></h2><br />");
+				document.write("<h4><div class=\"col-md-5\">Director: " + omdb_movie.Director + "</div></h4><br />");
+				document.write("<h5><div class=\"col-md-5\">Cast: " + omdb_movie.Actors + "</div></h5><br />");
+				document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\>"); */
 				// Maybe we shouldn't use these movie synposes. They often have weird things added to the end of them and they don't exist for certain movies.
-				document.write("<div id=\"movie-description\">" + omdb_movie.Plot + "</span>");
 			}
-		</script>
-		<form action="" method="post">
-			<div class="rating">
-				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating5" value="5"><label for="movie-rating5"></label></span>
-				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating4" value="4"><label for="movie-rating4"></label></span>
-				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating3" value="3"><label for="movie-rating3"></label></span>
-				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating2" value="2"><label for="movie-rating2"></label></span>
-				<span class="movie-rating"><input type="radio" name="movie-rating" id="movie-rating1" value="1"><label for="movie-rating1"></label></span>
-				<input type="submit" value="Rate" name="submit" style="float: right;"/>
-			</div>
-		</form>
-	</article>
-</div>
 
+
+		</script>
+			<div class ="col-md-2 well well-sm">
+				<script type="text/javascript">
+				document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\" width=\"\"/ class='img-responsive'>");
+				</script>
+				</div>
+			<div class ="col-md-9 col-md-offset-0">
+				<script type="text/javascript">
+				document.write("<h2>" + movie.title + "</h2>");
+				</script>
+				</div>
+			<div class="col-md-6 col-md-offset-1">
+  				<div class='row'>
+   					<script type="text/javascript">
+   					document.write("<h4>Director: " + omdb_movie.Director + "</h4>");
+   					</script>
+  				</div>
+			</div>
+<div class="col-md-9 col-md-offset-1">
+<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+  Plot
+</a>
+<div class="collapse" id="collapseExample">
+  <div class="row">
+  <div class="well">
+   <script type="text/javascript">
+   document.write(omdb_movie.Plot);
+   </script>
+  </div>
+</div>
+</div>
+</div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <?php require_once("includes/footer.php"); ?>
 
 </body>

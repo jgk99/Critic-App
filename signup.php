@@ -1,90 +1,118 @@
 <?php
 
-//error_reporting(E_ALL | ~E_ubTRICT);
-
-/*function redirect_to($new_location) {
+function redirect_to($new_location) {
 	header("Location: " . $new_location);
 	exit;
-} */
+}
 
 $never="100";
-$name = "";
+$name1 = "";
+$lname="";
 $email = "";
 $password1 = "";
-$username = "";
+$lname = "";
 
 if(isset($_POST['submit'])) {
-	$name = $_POST["fullname"];
+	$name = $_POST["name1"];
 	$email = $_POST["email"]; 
-	$username = $_POST["username"];
+	$lname = $_POST["lname"];
 	$password1 = $_POST["pw"];
-	session_start();
+	/* session_start();
 	$_SESSION["in"]="378";
 	$_SESSION["name"]="$name";
-	$_SESSION["username"]="$username";
+	$_SESSION["lname"]="$lname";
 	$_SESSION["password"]="$password1";
 	$_SESSION["email"]="$email";
+	*/ 
 	include 'dbfuncs.php';
 	$nameArr=explode(" ",$name);
 	$first=$nameArr[0];
 	$last=$nameArr[1];
-	addUser($last, $first, $username, $email, $password1);
-	header("questions.php");
+	addUser($last, $first, $lname, $email, $password1);
+	//redirect_to("questions.php");
 	}
 ?>
+
+
+
 
 <!DOCTYPE html>
 
 <html>
 <head>
-	<title>My Film Critic</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>My Movie Critic</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<meta charset="UTF-8">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <div class="container">
-	<?php require_once("includes/header.php"); ?>
-	<article>
-		<h2>Sign Up</h2>
+	
+	<?php require_once("includes/header.php"); ?> 
+
+
+
+<div class="container">
+	<div class="col-md-6 col-md-offset-3">
+<br /><br />
+      <h2>Sign Up ALso There must be a validation that forces the passwords to be the same!!!</h2>
 		<br />
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
 		<script src="js/parsley.min.js"></script>
-		<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4/jquery.min.js"></script>
-		<table align="left">
-			<form action="signup.php" method="post">
+		<form action="signup.php" method="post" id="register" data-parsley-validate>
+			<table align="left">
 				<tr>
-					<td align="l;" class="form-label">Name: </td>
-					<td align="left"><input type="text" name="fullname" required /></td>
+					<td align="left" class="form-label">First Name: </td>
+					<td align="left"><input type="text" name="name1" class="form-control" required/></td>
 				</tr>
 				<tr>
-					<td class="form-label">Username: </td>
-					<td align="left"><input type="text" name="username" required /></td>
+					<td class="form-label">Last Name: </td>
+					<td align="left"><input type="text" name="lname" class="form-control" required/></td>
 				</tr>
 				<tr>
 					<td class="form-label">Email: </td>
-					<td align="left"><input type="email" name="email" data-parsley-type="email" required /></td>
+					<td align="left"><input type="email" name="email" data-parsley-type="email" class="form-control"  required/></td>
 				</tr>
 				<tr>
 					<td class="form-label">Password: </td>
-					<td align="left"><input type="password" name="pw" id="pw" parsley-minlength="8" required/></td>
+					<td align="left"><input type="password" name="pw" id="pw" minlength="8"  class="form-control"  required/></td>
 				</tr>
 				<tr>
 					<td class="form-label">Confirm Password: </td>
-					<td align="left"><input type="password" name="pw-verify" parsley-equalto="#pw" required/></td>
+					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"required/></td>
 				</tr>
-				<tr>
-					<td><input type="submit" name="submit" value="Submit" /></td>
-				</tr>
-			</form>
-			<script type="text/javascript">
-  				$('#form').parsley();
-			</script>
-		</table>
-		<br />
-		If you already have an account click <a href="signin.php">here</a>.
-	<article>
-</div>
 
+				<tr>
+					<td></td>
+					<td><input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary" /></td>
+				</tr>
+			
+
+		<!--	 <script type="text/javascript">
+			 		$(document).ready(function(){    
+     				$('#form').parsley();
+    			});	
+			</script> -->
+		</table>
+		</form>
+
+</div>
+    </div>
+
+
+
+
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
+<br />
 <?php require_once("includes/footer.php"); ?>
 
 </body>

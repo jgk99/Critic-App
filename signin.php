@@ -1,74 +1,90 @@
 <?php
 
-$username="";
-$password="";
-$username_blank="";
-$password_blank="";
-$username_set="0";
-$password_set="0";
+//error_reporting(E_ALL | ~E_ubTRICT);
 
-if((isset($_POST['submit']))) {
-	$username=$_POST["username"];
-	$password=$_POST["password"];
 
-	if(!isset($username) || $username === "") {
-		$username_blank .= "Username is required.";
-		$username_set="1";
+
+
+if(isset($_POST['submit'])) {
+
+	$email = $_POST["email"]; 
+	$password = $_POST["pw"];
+	
+	echo "$email". "$password";
+
 	}
-
-	if(!isset($password) || $password === "") {
-		$password_blank .= "Password is required.";
-		$password_set="1";
-	}
-
-	if($password_set=="0" && $username_set=="0") {
-		include 'dbfuncs.php';
-		if(validateUser($username,$password)) {
-			echo "Log in Successful";
-		} else {
-			echo "Log in failed";
-		}
-		//It will actually use the database
-	}
-}
-
 ?>
+
+
+
 
 <!DOCTYPE html>
 
 <html>
 <head>
-	<title>My Film Critic</title>
-	<link rel="stylesheet" type="text/css" href="style.css">
+	<title>My Movie Critic</title>
+	<link rel="stylesheet" href="css/bootstrap.min.css">
 	<meta charset="UTF-8">
+	<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
+	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
 
 <div class="container">
-	<?php require_once("includes/header.php"); ?>
-	<article>
-		<h2> Sign In</h2>
+	
+	<?php require_once("includes/header.php"); ?> 
+
+
+
+<div class="container">
+	<br />
+	<p class="lead col-md-12 text-center">
+			You must be signed in to access all aspects of My Movie Critic!!!
+		</p>
+	<div class="col-md-6 col-md-offset-3 ">
+<br />
+
+      <h2>Login</h2>
 		<br />
-		<table align="left">
-			<form action="signin.php" method="post">
+		<script src="js/jquery-1.11.2.min.js"></script>
+		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
+		<script src="js/parsley.min.js"></script>
+		<form action="signin.php" method="post" id="register" 
 				<tr>
-					<td class="form-label">Username: </td>
-					<td align="left"><input type="text" name="username" value="<?php echo "$username"; ?>" /><font color="red"><?php echo "$username_blank"; ?></font></td>
+					<td class="form-label">Email: </td>
+					<td align="left"><input type="email" name="email" data-parsley-type="email" class="form-control"  required/></td>
 				</tr>
 				<tr>
 					<td class="form-label">Password: </td>
-					<td align="left"><input type="password" name="password" value="<?php echo "$password"; ?>" /><font color="red"><?php echo "$password_blank"; ?></font></td>
+					<td align="left"><input type="password" name="pw" id="pw" minlength="8"  class="form-control"  required/></td>
 				</tr>
+				<br/>
+
 				<tr>
-					<td><input type="submit" name="submit" value="Submit" /></td>
+					<td></td>
+
+					<td><input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary" /></td>
 				</tr>
-			</form>
+			
+
+		<!--	 <script type="text/javascript">
+			 		$(document).ready(function(){    
+     				$('#form').parsley();
+    			});	
+			</script> -->
 		</table>
-		<br />
-		If you don't have an account click <a href="signup.php">here</a>.
-		<br />
-	</article>
+		</form>
+		
+
 </div>
+<p class="lead col-md-12 text-center"><br /><br />
+			If you don't have an account sign up here.
+			<br />
+			<a href="signup.php"  class="btn btn-default">Sign Up</a>
+		</p>
+</div>
+<br />
+<br />
 
 <?php require_once("includes/footer.php"); ?>
 
