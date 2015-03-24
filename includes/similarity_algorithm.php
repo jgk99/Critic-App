@@ -102,7 +102,6 @@ function store_critic_ratings($movieID) {
 				}
 
 				if ($exists === false) {
-					echo $rating->author . ": " . $rating->score/20 . "<br />";
 					$link = str_replace($removeable_characters, "", $rating->author);
 					$link = preg_replace("/ {2,}/", " ", $link);
 					$link = str_replace(" ", "-", $link);
