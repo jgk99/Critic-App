@@ -63,6 +63,36 @@ function get_similarities($userID) {
 	return $similarities;
 }
 
+function store_critic_ratings($movieID) {
+	$omdb_movie_json = file_get_contents('http://www.omdbapi.com/?i=tt' . $movieID . '&plot=short&r=json');
+	$omdb_movie = json_decode($omdb_movie_json);
+	$movie_title = $omdb_movie->{'Title'};
+	$movie_title = strtolower($movie_title);
+
+	$removeable_characters = array(":", ",", ".", ";", "/", "&");
+	$movie_title = str_replace($removeable_characters, "", $movie_title);
+	$movie_title = preg_replace("/ {2,}/", " ", $movie_title);
+	$movie_title = str_replace(" ", "-", $movie_title);
+	$movie_title = strtr(utf8_decode($movie_title), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+
+	$response = Unirest\Request::get("https://byroredux-metacritic.p.mashape.com/reviews?url=http%3A%2F%2Fwww.metacritic.com%2Fmovie%2F" . $movie_title,
+		array(
+			"X-Mashape-Key" => "pyIe8fZfCxmshRbh8S0w2DBUVtUop1I4YA8jsncmelO8wbRw5U",
+			"Accept" => "application/json"
+		)
+	);
+
+	// Only if the request is successful.
+	if ($response->code === 200) {
+		//print_r($response);
+		$result = $response->body;
+		
+		foreach ($result as $rating) {
+			echo $rating->author . ": " . $rating->score . "<br />";
+		}
+	}
+}
+
 function get_top_matches($userID, $quantity) {
 	$similarities=get_similarities($userID);
 	asort($similarities);
