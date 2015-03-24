@@ -47,7 +47,7 @@ echo'
 
     <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
       <ul class="nav navbar-nav">
-        <li><a href="boxoffice.php">Movies<span class="sr-only">(current)</span>
+        <li><a href="movies.php">Movies<span class="sr-only">(current)</span>
         </a></li>
         <li><a href="'.$accountlink.'">'.$account.'</a></li>
       </ul>
