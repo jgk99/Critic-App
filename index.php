@@ -1,3 +1,4 @@
+<?php require_once("includes/forcessl.php"); ?>
 <!DOCTYPE html>
 
 <html>

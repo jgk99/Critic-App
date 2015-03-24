@@ -1,4 +1,5 @@
 <?php
+	require_once("includes/forcessl.php");
 	if (isset($_GET['id'])) { 
 
 		}

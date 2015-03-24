@@ -1,4 +1,5 @@
 <?php
+require_once("includes/forcessl.php");
 include 'includes/dbfuncs.php';
 
 function redirect_to($new_location) {
