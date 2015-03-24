@@ -1,6 +1,7 @@
 <?php
 
-include 'dbfuncs.php';
+require_once 'dbfuncs.php';
+require_once 'unirest-php/src/Unirest.php';
 
 // Returns an associative array with each key being the name of a critic and each value being the similarity.
 // The similarity is simply the average difference in ratings between the user and critic.
@@ -64,12 +65,13 @@ function get_similarities($userID) {
 }
 
 function store_critic_ratings($movieID) {
+	$removeable_characters = array(":", ",", ".", ";", "/", "&", "'", "\"");
+
 	$omdb_movie_json = file_get_contents('http://www.omdbapi.com/?i=tt' . $movieID . '&plot=short&r=json');
 	$omdb_movie = json_decode($omdb_movie_json);
 	$movie_title = $omdb_movie->{'Title'};
 	$movie_title = strtolower($movie_title);
 
-	$removeable_characters = array(":", ",", ".", ";", "/", "&");
 	$movie_title = str_replace($removeable_characters, "", $movie_title);
 	$movie_title = preg_replace("/ {2,}/", " ", $movie_title);
 	$movie_title = str_replace(" ", "-", $movie_title);
@@ -84,12 +86,34 @@ function store_critic_ratings($movieID) {
 
 	// Only if the request is successful.
 	if ($response->code === 200) {
-		//print_r($response);
-		$result = $response->body;
+		$con = dbconnect();
+
+		$result = $response->body->result;
 		
 		foreach ($result as $rating) {
-			echo $rating->author . ": " . $rating->score . "<br />";
+			if (isset($rating->author)) {
+				$check_query = "SELECT * FROM `criticreviews` WHERE `Name` = '" . $rating->author . "' AND `MovieID` = '" . $movieID . "'"
+
+				$exists = false;
+				while ($row = mysqli_fetch_assoc($critic_ratings_sql)) {
+					$exists = true;
+				}
+
+				if ($exists === false) {
+					echo $rating->author . ": " . $rating->score . "<br />";
+					$link = str_replace($removeable_characters, "", $rating->author);
+					$link = preg_replace("/ {2,}/", " ", $link);
+					$link = str_replace(" ", "-", $link);
+					$link = strtr(utf8_decode($link), utf8_decode('àáâãäçèéêëìíîïñòóôõöùúûüýÿÀÁÂÃÄÇÈÉÊËÌÍÎÏÑÒÓÔÕÖÙÚÛÜÝ'), 'aaaaaceeeeiiiinooooouuuuyyAAAAACEEEEIIIINOOOOOUUUUY');
+					$add_query = "INSERT INTO `criticreviews` (`Name`, `Link`, `MovieID`, `Rating`) VALUES ('" . $rating->author . "', '$link', '$movieID', '" . $rating->score . "')";
+					if (!$con->query($add_query)) {
+						throw new Exception("Query failed with error: $con->sqlstate");
+					}
+				}
+			}
 		}
+
+		$con->close();
 	}
 }
 
