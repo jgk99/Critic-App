@@ -17,14 +17,14 @@
       </form>';
   }
   else {
-    $signin='<form class="navbar-form navbar-right form-inline" action="signin.php">
+    $signin='<form class="navbar-form navbar-right form-inline" action="signin.php" method="post">
  <div class="form-group">
-    <input type="password" class="form-control" id="inputPassword2" placeholder="Username">
+    <input type="text" name="username" class="form-control" id="inputPassword2" placeholder="Username">
   </div>
   <div class="form-group">
-    <input type="password" class="form-control" id="inputPassword2" placeholder="Password">
+    <input type="password" name="pw" class="form-control" id="inputPassword2" placeholder="Password">
   </div>
-  <button type="submit" class="btn btn-default">Sign In</button>
+  <button type="submit" name="submit" class="btn btn-default">Sign In</button>
 </form>';
     $account = "Sign Up";
     $accountlink ="signup.php";
