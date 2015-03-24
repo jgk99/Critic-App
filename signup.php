@@ -1,10 +1,12 @@
 <?php
-
+include 'includes/dbfuncs.php';
+	
 function redirect_to($new_location) {
 	header("Location: " . $new_location);
 	exit;
 }
-$name = "";
+$lastname = "";
+$firstname = "";
 	$email = "";
 	$username = "";
 	$password1 = "";
@@ -19,7 +21,8 @@ $password1 = "";
 $lname = "";
 
 if(isset($_POST['submit'])) {
-	$name = $_POST["name"];
+	$firstname = $_POST["firstname"];
+	$lastname = $_POST["lastname"];
 	$email = $_POST["email"]; 
 	$username = $_POST["username"];
 	$password1 = $_POST["pw"];
@@ -37,11 +40,8 @@ if(isset($_POST['submit'])) {
 	$_SESSION["email"]="$email";
 	*/ 
 	if($error==="nhappened"){
-	include 'includes/dbfuncs.php';
-	$nameArr=explode(" ",$name);
-	$first=$nameArr[0];
-	$last=$nameArr[1];
-	addUser($last, $first, $username, $email, $password1);
+	
+	addUser($lastname, $firstname, $username, $email, $password1);
 	//redirect_to("questions.php");
 }
 	}
@@ -79,8 +79,12 @@ if(isset($_POST['submit'])) {
 		<form action="signup.php" method="post" id="register" data-parsley-validate>
 			<table align="left">
 				<tr>
-					<td align="left" class="form-label">Name: </td>
-					<td align="left"><input type="text" name="name" class="form-control" value="<?php echo $name; ?>" required/></td>
+					<td align="left" class="form-label">First Name: </td>
+					<td align="left"><input type="text" name="firstname" class="form-control" value="<?php echo $firstname; ?>" required/></td>
+				</tr>
+				<tr>
+					<td align="left" class="form-label">Last Name: </td>
+					<td align="left"><input type="text" name="lastname" class="form-control" value="<?php echo $lastname; ?>" required/></td>
 				</tr>
 				<tr>
 					<td class="form-label">Username: </td>
