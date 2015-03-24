@@ -5,6 +5,7 @@ function redirect_to($new_location) {
 	header("Location: " . $new_location);
 	exit;
 }
+$taken="";
 $lastname = "";
 $firstname = "";
 $email = "";
@@ -43,8 +44,8 @@ if(isset($_POST['submit'])) {
 		try {
 			addUser($lastname, $firstname, $username, $email, $password1);
 		} catch (mysqli_sql_exception $e) {
-			//Put what u wanna do hyah
-		}
+ 			$taken='<font color=red>Your username or email is already taken by another user. Please make another one.</font>';
+ 		}
 		//redirect_to("questions.php");
 	}
 }
@@ -103,7 +104,7 @@ if(isset($_POST['submit'])) {
 						</tr>
 						<tr>
 							<td class="form-label">Confirm Password: </td>
-							<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>"  required/><?php  echo "$pmatch"; ?></td>
+							<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>"  required/><?php  echo "$pmatch"; echo "$taken"; ?></td>
 						</tr>
 						<tr>
 							<td></td>
