@@ -19,7 +19,7 @@
   else {
     $signin='<form class="navbar-form navbar-right form-inline" action="signin.php">
  <div class="form-group">
-    <input type="password" class="form-control" id="inputPassword2" placeholder="Email">
+    <input type="password" class="form-control" id="inputPassword2" placeholder="Username">
   </div>
   <div class="form-group">
     <input type="password" class="form-control" id="inputPassword2" placeholder="Password">

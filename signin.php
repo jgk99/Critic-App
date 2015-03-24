@@ -7,10 +7,10 @@
 
 if(isset($_POST['submit'])) {
 
-	$email = $_POST["email"]; 
+	$username = $_POST["username"]; 
 	$password = $_POST["pw"];
 	
-	echo "$email". "$password";
+	echo "$username". "$password";
 
 	}
 ?>
@@ -49,8 +49,8 @@ if(isset($_POST['submit'])) {
 		<script src="js/parsley.min.js"></script>
 		<form action="signin.php" method="post" id="register" 
 				<tr>
-					<td class="form-label">Email: </td>
-					<td align="left"><input type="email" name="email" data-parsley-type="email" class="form-control"  required/></td>
+					<td class="form-label">Username: </td>
+					<td align="left"><input type="text" name="username" data-parsley-type="email" class="form-control"  required/></td>
 				</tr>
 				<tr>
 					<td class="form-label">Password: </td>
