@@ -96,7 +96,7 @@ if(isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Confirm Password: </td>
-					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>"  required/><?php  echo "$pmatch";         ?></td>
+					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>"  required/><?php  echo "$pmatch"; ?></td>
 				</tr>
 				<tr>
 					<td></td>
