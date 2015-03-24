@@ -96,7 +96,7 @@ function store_critic_ratings($movieID) {
 				$check_query_sql = $con->query();
 
 				$exists = false;
-				while ($row = mysqli_fetch_assoc($critic_ratings_sql)) {
+				while ($row = mysqli_fetch_assoc($check_query_sql)) {
 					$exists = true;
 				}
 
