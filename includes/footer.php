@@ -1,17 +1,13 @@
-<?php
 
-echo '
-	<footer>
-		Designed By:
-		<br />
-		Jonathan Kogan | 
-		Jonathan Stempel | 
-		Sam Gertler | 
-		Teddy Dubno | 
-		Robert Klaynberg | 
-		Eric Martin |
-		Sammy Geller
-	</footer>
-'
+	<div class='footer  text-center >
+		<div class='row'>
+			<p class="text-muted">Designed By:
+			<br />
+			Jonathan Kogan | 
+			Jonathan Stempel | 
+			Sam Gertler | 
+			Robert Klaynberg | 
+			Eric Martin</p>
+	</div>
 
-?>
+
