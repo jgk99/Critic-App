@@ -28,6 +28,8 @@
 
 		<?php
 
+		require_once("includes/similarity_algorithm.php");
+
 		if($_GET["id"])
 		{
 			$id_exists = false;
@@ -35,6 +37,7 @@
 			$omdb_movie = file_get_contents('http://www.omdbapi.com/?i=tt' . $_GET["id"] . '&plot=full&r=json');
 			if (strpos($movie_query, '{"error":"Could not find a movie with the specified id"}') === false) {
 				$id_exists = true;
+				store_critic_ratings($_GET["id"]);
 			}
 		}
 
