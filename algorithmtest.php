@@ -15,13 +15,24 @@
 	<article>
 		<?php
 		
-		require_once("similarity_algorithm.php");
+		require_once("includes/similarity_algorithm.php");
 
-		$similarities = get_similarities(1);
+		/*$similarities = get_similarities(1);
 		foreach ($similarities as $critic => $similarity) { 
 			echo $critic . "'s average difference from user with ID 1: " . $similarity;
 			echo "<br />";
-		}
+		}*/
+
+		/*$similarities = array(
+			"Roger Ebert" => "3.5",
+			"John Critic" => "1",
+			"Jerry Critic" => "4",
+			"Albert Critic" => "2.5"
+		);
+
+		storeCritics(1, $similarities);*/
+
+		store_critic_ratings("1375666");
 
 		?>
 	</article>
