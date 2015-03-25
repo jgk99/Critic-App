@@ -9,8 +9,6 @@ if (isset($_POST['submit'])) {
 	$password = $_POST["pw"];
 	
 	$success = validateUser($username, $password);
-	echo $success;
-	echo "test";
 
 	if ($success) {
 		session_start();
