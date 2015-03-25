@@ -62,7 +62,6 @@ if (isset($_POST['submit'])) {
  		}
  		//Add the session that makes them stay logged in
 		redirect_to("movies.php");
-
 	}
 }
 
