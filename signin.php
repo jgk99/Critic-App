@@ -11,6 +11,7 @@ if (isset($_POST['submit'])) {
 	
 	$success = validateUser($username, $password);
 	echo $success;
+	echo "test";
 
 	if ($success) {
 		echo getIDFromUsername($username);
@@ -52,7 +53,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Password: </td>
-					<td align="left"><input type="password" name="pw" id="pw" minlength="8"  class="form-control" required /></td>
+					<td align="left"><input type="password" name="pw" id="pw" minlength="8" class="form-control" required /></td>
 				</tr>
 				<br/>
 				<tr>
