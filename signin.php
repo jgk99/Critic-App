@@ -5,7 +5,6 @@ require_once("includes/forcessl.php");
 //error_reporting(E_ALL | ~E_ubTRICT);
 
 if (isset($_POST['submit'])) {
-
 	$username = $_POST["username"]; 
 	$password = $_POST["pw"];
 	
