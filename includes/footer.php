@@ -1,7 +1,7 @@
 <?php
 
 echo '
-	<div class="footer">
+	<div class="footer" style="text-align: center;">
 		<div class="row">
 			<p class="text-muted">Designed By:
 				<br />
