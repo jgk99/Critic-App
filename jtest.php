@@ -16,8 +16,9 @@ $movielist = json_decode($box_office);
   <script src="js/bootstrap.js"></script>
 </head>
 <body>
-  <div class="container">
   <?php require_once("includes/header.php"); ?>
+  <div class="container">
+  
 
 
     <h3>Top Box Office Hits</h3>

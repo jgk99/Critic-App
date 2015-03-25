@@ -1,5 +1,5 @@
 <?php
-require_once("includes/forcessl.php");
+
 $box_office = file_get_contents('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=nqr68qe538tc2hsub2c5fubt');
 $movielist = json_decode($box_office);
 
@@ -16,19 +16,20 @@ $movielist = json_decode($box_office);
   <script src="js/bootstrap.js"></script>
 </head>
 <body>
+    <?php require_once("includes/header.php"); ?>
   <div class="container">
-  <?php require_once("includes/header.php"); ?>
 
-  <div class="jumbotron">
+
+
     <h2>Top Box Office Hits</h2>
-  </div>
+
   
   <script type="text/javascript">
   var movies = <?php echo $box_office ?>;
   var i = 0;
   </script>
 
-    <div class="container well well-large">
+    <div class="well well-large">
 
      <div id="myCarousel" class="carousel slide">
  
@@ -66,7 +67,7 @@ $movielist = json_decode($box_office);
       </script> class="thumbnail">
       <script type="text/javascript">
         document.write("<img src=\"http://img.omdbapi.com/?i=tt" + movies.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
-        i++;          
+        i;          
       </script></a></div>
   </div>
 </div>
@@ -103,7 +104,7 @@ $movielist = json_decode($box_office);
       </script> class="thumbnail">
       <script type="text/javascript">
         document.write("<img src=\"http://img.omdbapi.com/?i=tt" + movies.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
-        i++;          
+        i;          
       </script></a></div>
   </div>
 </div>
@@ -124,7 +125,7 @@ $movielist = json_decode($box_office);
       </script> class="thumbnail">
       <script type="text/javascript">
         document.write("<img src=\"http://img.omdbapi.com/?i=tt" + movies.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
-        i = 0;          
+        i++;          
       </script></a></div>
     <div class="col-xs-3">
       <script type="text/javascript">
