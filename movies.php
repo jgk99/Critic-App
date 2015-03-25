@@ -4,7 +4,7 @@
 			$movielist = json_decode($box_office);
 			$total = $movielist->movies;
 
-			for( )
+			//for( )
 
 ?>
 
@@ -24,7 +24,7 @@
 	<div class="jumbotron">
   		<h2>Welcome To My Movie Critic</h2>
   		<p>To learn more about our service please visit our Mission page.</p>
-  		<p><a class="btn btn-primary btn-lg" href="#" role="button">Learn more</a></p>
+  		<p><a class="btn btn-primary btn-lg" href="/" role="button">Learn more</a></p>
 	</div>
 <div class="row">
   <div class="col-sm-6 col-md-4">
