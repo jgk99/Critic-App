@@ -1,7 +1,7 @@
 <?php
 function dbconnect() {
 	//Create connection
-	$co = new mysqli("localhost","mymozlsy_happy",base64_decode("Y2dwc2NyMXRpYyE="),"mymozlsy_mymoviecritic");
+	$con = new mysqli("localhost","mymozlsy_happy",base64_decode("Y2dwc2NyMXRpYyE="),"mymozlsy_mymoviecritic");
 
 	//Test Connection
 	if (mysqli_connect_errno()) {
