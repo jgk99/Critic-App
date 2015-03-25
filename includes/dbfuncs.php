@@ -54,7 +54,7 @@ function addUser($lname, $fname, $usrname, $email, $pass) {
 
 	//Execute query and check for errors
 	if (!$con->query($query)) {
-		throw new mysqli_sql_exception("Query failed with error: $con->error");
+		throw new mysqli_sql_exception("$con->error");
 	}
 	$con->close();
 }

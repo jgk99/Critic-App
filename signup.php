@@ -45,8 +45,17 @@ if(isset($_POST['submit'])) {
 		try {
 			addUser($lastname, $firstname, $username, $email, $password1);
 		} catch (mysqli_sql_exception $e) {
- 			$taken='<font color=red>Your username or email is already taken by another user. Please make another one.</font>';
- 			 echo 'Caught exception: ',  $e->getMessage(), "\n";
+			$errArr = explode(' ', $e->getMessage());
+			if ($errArr[0] == 'Duplicate') {
+				$dupeField = $errArr[5];
+				if ($dupeField == 'username') {
+					$taken='<font color=red>Your username is already taken by another user. Please make another one.</font>';
+				}
+				else if ($dupeField == 'Email') {
+					$taken='<font color=red>Your email is already taken by another user. Please make another one.</font>';
+				}
+			}
+ 			
  		}
 		//redirect_to("questions.php");
 	}
