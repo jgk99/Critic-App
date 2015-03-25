@@ -11,12 +11,12 @@ if (isset($_SESSION["id"])) {
 	$accountlink = "account.php";
 	$loginlink = "logout.php";
 	$signin = '
-	<form class="navbar-form navbar-right" action="search.php" method="post" role="search">
-	<div class="form-group">
-	<input type="text" name="query" class="form-control" placeholder="Movie Title">
-	</div>
-	<button type="submit" class="btn btn-default">Submit</button>
-	</form>
+		<form class="navbar-form navbar-right" action="search.php" method="post" role="search">
+			<div class="form-group">
+				<input type="text" name="query" class="form-control" placeholder="Movie Title">
+			</div>
+			<button type="submit" class="btn btn-default">Submit</button>
+		</form>
 	';
 } else {
 	$signin = '
