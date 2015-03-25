@@ -46,6 +46,7 @@ if(isset($_POST['submit'])) {
 			addUser($lastname, $firstname, $username, $email, $password1);
 		} catch (mysqli_sql_exception $e) {
  			$taken='<font color=red>Your username or email is already taken by another user. Please make another one.</font>';
+ 			 echo 'Caught exception: ',  $e->getMessage(), "\n";
  		}
 		//redirect_to("questions.php");
 	}
