@@ -6,4 +6,10 @@ if ($_SERVER["HTTPS"] != "on")
     exit();
 }
 
+
+}
+else if ($_SERVER["REQUEST_URI"] === "movies.php" || $_SERVER["REQUEST_URI"] === "movie.php") {
+	 header("Location: https://" . $_SERVER["HTTP_HOST"]);
+}
+
 ?>

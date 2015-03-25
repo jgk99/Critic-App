@@ -100,11 +100,11 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Username: </td>
-					<td align="left"><input type="text" name="username" class="form-control" value="<?php echo $username; ?>" required /><?php echo "$unameTaken"; ?></td>
+					<td align="left"><input type="text" name="username" class="form-control" value="<?php echo $username; ?>" required /><?php echo $unameTaken; ?></td>
 				</tr>
 				<tr>
 					<td class="form-label">Email: </td>
-					<td align="left"><input type="email" name="email" data-parsley-type="email" class="form-control" value="<?php echo $email; ?>" required /><?php echo "$emailTaken"; ?></td>
+					<td align="left"><input type="email" name="email" data-parsley-type="email" class="form-control" value="<?php echo $email; ?>" required /><?php echo $emailTaken; ?></td>
 				</tr>
 				<tr>
 					<td class="form-label">Password: </td>
@@ -112,7 +112,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Confirm Password: </td>
-					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /><?php echo "$pmatch"; ?></td>
+					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /><?php echo $pmatch; ?></td>
 				</tr>
 				<tr>
 					<td></td>
