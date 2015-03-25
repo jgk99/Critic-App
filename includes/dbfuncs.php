@@ -40,14 +40,14 @@ function validateUser($usrname, $passwd) {
 
 function addUser($lname, $fname, $usrname, $email, $pass) {
 	//Connecto to database
-	$con=dbconnect();
+	$con = dbconnect();
 
 	//Sanitize Variables
 	$lname = $con->real_escape_string($lname);
 	$fname = $con->real_escape_string($fname);
 	$usrname = $con->real_escape_string($usrname);
 	$email = $con->real_escape_string($email);
-	$pass = $con->real_escape_string(hash("sha256",$pass)); //Hash password using SHA256 algorithm
+	$pass = $con->real_escape_string(hash("sha256", $pass)); //Hash password using SHA256 algorithm
 
 	//Build query string
 	$query = "INSERT INTO `Login` (`Last Name`, `First Name`, `username`, `Email`, `Password`) VALUES ('$lname', '$fname', '$usrname', '$email', '$pass')";

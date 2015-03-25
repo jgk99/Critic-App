@@ -1,16 +1,19 @@
+<?php
 
-	<div class='footer  text-center >
-		<div class='row'>
+echo '
+	<div class="footer">
+		<div class="row">
 			<p class="text-muted">Designed By:
-			<br />
-			Jonathan Kogan | 
-			Jonathan Stempel | 
-			Sam Gertler | 
-			Robert Klaynberg | 
-			Eric Martin | 
-			Sammy Geller
-
-		</p>
+				<br />
+				Jonathan Kogan | 
+				Jonathan Stempel | 
+				Sam Gertler | 
+				Robert Klaynberg | 
+				Eric Martin | 
+				Sammy Geller
+			</p>
+		</div>
 	</div>
+';
 
-
+?>
