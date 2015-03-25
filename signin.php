@@ -13,7 +13,11 @@ if (isset($_POST['submit'])) {
 	echo "test";
 
 	if ($success) {
-		echo getIDFromUsername($username);
+		session_start();
+		$userid = getIDFromUsername($username);
+		$_SESSION["id"] = $userid;
+		header("Location: movies.php");
+		exit();
 	}
 }
 

@@ -5,7 +5,7 @@ $loginlink = "";
 $account = "";
 $accountlink = "";
 
-if (isset($_COOKIE["userId"])) {
+if (isset($_SESSION["id"])) {
 	$login = "Log Out";
 	$account = "Account";
 	$accountlink = "account.php";
