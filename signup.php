@@ -46,6 +46,7 @@ if(isset($_POST['submit'])) {
 			addUser($lastname, $firstname, $username, $email, $password1);
 		} catch (mysqli_sql_exception $e) {
 			$errArr = explode(' ', $e->getMessage());
+			print_r($errArr);
 			if ($errArr[0] == 'Duplicate') {
 				$dupeField = $errArr[5];
 				if ($dupeField == 'username') {
