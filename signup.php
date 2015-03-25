@@ -60,7 +60,9 @@ if (isset($_POST['submit'])) {
 				}
 			}
  		}
-		//redirect_to("questions.php");
+ 		//Add the session that makes them stay logged in
+		redirect_to("movies.php");
+
 	}
 }
 
