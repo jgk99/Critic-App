@@ -8,7 +8,8 @@ function redirect_to($new_location) {
 	exit;
 }
 
-$taken = "";
+$unameTaken = "";
+$emailTaken = "";
 $lastname = "";
 $firstname = "";
 $email = "";
@@ -52,10 +53,10 @@ if (isset($_POST['submit'])) {
 			if ('$errArr[0]'== 'Duplicate') {
 				$dupeField = $errArr[5];
 				if ($dupeField == 'username') {
-					$taken='<font color=red>Your username is already taken by another user. Please make another one.</font>';
+					$unameTaken='<font color=red>Your username is already taken by another user. Please make another one.</font>';
 				}
-				else if ($dupeField == 'Email') {
-					$taken='<font color=red>Your email is already taken by another user. Please make another one.</font>';
+				if ($dupeField == 'Email') {
+					$emailTaken='<font color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
 			}
  		}
@@ -99,11 +100,11 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Username: </td>
-					<td align="left"><input type="text" name="username" class="form-control" value="<?php echo $username; ?>" required /></td>
+					<td align="left"><input type="text" name="username" class="form-control" value="<?php echo $username; ?>" required /><?php echo "$unameTaken"; ?></td>
 				</tr>
 				<tr>
 					<td class="form-label">Email: </td>
-					<td align="left"><input type="email" name="email" data-parsley-type="email" class="form-control" value="<?php echo $email; ?>" required /><?php echo "$taken"; ?></td>
+					<td align="left"><input type="email" name="email" data-parsley-type="email" class="form-control" value="<?php echo $email; ?>" required /><?php echo "$emailTaken"; ?></td>
 				</tr>
 				<tr>
 					<td class="form-label">Password: </td>
