@@ -1,5 +1,6 @@
 <?php
 
+require_once("includes/dbfuncs.php");
 require_once("includes/forcessl.php");
 //error_reporting(E_ALL | ~E_ubTRICT);
 
@@ -8,7 +9,13 @@ if (isset($_POST['submit'])) {
 	$username = $_POST["username"]; 
 	$password = $_POST["pw"];
 	
-	echo "$username". "$password";
+	$success = validateUser($username, $password);
+	echo $success;
+	echo "test";
+
+	if ($success) {
+		echo getIDFromUsername($username);
+	}
 }
 
 ?>
@@ -46,7 +53,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Password: </td>
-					<td align="left"><input type="password" name="pw" id="pw" minlength="8"  class="form-control" required /></td>
+					<td align="left"><input type="password" name="pw" id="pw" minlength="8" class="form-control" required /></td>
 				</tr>
 				<br/>
 				<tr>
@@ -67,7 +74,7 @@ if (isset($_POST['submit'])) {
 		<br /><br />
 		If you don't have an account sign up here.
 		<br />
-		<a href="signup.php"  class="btn btn-default">Sign Up</a>
+		<a href="signup.php" class="btn btn-default">Sign Up</a>
 	</p>
 </div>
 
