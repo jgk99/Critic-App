@@ -1,7 +1,7 @@
 <?php
 function dbconnect() {
 	//Create connection
-	$con=new mysqli("localhost","mymozlsy_happy",base64_decode("Y2dwc2NyMXRpYyE="),"mymozlsy_mymoviecritic");
+	$co = new mysqli("localhost","mymozlsy_happy",base64_decode("Y2dwc2NyMXRpYyE="),"mymozlsy_mymoviecritic");
 
 	//Test Connection
 	if (mysqli_connect_errno()) {
@@ -14,7 +14,7 @@ function dbconnect() {
 
 function validateUser($usrname, $passwd) {
 	//Connect to database
-	$con=dbconnect();
+	$con = dbconnect();
 
 	//Sanitize Variables
 	$usrname = $con->real_escape_string($usrname);
@@ -58,4 +58,25 @@ function addUser($lname, $fname, $usrname, $email, $pass) {
 	}
 	$con->close();
 }
+
+function getIDFromUsername($username) {
+	$con = dbconnect();
+
+	$username = $con->real_escape_string($username);
+
+	$query = "SELECT `ID` FROM `Login` WHERE `username` = '$username'";
+	$data = $con->query($query);
+	if (!$data) {
+		throw new mysqli_sql_exception("Query failed with error: $con->sqlstate");
+	} else {
+		//Check if query returned a row results
+		if ($data->num_rows == 1) {
+			$row = mysqli_fetch_assoc($data);
+			return $row["ID"];
+		} else {
+			return false;
+		}
+	}
+}
+
 ?>
