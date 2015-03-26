@@ -26,9 +26,9 @@ if (isset($_GET['id'])) {
 <body>
 
 <div class="container">
-	<?php require_once("includes/header.php"); ?> 
+	<?php require_once("includes/header.php"); 
 
-	<?php
+	
 
 	require_once("includes/similarity_algorithm.php");
 
@@ -74,7 +74,7 @@ if (isset($_GET['id'])) {
 		</div>
 	</div>
 
-	<div class ="col-md-8 col-md-offset-0">
+	<div class ="col-md-8 ">
 		<script type="text/javascript">
 			document.write("<h2>" + movie.title + "</h2>");
 		</script>
@@ -88,7 +88,7 @@ if (isset($_GET['id'])) {
 		</div>
 	</div>
 
-	<div class="col-md-9 col-md-offset-1">
+	<div class="col-md-8 col-md-offset-1">
 		<div class="row">
 			<div class="lead">
 				<script type="text/javascript">
