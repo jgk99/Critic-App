@@ -45,7 +45,7 @@ if (isset($_POST['submit'])) {
 		<script src="js/jquery-1.11.2.min.js"></script>
 		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
 		<script src="js/parsley.min.js"></script>
-		<form action="signin.php" method="post" id="register" 
+		<form action="signin.php" method="post" id="register"> 
 				<tr>
 					<td class="form-label">Username: </td>
 					<td align="left"><input type="text" name="username" data-parsley-type="email" class="form-control"  required/></td>

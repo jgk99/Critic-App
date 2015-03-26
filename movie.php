@@ -63,11 +63,14 @@ if (isset($_GET['id'])) {
 		</script>
 		<br />
 		<div class="rating">
+			<form action="signin.php" method="post" id="register">
 			<span class="star"><input type="radio" name="star" id="star5" value="5"><label for="star5"></label></span>
 			<span class="star"><input type="radio" name="star" id="star4" value="4"><label for="star4"></label></span>
 			<span class="star"><input type="radio" name="star" id="star3" value="3"><label for="star3"></label></span>
 			<span class="star"><input type="radio" name="star" id="star2" value="2"><label for="star2"></label></span>
-			<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span>
+			<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span><br />
+			<input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary" />
+		
 		</div>
 	</div>
 
