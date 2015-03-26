@@ -1,6 +1,6 @@
 <?php
-require_once("includes/restricted.php");
 require_once("includes/forcessl.php");
+require_once("includes/restricted.php");
 $box_office = file_get_contents('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=nqr68qe538tc2hsub2c5fubt');
 $movielist = json_decode($box_office);
 

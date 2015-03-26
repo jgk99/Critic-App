@@ -1,6 +1,6 @@
 <?php
-require_once("includes/restricted.php");
 require_once("includes/forcessl.php");
+require_once("includes/restricted.php");
 
 if (isset($_POST["query"])) { 
 	$movie_query = file_get_contents('http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=nqr68qe538tc2hsub2c5fubt&q=' . str_replace(" ", "+", $_POST["query"]));

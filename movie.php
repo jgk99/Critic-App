@@ -1,6 +1,6 @@
 <?php
-require_once("includes/restricted.php");
 require_once("includes/forcessl.php");
+require_once("includes/restricted.php");
 
 if (isset($_GET['id'])) { 
 } else {

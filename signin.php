@@ -1,7 +1,7 @@
 <?php
+require_once("includes/forcessl.php");
 require_once("includes/goodrestricted.php");
 require_once("includes/dbfuncs.php");
-require_once("includes/forcessl.php");
 //error_reporting(E_ALL | ~E_ubTRICT);
 
 if (isset($_POST['submit'])) {
