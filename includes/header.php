@@ -7,8 +7,8 @@ $accountlink = "";
 
 if (isset($_SESSION["id"])) {
 	$login = "Log Out";
-	$account = "Account";
-	$accountlink = "account.php";
+	$account = "Sign Out";
+	$accountlink = "logout.php";
 	$loginlink = "logout.php";
 	$signin = '
 		<form class="navbar-form navbar-right" action="search.php" method="post" role="search">
