@@ -70,7 +70,7 @@ $movielist = json_decode($box_office);
 							</script> class="thumbnail">
 							<script type="text/javascript">
 								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + movies.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
-								i++;          
+								i;          
 							</script>
 							</a>
 						</div>
@@ -115,7 +115,7 @@ $movielist = json_decode($box_office);
 							</script> class="thumbnail">
 							<script type="text/javascript">
 								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + movies.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
-								i++;          
+								i;          
 							</script>
 							</a>
 						</div>
