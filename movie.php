@@ -102,8 +102,17 @@ if (isset($_GET['id'])) {
 		<div class="row">
 			<div class="well">
 				<script type="text/javascript">
+					<?php
+
+					$con = dbconnect();
+					$matches = get_top_matches(1, 3);
+
+					foreach ($matches as $match) {
+						echo $match . " rated this movie " . get_rating_from_critic($match) . "/5.";
+					}
+
+					?>
 					var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
-					//document.write(top_matches);
 					if (top_matches.length < 1) {
 						document.write("Rate more movies, bitch!");
 					} else {
