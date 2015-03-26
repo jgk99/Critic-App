@@ -3,6 +3,6 @@
 	exit;
 }
 if (isset($_SESSION["id"])) {
-redirect_to("signinAngry.php");
+redirect_to("movies.php");
 }
 ?>
