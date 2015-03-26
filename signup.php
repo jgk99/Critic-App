@@ -44,9 +44,10 @@ if (isset($_POST['submit'])) {
 			addUser($lastname, $firstname, $username, $email, $password1);
 		} catch (mysqli_sql_exception $e) {
  			$errArr = explode(' ', $e->getMessage());
- 			print_r($errArr);
+ 			//print_r($errArr);
 			if ($errArr[0] === 'Duplicate') {
 				$dupeField = $errArr[5];
+				$noredirect = "true";
 				if ($dupeField = 'username') {
 					$unameTaken ='<font-color=red>Your username is already taken by another user. Please make another one.</font>';
 				}
@@ -55,8 +56,12 @@ if (isset($_POST['submit'])) {
 				}
 			}
  		}
- 		//Add the session that makes them stay logged in
-		redirect_to("movies.php");
+ 		if ($noredirect) {
+
+ 		}
+ 		else {
+ 		redirect_to("movies.php");
+ 		}
 	}
 }
 
