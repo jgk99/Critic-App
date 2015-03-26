@@ -113,7 +113,7 @@ if (isset($_GET['id'])) {
 						if ($rating !== false) {
 							$match_ratings[] = $match . " rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. <br />";
 						} else {
-							$match_ratings[] = $match . " hasn't rated this movie. <br />"
+							$match_ratings[] = $match . " hasn't rated this movie. <br />";
 						}
 					}
 
