@@ -42,9 +42,11 @@ function get_similarities($userID) {
 		$previous_row = $row;
 	}
 
+	print_r($critic_ratings);
+
 	foreach ($critic_ratings as $key => $critic) {
 		if (count($critic) < $min_common_reviews) {
-			//unset($critic_ratings[$key]);
+			unset($critic_ratings[$key]);
 		}
 	}
 
