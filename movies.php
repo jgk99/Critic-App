@@ -173,6 +173,6 @@ $movielist = json_decode($box_office);
 		</div>
     </div>
 </div>
-
+require_once("includes/footer.php");
   </body>
 </html>
