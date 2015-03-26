@@ -1,5 +1,5 @@
 <?php
-
+require_once("includes/goodrestricted.php");
 //error_reporting(E_ALL | ~E_ubTRICT);
 
 
