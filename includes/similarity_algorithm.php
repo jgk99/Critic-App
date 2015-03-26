@@ -44,7 +44,7 @@ function get_similarities($userID) {
 
 	foreach ($critic_ratings as $key => $critic) {
 		if (count($critic) < $min_common_reviews) {
-			unset($critic_ratings[$key]);
+			//unset($critic_ratings[$key]);
 		}
 	}
 
