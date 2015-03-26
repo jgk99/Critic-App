@@ -103,7 +103,7 @@ if (isset($_GET['id'])) {
 			<div class="well">
 				<?php
 				$similarities = get_similarities(1); 
-				asort($similarities);
+				//asort($similarities);
 				print_r($similarities);
 				?>
 			</div>

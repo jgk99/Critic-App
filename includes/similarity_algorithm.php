@@ -42,6 +42,8 @@ function get_similarities($userID) {
 		$previous_row = $row;
 	}
 
+	print_r($critic_ratings);
+
 	foreach ($critic_ratings as $key => $critic) {
 		if (count($critic) < $min_common_reviews) {
 			unset($critic_ratings[$key]);
@@ -61,7 +63,7 @@ function get_similarities($userID) {
 		$similarities[$critic[0][0]] = $total/$count;
 	}
 
-	return $similarities;
+	return $critic_ratings;
 }
 
 function get_top_matches($userID, $quantity) {
