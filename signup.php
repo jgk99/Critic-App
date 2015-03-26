@@ -49,10 +49,10 @@ if (isset($_POST['submit'])) {
 				$dupeField = $errArr[5];
 				$noredirect = "true";
 				if ($dupeField = 'username') {
-					$unameTaken ='<font-color=red>Your username is already taken by another user. Please make another one.</font>';
+					$unameTaken ='<font color=red>Your username is already taken by another user. Please make another one.</font>';
 				}
 				if ($dupeField === 'Email') {
-					$emailTaken ='<font-color=red>Your email is already taken by another user. Please make another one.</font>';
+					$emailTaken ='<font color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
 			}
  		}
@@ -60,7 +60,11 @@ if (isset($_POST['submit'])) {
 
  		}
  		else {
- 		redirect_to("movies.php");
+ 		$userid = getIDFromUsername($username);
+		$_SESSION["id"] = $userid;
+		header("Location: movies.php");
+		exit();
+
  		}
 	}
 }
@@ -106,7 +110,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Email: </td>
-					<td align="left"><input type="email" name="email" data-parsley-type="email" class="form-control" value="<?php echo $email; ?>" required /><?php echo $emailTaken; ?></td>
+					<td align="left"><input type="email" name="email" data-parsley-type="email" class="form-control" value="<?php echo $email; ?>" required /></td>
 				</tr>
 				<tr>
 					<td class="form-label">Password: </td>
@@ -114,7 +118,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Confirm Password: </td>
-					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /><?php echo $pmatch; ?></td>
+					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /><?php echo $pmatch; ?><?php echo $unameTaken; ?></td>
 				</tr>
 				<tr>
 					<td></td>
