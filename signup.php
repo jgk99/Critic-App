@@ -45,13 +45,13 @@ if (isset($_POST['submit'])) {
 		} catch (mysqli_sql_exception $e) {
  			$errArr = explode(' ', $e->getMessage());
  			print_r($errArr);
-			if ('$errArr[0]'== 'Duplicate') {
+			if ($errArr[0] === 'Duplicate') {
 				$dupeField = $errArr[5];
-				if ($dupeField === 'username') {
-					$unameTaken='<font color=red>Your username is already taken by another user. Please make another one.</font>';
+				if ($dupeField = 'username') {
+					$unameTaken ='<font-color=red>Your username is already taken by another user. Please make another one.</font>';
 				}
 				if ($dupeField === 'Email') {
-					$emailTaken ='<font color=red>Your email is already taken by another user. Please make another one.</font>';
+					$emailTaken ='<font-color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
 			}
  		}
