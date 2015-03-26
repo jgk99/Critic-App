@@ -98,11 +98,11 @@ if (isset($_GET['id'])) {
 		<div class="row">
 			<div class="well">
 				<script type="text/javascript">
-					document.write("screw u");
+					//document.write("screw u");
 					var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
 					if (top_matches.length < 3) {
 						// Rate more movies!
-						document.write(top_matches.length);
+						//document.write(top_matches.length);
 					} else {
 						var match;
 						for (match in top_matches) {
