@@ -57,10 +57,11 @@ if (isset($_GET['id'])) {
 		}
 	</script>
 
-	<div class ="col-md-2 well well-sm">
+	<div class ="col-md-2">
 		<script type="text/javascript">
 			document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\" width=\"\"/ class='img-responsive' />");
 		</script>
+		<br />
 		<div class="rating">
 			<span class="star"><input type="radio" name="star" id="star5" value="5"><label for="star5"></label></span>
 			<span class="star"><input type="radio" name="star" id="star4" value="4"><label for="star4"></label></span>
@@ -86,7 +87,7 @@ if (isset($_GET['id'])) {
 
 	<div class="col-md-9 col-md-offset-1">
 		<div class="row">
-			<div class="well">
+			<div class="lead">
 				<script type="text/javascript">
 					document.write(omdb_movie.Plot);
 				</script>
