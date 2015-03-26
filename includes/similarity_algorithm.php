@@ -42,8 +42,6 @@ function get_similarities($userID) {
 		$previous_row = $row;
 	}
 
-	print_r($critic_ratings);
-
 	foreach ($critic_ratings as $key => $critic) {
 		if (count($critic) < $min_common_reviews) {
 			unset($critic_ratings[$key]);
@@ -64,6 +62,14 @@ function get_similarities($userID) {
 	}
 
 	return $similarities;
+}
+
+function get_top_matches($userID, $quantity) {
+	$similarities = get_similarities($userID);
+	return $similarities;
+	//asort($similarities);
+	//$criticNames = array_keys($similarities);
+	//return array_slice($criticNames, 0, $quantity);
 }
 
 function store_critic_ratings($movieID) {
@@ -119,13 +125,6 @@ function store_critic_ratings($movieID) {
 
 		$con->close();
 	}
-}
-
-function get_top_matches($userID, $quantity) {
-	$similarities = get_similarities($userID);
-	asort($similarities);
-	$criticNames = array_keys($similarities);
-	return array_slice($criticNames, 0, $quantity);
 }
 
 ?>
