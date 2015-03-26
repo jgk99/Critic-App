@@ -11,10 +11,10 @@
 	<script src="js/bootstrap.min.js"></script>
 </head>
 <body>
-
+<?php require_once("includes/header.php"); ?> 
 <div class="container">
 	
-	<?php require_once("includes/header.php"); ?> 
+	
 
 	<div class="col-md-8">
 		<h2> Our Mission</h2>
