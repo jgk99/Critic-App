@@ -51,7 +51,7 @@ function get_similarities($userID) {
 	foreach ($critic_ratings as $key => $critic) {
 		$count = 0;
 		$total = 0;
-		foreach($critic as $rating) {
+		foreach ($critic as $rating) {
 			$search_key = array_search($rating[1], $user_rated_movies);
 			if ($search_key !== false) {
 				$total += abs($user_ratings[$search_key][1] - $rating[2]);
@@ -69,6 +69,24 @@ function get_top_matches($userID, $quantity) {
 	asort($similarities);
 	$criticNames = array_keys($similarities);
 	return array_slice($criticNames, 0, $quantity);
+}
+
+function get_rating_from_critic($critic_name, $movie_id, $con) {
+	$query = "SELECT `Rating` FROM `criticreviews` WHERE `Name` = '" . $critic_name . "' AND `MovieID` = '" . $movie_id . "'";
+	$query_sql = $con->query($query);
+
+	$exists = false;
+	$rating = 0;
+	if ($row = mysqli_fetch_assoc($query_sql)) {
+		$exists = true;
+		$rating = $row["Rating"];
+	}
+
+	if ($exists) {
+		return $rating;
+	} else {
+		return false;
+	}
 }
 
 function store_critic_ratings($movieID) {
