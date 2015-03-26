@@ -111,9 +111,9 @@ if (isset($_GET['id'])) {
 					foreach (array_keys($matches) as $match) {
 						$rating = get_rating_from_critic($match, $_GET['id'], $con);
 						if ($rating !== false) {
-							$match_ratings[] = $match . " (" . (5 - $matches[$match])*20 . "% similar) rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. <br />";
+							$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar) rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. <br />";
 						} else {
-							$match_ratings[] = $match . " (" . (5 - $matches[$match])*20 . "% similar) hasn't rated this movie. <br />";
+							$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar) hasn't rated this movie. <br />";
 						}
 					}
 
@@ -139,34 +139,17 @@ if (isset($_GET['id'])) {
 		</div>
 	</div>
 
-	<!--<div class="col-md-8 col-md-offset-1">
+	<div class="col-md-8 col-md-offset-1">
 		<div class="row">
 			<div class="well">
-				<h4>Critics most similar to you that rated this movie:</h4>
+				<h4>Other similar critics:</h4>
 				<br />
 				<script type="text/javascript">
 					<?php
 
-					$con = dbconnect();
-					$matches = get_top_matches(1, 3);
-					$match_ratings = array();
-
-					foreach ($matches as $match) {
-						$rating = get_rating_from_critic($match, $_GET['id'], $con);
-						if ($rating !== false) {
-							$match_ratings[] = $match . " rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. <br />";
-						} else {
-							$match_ratings[] = $match . " hasn't rated this movie. <br />";
-						}
-					}
+					echo "Soon...";
 
 					?>
-					
-					var match_ratings = <?php echo json_encode($match_ratings); ?>;
-
-					for (var i = 0; i < match_ratings.length; i++) {
-						document.write(match_ratings[i]);
-					}
 
 					/*var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
 					if (top_matches.length < 1) {
@@ -180,7 +163,7 @@ if (isset($_GET['id'])) {
 				</script>
 			</div>
 		</div>
-	</div>-->
+	</div>
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
