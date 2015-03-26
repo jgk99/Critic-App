@@ -90,11 +90,11 @@ if (isset($_GET['id'])) {
 
 	<div class="col-md-8 col-md-offset-1">
 		<div class="row">
-			<div class="lead">
+			
 				<script type="text/javascript">
 					document.write(omdb_movie.Plot);
 				</script>
-			</div>
+			
 		</div>
 	</div>
 
