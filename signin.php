@@ -1,6 +1,6 @@
 <?php
-require_once("includes/forcessl.php");
-require_once("includes/goodrestricted.php");
+//require_once("includes/forcessl.php");
+//require_once("includes/goodrestricted.php");
 require_once("includes/dbfuncs.php");
 //error_reporting(E_ALL | ~E_ubTRICT);
 
@@ -70,7 +70,7 @@ if (isset($_POST['submit'])) {
 			</table>
 		</form>
 	</div>
-
+</div>
 	<p class="lead col-md-12 text-center">
 		<br /><br />
 		If you don't have an account sign up here.
