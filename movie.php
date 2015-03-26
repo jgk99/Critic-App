@@ -57,7 +57,7 @@ if (isset($_GET['id'])) {
 		}
 	</script>
 
-	<div class ="col-md-2">
+	<div class ="col-md-3">
 		<script type="text/javascript">
 			document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\" width=\"\"/ class='img-responsive' />");
 		</script>
@@ -71,7 +71,7 @@ if (isset($_GET['id'])) {
 		</div>
 	</div>
 
-	<div class ="col-md-9 col-md-offset-0">
+	<div class ="col-md-8 col-md-offset-0">
 		<script type="text/javascript">
 			document.write("<h2>" + movie.title + "</h2>");
 		</script>
