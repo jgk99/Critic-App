@@ -85,14 +85,32 @@ if (isset($_GET['id'])) {
 	</div>
 
 	<div class="col-md-9 col-md-offset-1">
-			<div class="row">
-				<div class="well">
-					<script type="text/javascript">
-						document.write(omdb_movie.Plot);
-					</script>
-				</div>
+		<div class="row">
+			<div class="well">
+				<script type="text/javascript">
+					document.write(omdb_movie.Plot);
+				</script>
 			</div>
 		</div>
+	</div>
+
+	<div class="col-md-9 col-md-offset-1">
+		<div class="row">
+			<div class="well">
+				<script type="text/javascript">
+					var top_matches = <?php echo json_encode($get_top_matches(1, 3)); ?>;
+					if (top_matches.length < 3) {
+						// Rate more movies!
+					} else {
+						var match;
+						for (match in top_matches) {
+							document.write(match);
+						}
+					}
+				</script>
+			</div>
+		</div>
+	</div>
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <?php require_once("includes/footer.php"); ?>
