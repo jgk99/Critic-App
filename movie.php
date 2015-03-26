@@ -108,7 +108,7 @@ if (isset($_GET['id'])) {
 					$matches = get_top_matches(1, 3);
 
 					foreach ($matches as $match) {
-						echo $match . " rated this movie " . get_rating_from_critic($match) . "/5.";
+						echo $match . " rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5.";
 					}
 
 					?>
