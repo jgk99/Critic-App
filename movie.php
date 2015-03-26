@@ -101,11 +101,11 @@ if (isset($_GET['id'])) {
 	<div class="col-md-9 col-md-offset-1">
 		<div class="row">
 			<div class="well">
-				<?php
+				<pre><?php
 				$similarities = get_similarities(1); 
 				//asort($similarities);
 				print_r($similarities);
-				?>
+				?></pre>
 			</div>
 		</div>
 	</div>
