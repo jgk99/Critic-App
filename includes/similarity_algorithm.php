@@ -20,7 +20,7 @@ function get_similarities($userID) {
 		$user_rated_movies[] = $row["MovieID"];
 	}
 
-	$critic_ratings_query = "SELECT * FROM `criticreviews` WHERE `MovieID` IN (" . implode(', ', $user_rated_movies) . ")";
+	$critic_ratings_query = "SELECT * FROM `criticreviews` WHERE `MovieID` IN (" . implode(', ', $user_rated_movies) . ") ORDER BY `Name` ASC";
 	$critic_ratings_sql = $con->query($critic_ratings_query);
 
 	$critic_ratings = array();
