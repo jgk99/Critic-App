@@ -3,11 +3,6 @@ require_once("includes/forcessl.php");
 require_once("includes/goodrestricted.php");
 require_once("includes/dbfuncs.php");
 
-function redirect_to($new_location) {
-	header("Location: " . $new_location);
-	exit;
-}
-
 $unameTaken = "";
 $emailTaken = "";
 $lastname = "";
