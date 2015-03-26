@@ -75,10 +75,6 @@ if (isset($_GET['id'])) {
 	</div>
 
 	<div class="col-md-9 col-md-offset-1">
-		<a class="btn btn-primary" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-		  Plot
-		</a>
-		<div class="collapse" id="collapseExample">
 			<div class="row">
 				<div class="well">
 					<script type="text/javascript">
@@ -87,7 +83,6 @@ if (isset($_GET['id'])) {
 				</div>
 			</div>
 		</div>
-	</div>
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 <?php require_once("includes/footer.php"); ?>
