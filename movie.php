@@ -102,18 +102,30 @@ if (isset($_GET['id'])) {
 		<div class="row">
 			<div class="well">
 				<script type="text/javascript">
-					document.write("<?php
+					<?php
 
 					$con = dbconnect();
 					$matches = get_top_matches(1, 3);
+					$match_ratings = array();
 
 					foreach ($matches as $match) {
-						echo $match . " rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5.";
+						$rating = get_rating_from_critic($match, $_GET['id'], $con);
+						if ($rating !== false) {
+							$match_ratings[] = $match . " rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. <br />";
+						} else {
+							$match_ratings[] = $match . " hasn't rated this movie. <br />"
+						}
 					}
 
-					?>");
+					?>
 					
-					var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
+					var match_ratings = <?php echo json_encode($match_ratings); ?>;
+
+					for (var i = 0; i < match_ratings.length; i++) {
+						document.write(match_ratings[i]);
+					}
+
+					/*var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
 					if (top_matches.length < 1) {
 						document.write("Rate more movies, bitch!");
 					} else {
@@ -121,7 +133,7 @@ if (isset($_GET['id'])) {
 						for (var i = 0; i < 3; i++) {
 							document.write(top_matches[i]);
 						}
-					}
+					}*/
 				</script>
 			</div>
 		</div>
