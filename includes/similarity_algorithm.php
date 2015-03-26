@@ -6,7 +6,7 @@ require_once 'unirest-php/src/Unirest.php';
 // Returns an associative array with each key being the name of a critic and each value being the similarity.
 // The similarity is simply the average difference in ratings between the user and critic.
 function get_similarities($userID) {
-	$min_common_reviews = 10;
+	$min_common_reviews = 3;
 
 	$similarities = array();
 
