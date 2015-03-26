@@ -120,7 +120,7 @@ function store_critic_ratings($movieID) {
 }
 
 function get_top_matches($userID, $quantity) {
-	$similarities=get_similarities($userID);
+	$similarities = get_similarities($userID);
 	asort($similarities);
 	$criticNames = array_keys($similarities);
 	return array_slice($criticNames, 0, $quantity);
