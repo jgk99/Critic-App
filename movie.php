@@ -145,12 +145,6 @@ if (isset($_GET['id'])) {
 				<h4>Other similar critics:</h4>
 				<br />
 				<script type="text/javascript">
-					<?php
-
-					echo "Soon...";
-
-					?>
-
 					/*var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
 					if (top_matches.length < 1) {
 						document.write("Rate more movies, bitch!");
