@@ -1,5 +1,5 @@
 <?php
-
+require_once("includes/restricted.php");
 require_once("includes/forcessl.php");
 
 if (isset($_POST["query"])) { 

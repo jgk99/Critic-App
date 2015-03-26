@@ -32,9 +32,10 @@ if (isset($_POST['submit'])) {
 </head>
 <body>
 
-<?php require_once("includes/header.php"); ?> 
+
 
 <div class="container">
+	<?php require_once("includes/header.php"); ?> 
 	<br />
 		
 	<div class="col-md-6 col-md-offset-3 ">
