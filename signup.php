@@ -106,7 +106,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Username: </td>
-					<td align="left"><input type="text" name="username" class="form-control" value="<?php echo $username; ?>" required /><?php echo $unameTaken; ?></td>
+					<td align="left"><input type="text" name="username" class="form-control" value="<?php echo $username; ?>" required /></td>
 				</tr>
 				<tr>
 					<td class="form-label">Email: </td>
