@@ -16,7 +16,7 @@
 	height: 30px;
 	text-align: center;
 	color: #FFF;
-	background-image: url("images/star_empty.png");
+	background-image: url("../images/star_empty.png");
 	font-size: 30px;
 	margin-right: 2px;
 	line-height: 30px;
@@ -24,11 +24,11 @@
 
 .rating span.checked label,
 .rating span.checked ~ span label {
-	background-image: url("images/star_full.png");
+	background-image: url("../images/star_full.png");
 	color: #FFF;
 }
 
 .rating span:hover ~ span label,
 .rating span:hover label {
-	background-image: url("images/star_hover.png") !important;
+	background-image: url("../images/star_hover.png") !important;
 }

@@ -1,4 +1,5 @@
 <?php
+
 require_once("includes/forcessl.php");
 require_once("includes/restricted.php");
 
