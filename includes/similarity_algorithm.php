@@ -6,7 +6,7 @@ require_once 'unirest-php/src/Unirest.php';
 // Returns an associative array with each key being the name of a critic and each value being the similarity.
 // The similarity is simply the average difference in ratings between the user and critic.
 function get_similarities($userID) {
-	$min_common_reviews = 2;
+	$min_common_reviews = 3;
 
 	$similarities = array();
 
@@ -42,8 +42,6 @@ function get_similarities($userID) {
 		$previous_row = $row;
 	}
 
-	print_r($critic_ratings);
-
 	foreach ($critic_ratings as $key => $critic) {
 		if (count($critic) < $min_common_reviews) {
 			unset($critic_ratings[$key]);
@@ -68,10 +66,9 @@ function get_similarities($userID) {
 
 function get_top_matches($userID, $quantity) {
 	$similarities = get_similarities($userID);
-	return $similarities;
-	//asort($similarities);
-	//$criticNames = array_keys($similarities);
-	//return array_slice($criticNames, 0, $quantity);
+	asort($similarities);
+	$criticNames = array_keys($similarities);
+	return array_slice($criticNames, 0, $quantity);
 }
 
 function store_critic_ratings($movieID) {
