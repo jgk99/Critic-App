@@ -99,7 +99,7 @@ if (isset($_GET['id'])) {
 			<div class="well">
 				<script type="text/javascript">
 					document.write("screw u");
-					/*var top_matches = <?php echo json_encode($get_top_matches(1, 3)); ?>;
+					var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
 					if (top_matches.length < 3) {
 						// Rate more movies!
 						document.write("hi");
@@ -108,13 +108,14 @@ if (isset($_GET['id'])) {
 						for (match in top_matches) {
 							document.write(match);
 						}
-					}*/
+					}
 				</script>
 			</div>
 		</div>
 	</div>
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
+
 <?php require_once("includes/footer.php"); ?>
 
 </body>
