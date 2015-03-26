@@ -61,14 +61,14 @@ if (isset($_GET['id'])) {
 		<script type="text/javascript">
 			document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\" width=\"\"/ class='img-responsive' />");
 		</script>
-		<br />
+		<br /><br />
 		<div class="rating">
 			<form action="movie.php" method="post" id="register">
 			<span class="star"><input type="radio" name="star" id="star5" value="5"><label for="star5"></label></span>
 			<span class="star"><input type="radio" name="star" id="star4" value="4"><label for="star4"></label></span>
 			<span class="star"><input type="radio" name="star" id="star3" value="3"><label for="star3"></label></span>
 			<span class="star"><input type="radio" name="star" id="star2" value="2"><label for="star2"></label></span>
-			<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span><br />
+			<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span><br /><br />
 			<input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary" />
 		
 		</div>
