@@ -61,7 +61,7 @@ function get_similarities($userID) {
 		$similarities[$critic[0][0]] = $total/$count;
 	}
 
-	return $critic_ratings;
+	return $similarities;
 }
 
 function get_top_matches($userID, $quantity) {
