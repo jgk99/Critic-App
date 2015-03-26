@@ -102,7 +102,7 @@ if (isset($_GET['id'])) {
 					var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
 					if (top_matches.length < 3) {
 						// Rate more movies!
-						document.write("hi");
+						document.write(top_matches.length);
 					} else {
 						var match;
 						for (match in top_matches) {
