@@ -5,7 +5,7 @@ require_once("includes/restricted.php");
 
 if (isset($_GET['id'])) { 
 } else {
-	header("Location: index.php");
+header("Location: index.php");
 	die();
 }
 
@@ -62,7 +62,7 @@ if (isset($_GET['id'])) {
 			document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\" width=\"\"/ class='img-responsive' />");
 		</script>
 		<br /><br />
-		<div class="rating well">
+		<div class="rating">
 			<form action="movie.php" method="post" id="register">
 			<span class="star"><input type="radio" name="star" id="star5" value="5"><label for="star5"></label></span>
 			<span class="star"><input type="radio" name="star" id="star4" value="4"><label for="star4"></label></span>
