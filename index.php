@@ -31,7 +31,7 @@
 	<div class="well lead col-md-4 text-center">
 		<p>If you don't have an account you should sign up here now.</p>
 		<a href="signup.php" class="btn btn-default">Sign Up</a><br /><br />
-		<p>If you have an account <a href="signin.php">login</a> and search the movies that you are curious about in the search bar above. Your critic will tell you everything that you want to know.</p>
+		<p>If you have an account <a href="signin.php">sign in</a> and search the movies that you are curious about in the search bar above. Your critic will tell you everything that you want to know.</p>
 	</div>
 
 
