@@ -117,15 +117,15 @@ $stars5 ='<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 					foreach (array_keys($matches) as $match) {
 						$rating = get_rating_from_critic($match, $_GET['id'], $con);
 						if ($rating !== false) {
-							if(get_rating_from_critic($match, $_GET['id'], $con)===1){
+							if($rating===1){
 								$chosenStar="stars1";
-							}if(get_rating_from_critic($match, $_GET['id'], $con)===2){
+							}if($rating===2){
 								$chosenStar="stars2";
-							}if(get_rating_from_critic($match, $_GET['id'], $con)===3){
+							}if($rating===3){
 								$chosenStar="stars3";
-							}if(get_rating_from_critic($match, $_GET['id'], $con)===4){
+							}if($rating===4){
 								$chosenStar="stars4";
-							}if(get_rating_from_critic($match, $_GET['id'], $con)===5){
+							}if($rating===5){
 								$chosenStar="stars5";
 							}
 							$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar) rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. ".$chosenStar."<br />";
