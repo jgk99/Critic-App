@@ -142,6 +142,7 @@ $stars5 ='<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 								$chosenStar=$stars4;
 							}if($rating==5){
 								$chosenStar=$stars5;
+							}
 							
 							$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar to you) rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. ".$chosenStar."<br />";
 						} else {
