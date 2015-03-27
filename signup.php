@@ -13,7 +13,7 @@ $transport = Swift_SmtpTransport::newInstance('server149.web-hosting.com', 465, 
 $mailer = Swift_Mailer::newInstance($transport);
 
 $message = Swift_Message::newInstance('Welcome '.$mailfirstname.'!')
-  ->setFrom(array('signup@mymoviecritic.com'. => 'My Movie Critic'))
+  ->setFrom(array('signup@mymoviecritic.com' => 'My Movie Critic'))
   ->setTo(array($mailaddress))
   ->setBody('Thank You for signing up for My Movie Critic!');
 
