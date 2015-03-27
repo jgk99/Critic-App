@@ -15,6 +15,7 @@ $stars2='<img src="starpics/2star.jpg" alt="2 stars" width="100">';
 $stars3 ='<img src="starpics/3star.jpg" alt="3 stars" width="100">';
 $stars4 ='<img src="starpics/4stars.jpg" alt="4 stars" width="100">';
 $stars5 ='<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
+$userId=$_SESSION["id"];
 ?>
 
 <!DOCTYPE html>
@@ -119,13 +120,13 @@ $stars5 ='<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 	<div class="col-md-8 col-md-offset-1">
 		<div class="row">
 			<div class="well">
-				<h4>Your top critics:</h4>
+				<h4>Your Top Critics:</h4>
 				<br />
 				<script type="text/javascript">
 					<?php
 
 					$con = dbconnect();
-					$matches = get_top_matches(1, 3);
+					$matches = get_top_matches($userId, 5);
 					$match_ratings = array();
 
 					foreach (array_keys($matches) as $match) {
