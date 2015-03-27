@@ -3,6 +3,25 @@ require_once("includes/forcessl.php");
 require_once("includes/goodrestricted.php");
 require_once("includes/dbfuncs.php");
 
+function send_Mail($mailfirstname, $mailaddress) {
+	require_once 'lib/swift_required.php';
+
+$transport = Swift_SmtpTransport::newInstance('server149.web-hosting.com', 465, "ssl")
+  ->setUsername('signup@mymoviecritic.com')
+  ->setPassword('Cgpscr1tic!');
+
+$mailer = Swift_Mailer::newInstance($transport);
+
+$message = Swift_Message::newInstance('Welcome '.$mailfirstname.'!')
+  ->setFrom(array('signup@mymoviecritic.com'. => 'My Movie Critic'))
+  ->setTo(array($mailaddress))
+  ->setBody('Thank You for signing up for My Movie Critic!');
+
+$result = $mailer->send($message);
+
+}
+
+
 $unameTaken = "";
 $emailTaken = "";
 $lastname = "";
@@ -62,6 +81,7 @@ if (isset($_POST['submit'])) {
  		else {
  		$userid = getIDFromUsername($username);
 		$_SESSION["id"] = $userid;
+		send_Mail($firstname,$email);
 		header("Location: movies.php");
 		exit();
 
