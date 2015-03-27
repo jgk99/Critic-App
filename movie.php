@@ -9,6 +9,7 @@ if (isset($_GET['id'])) {
 	die();
 }
 
+
 ?>
 
 <!DOCTYPE html>
@@ -159,8 +160,7 @@ if (isset($_GET['id'])) {
 		</div>
 	</div>
 </div>
-<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
-
+<br /><br />
 <?php require_once("includes/footer.php"); ?>
 
 </body>

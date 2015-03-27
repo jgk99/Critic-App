@@ -51,6 +51,7 @@ if (isset($_POST["query"])) {
 		<?php echo "$nomovies"; ?>
 	</article>
 </div>
+<br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
 <?php require_once("includes/footer.php"); ?>
 
