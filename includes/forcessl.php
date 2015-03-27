@@ -5,7 +5,7 @@ session_start();
 $happy = $_SERVER["HTTP_HOST"];
 
 if ($happy === "localhost" || $happy === "localhost:8888") {
-	# code...
+	
 }
 
 else if ($_SERVER["HTTPS"] != "on")
