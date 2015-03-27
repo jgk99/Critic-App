@@ -126,7 +126,7 @@ $userId=$_SESSION["id"];
 					<?php
 
 					$con = dbconnect();
-					$matches = get_top_matches($userId, 5);
+					$matches = get_top_matches(1, 5);//Eventually the 1 should be changed to $userId
 					$match_ratings = array();
 
 					foreach (array_keys($matches) as $match) {
