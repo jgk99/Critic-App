@@ -5,7 +5,7 @@ require_once("includes/restricted.php");
 
 if (isset($_GET['id'])) { 
 } else {
-header("Location: index.php");
+	header("Location: index.php");
 	die();
 }
 
@@ -95,10 +95,10 @@ header("Location: index.php");
 				</script>
 		</div>
 	</div>
-<div class="well">
+
 	<div class="col-md-8 col-md-offset-1">
 		<div class="row">
-			
+			<div class="well">
 				<h4>Your top critics:</h4>
 				<br />
 				<script type="text/javascript">
@@ -135,13 +135,13 @@ header("Location: index.php");
 						}
 					}*/
 				</script>
-			
+			</div>
 		</div>
 	</div>
 
 	<div class="col-md-8 col-md-offset-1">
 		<div class="row">
-		
+			<div class="well">
 				<h4>Other similar critics:</h4>
 				<br />
 				<script type="text/javascript">
@@ -155,10 +155,9 @@ header("Location: index.php");
 						}
 					}*/
 				</script>
-			
+			</div>
 		</div>
 	</div>
-</div>
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
