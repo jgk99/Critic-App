@@ -2,7 +2,13 @@
 
 session_start();
 
-if ($_SERVER["HTTPS"] != "on")
+$happy = $_SERVER["HTTP_HOST"];
+
+if ($happy === "localhost" || $happy === "localhost:8888") {
+	# code...
+}
+
+else if ($_SERVER["HTTPS"] != "on")
 {
     header("Location: https://" . $_SERVER["HTTP_HOST"] . $_SERVER["REQUEST_URI"]);
     exit();
