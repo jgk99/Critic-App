@@ -6,9 +6,10 @@ if (isset($_POST["query"])) {
 	$movie_query = file_get_contents('http://api.rottentomatoes.com/api/public/v1.0/movies.json?apikey=nqr68qe538tc2hsub2c5fubt&q=' . str_replace(" ", "+", $_POST["query"]));
 	$movielist = json_decode($movie_query);
 	$total = $movielist->total;
+	$nomovies= "";
 
 	if ($total == 0) {
-		echo "Oops! We couldn't find a movie with that title! Try Searching Again." ;
+		$nomovies= "Oops! We couldn't find a movie with that title! Try Searching Again." ;
 	} else {
 		$imdbid = $movielist->movies[0]->alternate_ids->imdb;
 
@@ -47,6 +48,7 @@ if (isset($_POST["query"])) {
 				document.write("<a href=\"movie.php?id=" + movies.movies[i].alternate_ids['imdb'] + "\">" + movies.movies[i].title + "</a><br />");
 			}
 		</script>
+		<?php echo "$nomovies"; ?>
 	</article>
 </div>
 

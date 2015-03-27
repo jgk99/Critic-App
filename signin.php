@@ -59,7 +59,7 @@ if (isset($_POST['submit'])) {
 				<tr>
 					<td></td>
 
-					<td><input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary" /></td>
+					<td><input type="submit" name="submit" value="Sign In" class="btn btn-md btn-primary" /></td>
 				</tr>
 			
 
