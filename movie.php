@@ -34,9 +34,15 @@ $stars5 ='<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 <div class="container">
 	<?php require_once("includes/header.php"); 
 
+	if ($happy === "localhost" || $happy === "localhost:8888") {
 	
+	}
 
+	else {
+	
 	require_once("includes/similarity_algorithm.php");
+	
+	}
 
 	if($_GET["id"])
 	{
@@ -45,7 +51,15 @@ $stars5 ='<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 		$omdb_movie = file_get_contents('http://www.omdbapi.com/?i=tt' . $_GET["id"] . '&plot=full&r=json');
 		if (strpos($movie_query, '{"error":"Could not find a movie with the specified id"}') === false) {
 			$id_exists = true;
+			if ($happy === "localhost" || $happy === "localhost:8888") {
+	
+			}
+
+			else {
+	
 			store_critic_ratings($_GET["id"]);
+			
+			}
 		}
 	}
 
