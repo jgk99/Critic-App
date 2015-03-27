@@ -42,7 +42,7 @@ if (isset($_POST["query"])) {
 <div class="container">
 	<?php require_once("includes/header.php"); ?>
 
-	<article style="text-align: center;">
+	<article class="text-center">
 		<h2><script type="text/javascript">
 			var movies = <?php echo $movie_query ?>;
 
