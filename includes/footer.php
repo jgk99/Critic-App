@@ -2,6 +2,7 @@
 
 echo '
 	<div class="footer" style="text-align: center;">
+
 		<div class="row">
 			<p class="text-muted">Designed By:
 				<br />
@@ -13,6 +14,13 @@ echo '
 				Sammy Geller
 			</p>
 		</div>
+<div class="row"><p class="text-muted">
+	Contact Us At: admin@mymoviecritic.com
+	</p>
+	</div>
+
+
+		
 	</div>
 ';
 
