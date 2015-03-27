@@ -95,7 +95,7 @@ if (isset($_GET['id'])) {
 				</script>
 		</div>
 	</div>
-
+<div class="well">
 	<div class="col-md-8 col-md-offset-1">
 		<div class="row">
 			<div class="well">
@@ -158,6 +158,7 @@ if (isset($_GET['id'])) {
 			</div>
 		</div>
 	</div>
+</div>
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
 
