@@ -82,7 +82,7 @@ if (isset($_POST['submit'])) {
  		$userid = getIDFromUsername($username);
 		$_SESSION["id"] = $userid;
 		send_Mail($firstname,$email);
-		header("Location: movies.php");
+		header("Location: signupcomplete.php");
 		exit();
 
  		}

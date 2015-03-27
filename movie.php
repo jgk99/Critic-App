@@ -135,13 +135,17 @@ $userId=$_SESSION["id"];
 							
 							if($rating==1){
 								$chosenStar=$stars1;
-							}if($rating==2){
+							}
+							if($rating==2){
 								$chosenStar=$stars2;
-							}if($rating==3){
+							}
+							if($rating==3){
 								$chosenStar=$stars3;
-							}if($rating==4){
+							}
+							if($rating==4){
 								$chosenStar=$stars4;
-							}if($rating==5){
+							}
+							if($rating==5){
 								$chosenStar=$stars5;
 							}
 							
