@@ -41,14 +41,14 @@ if (isset($_POST["query"])) {
 	<?php require_once("includes/header.php"); ?>
 
 	<article>
-		<script type="text/javascript">
+		<h2><script type="text/javascript">
 			var movies = <?php echo $movie_query ?>;
 
 			for (var i = 0; i < movies.movies.length; i++) {
 				document.write("<a href=\"movie.php?id=" + movies.movies[i].alternate_ids['imdb'] + "\">" + movies.movies[i].title + "</a><br />");
 			}
-		</script>
-		<?php echo "$nomovies"; ?>
+		</script></h2>
+		<h2><?php echo "$nomovies"; ?></h2>
 	</article>
 </div>
 <br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br /><br />
