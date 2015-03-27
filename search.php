@@ -1,4 +1,4 @@
-//If there's an erro go to line 45 and get rid of "style="text-align: center;""
+
 
 <?php
 require_once("includes/forcessl.php");
