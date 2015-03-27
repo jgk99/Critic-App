@@ -1,3 +1,5 @@
+//If there's an erro go to line 45 and get rid of "style="text-align: center;""
+
 <?php
 require_once("includes/forcessl.php");
 require_once("includes/restricted.php");
@@ -40,7 +42,7 @@ if (isset($_POST["query"])) {
 <div class="container">
 	<?php require_once("includes/header.php"); ?>
 
-	<article>
+	<article style="text-align: center;">
 		<h2><script type="text/javascript">
 			var movies = <?php echo $movie_query ?>;
 
