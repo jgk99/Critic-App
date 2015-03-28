@@ -3,7 +3,7 @@ if (isset($_SESSION["id"])) {
 $signedIn="true";
 }
 else{
-	$signedIn="fase";
+	$signedIn="false";
 }
 
 ?>
