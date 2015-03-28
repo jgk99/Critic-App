@@ -15,7 +15,7 @@ $mailer = Swift_Mailer::newInstance($transport);
 $message = Swift_Message::newInstance('Welcome '.$mailfirstname.'!')
   ->setFrom(array('signup@mymoviecritic.com' => 'My Movie Critic'))
   ->setTo(array($mailaddress))
-  ->setBody('Thank You for signing up for My Movie Critic!');
+  ->setBody('Thank you for signing up for My Movie Critic!');
 
 $result = $mailer->send($message);
 
