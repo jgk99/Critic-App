@@ -11,6 +11,16 @@ if (isset($_GET['id'])) {
 	die();
 }
 
+$check_query = "SELECT * FROM `userreviews` WHERE `UserID` = '" . $_SESSION['id'] . "' AND `MovieID` = '" . $_GET['id'] . "'";
+$check_query_sql = $con->query($check_query);
+
+$exists = false;
+$old_rating = 0;
+while ($row = mysqli_fetch_assoc($check_query_sql)) {
+	$exists = true;
+	$old_rating = $row["Rating"];
+}
+
 if (isset($_POST['submit'])) {
 	$user_rating = 0;
 
@@ -31,16 +41,11 @@ if (isset($_POST['submit'])) {
 	if ($user_rating !== 0) {
 		$con = dbconnect();
 
-		$check_query = "SELECT * FROM `userreviews` WHERE `UserID` = '" . $_SESSION['id'] . "' AND `MovieID` = '" . $_GET['id'] . "'";
-		$check_query_sql = $con->query($check_query);
-
-		$exists = false;
-		while ($row = mysqli_fetch_assoc($check_query_sql)) {
-			$exists = true;
-		}
-
 		if ($exists) {
 			$query = "UPDATE `userreviews` SET `Rating` = '" . $user_rating . "' WHERE `UserID` = '" . $_SESSION['id'] . "'";
+			if (!$con->query($query)) {
+				throw new Exception("Query failed with error: $con->sqlstate");
+			}
 		} else {
 			store_user_ratings($_SESSION['id'], $_GET['id'], $user_rating);
 		}
@@ -119,13 +124,12 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 		<p class="text-left">
 		<div class="rating text-left">
 			<form action="" method="post" id="register">
-			<span class="star"><input type="radio" name="star" id="star5" value="5"><label for="star5"></label></span>
-			<span class="star"><input type="radio" name="star" id="star4" value="4"><label for="star4"></label></span>
-			<span class="star"><input type="radio" name="star" id="star3" value="3"><label for="star3"></label></span>
-			<span class="star"><input type="radio" name="star" id="star2" value="2"><label for="star2"></label></span>
-			<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span><br /><br />
+			<span class="star"><input type="radio" name="star" id="star5" value="5" <?php if (old_rating === 5) echo 'checked="checked"'; ?>><label for="star5"></label></span>
+			<span class="star"><input type="radio" name="star" id="star4" value="4" <?php if (old_rating === 4) echo 'checked="checked"'; ?>><label for="star4"></label></span>
+			<span class="star"><input type="radio" name="star" id="star3" value="3" <?php if (old_rating === 3) echo 'checked="checked"'; ?>><label for="star3"></label></span>
+			<span class="star"><input type="radio" name="star" id="star2" value="2" <?php if (old_rating === 2) echo 'checked="checked"'; ?>><label for="star2"></label></span>
+			<span class="star"><input type="radio" name="star" id="star1" value="1" <?php if (old_rating === 1) echo 'checked="checked"'; ?>><label for="star1"></label></span><br /><br />
 			<input type="submit" name="submit" value="Rate" class="btn btn-md btn-primary" /></input>
-		
 		</div>
 		</p>
 	</div>
