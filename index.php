@@ -1,4 +1,7 @@
 <?php require_once("includes/forcessl.php"); 
+require_once("includes/similarity_algorithm.php");
+require_once("includes/dbfuncs.php");
+
 if (isset($_SESSION["id"])) {
 $signedIn="true";
 }
@@ -45,14 +48,29 @@ if($signedIn=="false"){
 		<a href='signup.php' class='btn btn-default'>Sign Up</a><br /><br />
 		<p>If you have an account <a href='signin.php'>sign in</a> and search the movies that you are curious about in the search bar above. Your critic will tell you everything that you want to know.</p>
 	</div>";
-}
-else{
-	echo "<h3>Your Top Critics</h3><br /><lead>Critic1<br />Critic2<br />Critic3<br />Critic4<br />Critic5<br /><br /><br /></lead>";
-}
+	}
+else {
+	echo '<script type ="text/javascript">';
+	$con = dbconnect();
+	$matches = get_top_matches($_SESSION['id'], 5);
+	foreach (array_keys($matches) as $match) {
+						$rating = get_rating_from_critic($match, $_GET['id'], $con);
 
+	$match_ratings[] = $match ."<br />";
+	}
+
+
+	echo' var match_ratings = <?php echo json_encode($match_ratings); ?>;
+
+					if (match_ratings.length < 5 || match_ratings === undefined || match_ratings === null) {
+						document.write("Rate more movies to find some similar critics.");
+					} else {
+						for (var i = 0; i < match_ratings.length; i++) {
+							document.write(match_ratings[i]);
+						}
+					}
+			</script>'
 	?>
-
-
 </div>
 <br/>
 
