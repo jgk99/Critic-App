@@ -21,9 +21,8 @@ $result = $mailer->send($message);
 
 }
 
-
-$unameTaken = "";
-$emailTaken = "";
+$utaken = "";
+$etaken = "";
 $lastname = "";
 $firstname = "";
 $email = "";
@@ -67,13 +66,14 @@ if (isset($_POST['submit'])) {
 			if ($errArr[0] === 'Duplicate') {
 				$dupeField = $errArr[5];
 				$noredirect = "true";
-				$taken = ""
+			
 				if ($dupeField = 'username') {
-					$taken .='<font color=red>Your username, your email, or both are already taken by another user. Please make another one.</font>';
+					$utaken .= '<font color=red>Your username, your email, or both are already taken by another user. Please make another one.</font>';
 				}
 				if ($dupeField === 'Email') {
-					$taken .='<font color=red>Your email is already taken by another user. Please make another one.</font>';
+					$etaken .= '<font color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
+			
 			}
  		}
  		if ($noredirect) {
@@ -139,7 +139,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Confirm Password: </td>
-					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /><?php echo $pmatch; ?><?php echo $taken; ?></td>
+					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /><?php echo $pmatch; ?><br /><?php echo $utaken; ?><br /><?php echo $etaken; ?></td>
 				</tr>
 				<tr>
 					<td></td>
