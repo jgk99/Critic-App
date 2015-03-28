@@ -63,10 +63,9 @@ if (isset($_POST['submit'])) {
 		} catch (mysqli_sql_exception $e) {
  			$errArr = explode(' ', $e->getMessage());
  			//print_r($errArr);
-			if ($errArr[0] === 'Duplicate') {
+			if ($errArr[0] == 'Duplicate') {
 				$dupeField = $errArr[5];
 				$noredirect = "true";
-			
 				if ($dupeField == 'username') {
 					$utaken .= '<font color=red>Your username is already taken by another user. Please make another one.</font>';
 				}
