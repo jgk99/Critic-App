@@ -224,7 +224,7 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 					?>
 					
 					var match_ratings = <?php echo json_encode($match_ratings); ?>;
-					var rate_more_movies = <?php echo $bool_val ? '1' : '"false"'; ?>;
+					var rate_more_movies = <?php echo $rate_more_movies ? '1' : '"false"'; ?>;
 
 					if (rate_more_movies == "false") {
 						document.write("Rate more movies to find some similar critics.");
@@ -238,7 +238,7 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 		</div>
 	</div>
 
-	<div class="col-md-8 col-md-offset-1">
+	<!--<div class="col-md-8 col-md-offset-1">
 		<div class="row">
 			<div class="well">
 				<h4>Other similar critics:</h4>
@@ -256,7 +256,7 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 				</script>
 			</div>
 		</div>
-	</div>
+	</div>-->
 </div>
 <br /><br />
 <?php require_once("includes/footer.php"); ?>
