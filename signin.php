@@ -2,11 +2,12 @@
 require_once("includes/forcessl.php");
 require_once("includes/goodrestricted.php");
 require_once("includes/dbfuncs.php");
-//error_reporting(E_ALL | ~E_ubTRICT);
+error_reporting(E_ALL | ~E_ubTRICT);
 
 if (isset($_POST['submit'])) {
 	$username = $_POST["username"]; 
 	$password = $_POST["pw"];
+	$notUser="";
 	
 	$success = validateUser($username, $password);
 
@@ -15,6 +16,10 @@ if (isset($_POST['submit'])) {
 		$_SESSION["id"] = $userid;
 		header("Location: movies.php");
 		exit();
+	}
+	else{
+		$notUser="Your username or password is incorrect, please try again."
+
 	}
 }
 
@@ -48,13 +53,16 @@ if (isset($_POST['submit'])) {
 		<form action="signin.php" method="post" id="register"> 
 				<tr>
 					<td class="form-label">Username: </td>
-					<td align="left"><input type="text" name="username" data-parsley-type="email" class="form-control"  required/></td>
+					<td align="left"><input type="text" name="username"  class="form-control"  required/></td>
 				</tr>
 				<tr>
 					<td class="form-label">Password: </td>
-					<td align="left"><input type="password" name="pw" id="pw" minlength="8"  class="form-control"  required/></td>
+					<td align="left"><input type="password" name="pw" id="pw"  class="form-control"  required/></td>
 				</tr>
 				<br/>
+				<font color="red"><?php
+				echo '$notUser';
+				 ?></font>
 
 				<tr>
 					<td></td>
