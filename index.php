@@ -1,4 +1,12 @@
-<?php require_once("includes/forcessl.php"); ?>
+<?php require_once("includes/forcessl.php"); 
+if (isset($_SESSION["id"])) {
+$signedIn="true";
+}
+else{
+	$signedIn="false";
+}
+
+?>
 
 <!DOCTYPE html>
 
@@ -26,13 +34,23 @@
 			The answer lies in our website, My Movie Critic. My Movie Critic eliminates the problem of which critic to believe. First our website has you rate a few movies that you have already seen so that we can better get to know you and your taste in movies. When you look up movies from then on, you can see reviews of critics who have similar tastes to you, greatly increasing your chance of a positive movie watching experience.
 		</p>
 	</div>
-	<br /><br /><br />	
-
+	
+<br /><br /><br />
 	<div class="well lead col-md-4 text-center">
-		<p>If you don't have an account you should sign up here now.</p>
-		<a href="signup.php" class="btn btn-default">Sign Up</a><br /><br />
-		<p>If you have an account <a href="signin.php">sign in</a> and search the movies that you are curious about in the search bar above. Your critic will tell you everything that you want to know.</p>
-	</div>
+		<?php 
+if($signedIn=="false"){
+	echo
+	"
+	<p>If you don't have an account you should sign up here now.</p>
+		<a href='signup.php' class='btn btn-default'>Sign Up</a><br /><br />
+		<p>If you have an account <a href='signin.php'>sign in</a> and search the movies that you are curious about in the search bar above. Your critic will tell you everything that you want to know.</p>
+	</div>";
+}
+else{
+	echo "<h2>Your Top Critics</h2><br /><lead>Critic1<br />Critic2<br />Critic3<br />Critic4<br />Critic5<br /><br /><br /></lead>";
+}
+
+	?>
 
 
 </div>
