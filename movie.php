@@ -10,7 +10,7 @@ if (isset($_GET['id'])) {
 	die();
 }
 
-if (isset($_POST['submit']) {
+if (isset($_POST['submit'])) {
 	$user_rating = 0;
 
 	if ($_POST['star'] === '5') {
