@@ -129,34 +129,20 @@ float: left;
 		<script type="text/javascript">
 			document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\" width=\"\"/ class='img-responsive' />");
 		</script>
-<<<<<<< HEAD
-		<div class="rating">
-			<form action="movie.php" method="post" id="register">
-			<div class="pull-left">
-			<span class="star"><input type="radio" name="star" id="star5" value="5"><label for="star5"></label></span>
-			<span class="star"><input type="radio" name="star" id="star4" value="4"><label for="star4"></label></span>
-			<span class="star"><input type="radio" name="star" id="star3" value="3"><label for="star3"></label></span>
-			<span class="star"><input type="radio" name="star" id="star2" value="2"><label for="star2"></label></span>
-			<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span>
-			</div>
-			<input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary pull-right"/></input>
-			</form>
 		
-=======
-		<p class="text-left">
-		<div class="rating text-left">
+		<div class="rating">
 			<form action="" method="post" id="register">
 			<?php echo '"' . $old_rating . '"'; ?>
+			<div class="pull-left">
 			<span class="star"><input type="radio" name="star" id="star5" value="5" <?php if ($old_rating === '5') echo 'checked="checked"'; ?>><label for="star5"></label></span>
 			<span class="star"><input type="radio" name="star" id="star4" value="4" <?php if ($old_rating === '4') echo 'checked="checked"'; ?>><label for="star4"></label></span>
 			<span class="star"><input type="radio" name="star" id="star3" value="3" <?php if ($old_rating === '3') echo 'checked="checked"'; ?>><label for="star3"></label></span>
 			<span class="star"><input type="radio" name="star" id="star2" value="2" <?php if ($old_rating === '2') echo 'checked="checked"'; ?>><label for="star2"></label></span>
-			<span class="star"><input type="radio" name="star" id="star1" value="1" <?php if ($old_rating === '1') echo 'checked="checked"'; ?>><label for="star1"></label></span><br /><br />
-			<input type="submit" name="submit" value="Rate" class="btn btn-md btn-primary" /></input>
->>>>>>> origin/master
+			<span class="star"><input type="radio" name="star" id="star1" value="1" <?php if ($old_rating === '1') echo 'checked="checked"'; ?>><label for="star1"></label></span>
+			</div>
+			<input type="submit" name="submit" value="Rate" class="btn btn-md btn-primary pull-right" /></input>
 		</div>
 	</div>
-
 	<div class ="col-md-8 ">
 		<script type="text/javascript">
 			document.write("<h2>" + movie.title + "</h2>");
