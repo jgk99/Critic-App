@@ -65,7 +65,7 @@ $stars2 = '<img src="starpics/2star.jpg" alt="2 stars" width="100">';
 $stars3 = '<img src="starpics/3star.jpg" alt="3 stars" width="100">';
 $stars4 = '<img src="starpics/4stars.jpg" alt="4 stars" width="100">';
 $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
-//$userId=$_SESSION["id"];
+
 ?>
 
 <!DOCTYPE html>
