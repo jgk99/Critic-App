@@ -185,7 +185,6 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 					if ($matches !== false) {
 						foreach (array_keys($matches) as $match) {
 							$rating = get_rating_from_critic($match, $_GET['id'], $con);
-							$match_ratings[] = $match . "<br />";
 						}
 					} else {
 						$rate_more_movies = true;
