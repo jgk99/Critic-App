@@ -67,11 +67,11 @@ if (isset($_POST['submit'])) {
 				echo "Duplicate found";
 				$dupeField = $errArr[5];
 				$noredirect = "true";
-				if ($dupeField == 'username') {
+				if ($dupeField == "'username'") {
 					echo "dup username found";
 					$utaken = '<font color=red>Your username is already taken by another user. Please make another one.</font>';
 				}
-				if ($dupeField == 'Email') {
+				if ($dupeField == "'Email'") {
 					echo "dup email found";
 					$etaken = '<font color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
