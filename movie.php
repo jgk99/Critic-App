@@ -73,6 +73,16 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/ratings.js"></script>
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('.rating input:radio').attr('checked', false);
+			$('.rating #star' + <?php echo "'" . $old_rating . "'" ?>).attr('checked', true);
+			$('.rating input').click(function() {
+				$('.rating span.' + event.target.name).removeClass('checked');
+				$(this).parent().addClass('checked');
+			});
+		});
+	</script>
 </head>
 <body>
 
@@ -80,13 +90,8 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 	<?php require_once("includes/header.php"); 
 
 	if ($happy === "localhost" || $happy === "localhost:8888") {
-	
-	}
-
-	else {
-	
-	require_once("includes/similarity_algorithm.php");
-	
+	} else {
+		require_once("includes/similarity_algorithm.php");
 	}
 
 	if($_GET["id"])
@@ -125,12 +130,11 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 		<p class="text-left">
 		<div class="rating text-left">
 			<form action="" method="post" id="register">
-			<?php echo '"' . $old_rating . '"'; ?>
-			<span class="star"><input type="radio" name="star" id="star5" value="5" <?php if ($old_rating === '5') echo 'checked="checked"'; ?>><label for="star5"></label></span>
-			<span class="star"><input type="radio" name="star" id="star4" value="4" <?php if ($old_rating === '4') echo 'checked="checked"'; ?>><label for="star4"></label></span>
-			<span class="star"><input type="radio" name="star" id="star3" value="3" <?php if ($old_rating === '3') echo 'checked="checked"'; ?>><label for="star3"></label></span>
-			<span class="star"><input type="radio" name="star" id="star2" value="2" <?php if ($old_rating === '2') echo 'checked="checked"'; ?>><label for="star2"></label></span>
-			<span class="star"><input type="radio" name="star" id="star1" value="1" <?php if ($old_rating === '1') echo 'checked="checked"'; ?>><label for="star1"></label></span><br /><br />
+			<span class="star"><input type="radio" name="star" id="star5" value="5"><label for="star5"></label></span>
+			<span class="star"><input type="radio" name="star" id="star4" value="4"><label for="star4"></label></span>
+			<span class="star"><input type="radio" name="star" id="star3" value="3"><label for="star3"></label></span>
+			<span class="star"><input type="radio" name="star" id="star2" value="2"><label for="star2"></label></span>
+			<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span><br /><br />
 			<input type="submit" name="submit" value="Rate" class="btn btn-md btn-primary" /></input>
 		</div>
 		</p>
