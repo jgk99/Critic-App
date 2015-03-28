@@ -11,6 +11,8 @@ if (isset($_GET['id'])) {
 	die();
 }
 
+$con = dbconnect();
+
 $check_query = "SELECT * FROM `userreviews` WHERE `UserID` = '" . $_SESSION['id'] . "' AND `MovieID` = '" . $_GET['id'] . "'";
 $check_query_sql = $con->query($check_query);
 
@@ -39,8 +41,6 @@ if (isset($_POST['submit'])) {
 	}
 
 	if ($user_rating !== 0) {
-		$con = dbconnect();
-
 		if ($exists) {
 			$query = "UPDATE `userreviews` SET `Rating` = '" . $user_rating . "' WHERE `UserID` = '" . $_SESSION['id'] . "'";
 			if (!$con->query($query)) {
