@@ -56,9 +56,13 @@ else{
 		$rate_more_movies = false;
 		$match_ratings = array();
 		if ($matches !== false) {
-			foreach (array_keys($matches) as $match) {
-				$rating = get_rating_from_critic($match, $_GET['id'], $con);
-				$match_ratings[] = $match . "<br />";
+			if (count($matches) < 5) {
+				foreach (array_keys($matches) as $match) {
+					$rating = get_rating_from_critic($match, $_GET['id'], $con);
+					$match_ratings[] = $match . "<br />";
+				}
+			} else {
+				$rate_more_movies = true;
 			}
 		} else {
 			$rate_more_movies = true;
@@ -66,7 +70,7 @@ else{
 
 		echo '<h2>Your Top Critics Are:</h2>';
 		echo '<script type ="text/javascript">
-				if (' . $rate_more_movies . ' == "") {
+				if (' . $rate_more_movies . ' == 1) {
 					document.write("Rate more movies to find some similar critics.");
 				} else {
 					var match_ratings = ' . json_encode($match_ratings) . ';
