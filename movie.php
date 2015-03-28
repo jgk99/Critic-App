@@ -10,6 +10,11 @@ if (isset($_GET['id'])) {
 	header("Location: index.php");
 	die();
 }
+if ($happy === "localhost" || $happy === "localhost:8888") {
+	
+	}
+
+	else {
 
 $con = dbconnect();
 
@@ -21,6 +26,7 @@ $old_rating = 0;
 while ($row = mysqli_fetch_assoc($check_query_sql)) {
 	$exists = true;
 	$old_rating = $row["Rating"];
+}
 }
 
 if (isset($_POST['submit'])) {
@@ -129,12 +135,14 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 		
 		<div class="rating">
 			<form action="" method="post" id="register">
+				<div class="pull-left">
 				<span class="star"><input type="radio" name="star" id="star5" value="5"><label for="star5"></label></span>
 				<span class="star"><input type="radio" name="star" id="star4" value="4"><label for="star4"></label></span>
 				<span class="star"><input type="radio" name="star" id="star3" value="3"><label for="star3"></label></span>
 				<span class="star"><input type="radio" name="star" id="star2" value="2"><label for="star2"></label></span>
-				<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span><br /><br />
-				<input type="submit" name="submit" value="Rate" class="btn btn-md btn-primary" /></input>
+				<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span>
+				</div>
+				<input type="submit" name="submit" value="Rate" class="btn btn-md btn-primary pull-right" /></input>
 			</form>
 		</div>
 	</div>
