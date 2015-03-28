@@ -60,7 +60,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<br/>
 				<font color="red"><?php
-				echo '$notUser';
+				echo $notUser;
 				 ?></font>
 
 				<tr>
