@@ -62,15 +62,18 @@ if (isset($_POST['submit'])) {
 			addUser($lastname, $firstname, $username, $email, $password1);
 		} catch (mysqli_sql_exception $e) {
  			$errArr = explode(' ', $e->getMessage());
- 			//print_r($errArr);
+ 			print_r($errArr);
 			if ($errArr[0] == 'Duplicate') {
+				echo "Duplicate found";
 				$dupeField = $errArr[5];
 				$noredirect = "true";
 				if ($dupeField == 'username') {
-					$utaken .= '<font color=red>Your username is already taken by another user. Please make another one.</font>';
+					echo "dup username found";
+					$utaken = '<font color=red>Your username is already taken by another user. Please make another one.</font>';
 				}
 				if ($dupeField == 'Email') {
-					$etaken .= '<font color=red>Your email is already taken by another user. Please make another one.</font>';
+					echo "dup email found";
+					$etaken = '<font color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
 			
 			}
