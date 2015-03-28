@@ -11,7 +11,7 @@ if (isset($_POST['submit'])) {
 	
 	$success = validateUser($username, $password);
 
-	if ($success) {
+	if ($success == "true") {
 		$userid = getIDFromUsername($username);
 		$_SESSION["id"] = $userid;
 		header("Location: movies.php");
