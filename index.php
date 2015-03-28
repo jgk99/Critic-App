@@ -3,7 +3,7 @@ if (isset($_SESSION["id"])) {
 $signedIn="true";
 }
 else{
-	$signedIn="false";
+	$signedIn="fase";
 }
 
 ?>
@@ -47,7 +47,7 @@ if($signedIn=="false"){
 	</div>";
 }
 else{
-	echo "<h2>Your Top Critics</h2><br /><lead>Critic1<br />Critic2<br />Critic3<br />Critic4<br />Critic5<br /><br /><br /></lead>";
+	echo "<h3>Your Top Critics</h3><br /><lead>Critic1<br />Critic2<br />Critic3<br />Critic4<br />Critic5<br /><br /><br /></lead>";
 }
 
 	?>
