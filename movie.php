@@ -211,7 +211,7 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 					
 					var match_ratings = <?php echo json_encode($match_ratings); ?>;
 
-					if (match_ratings.length < 5 || variable === match_ratings || match_ratings === null) {
+					if (match_ratings.length < 5 || match_ratings === undefined || match_ratings === null) {
 						document.write("Rate more movies to find some similar critics.");
 					} else {
 						for (var i = 0; i < match_ratings.length; i++) {
