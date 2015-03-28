@@ -144,9 +144,12 @@ function store_critic_ratings($movieID) {
 	}
 }
 function store_user_ratings($userid, $movieid, $userrating) {
-	$userrating = $userrating/20;
+	$userrating = $userrating ;
 	$con = dbconnect();
 	$rating_insert = "INSERT INTO `userreviews` (`UserID`, `MovieID`, `Rating`) VALUES ('$userid', '$movieid', '$userrating')";
+	if (!$con->query($rating_insert)) {
+		throw new Exception("Query failed with error: $con->sqlstate");
+	}
 }
 
 ?>
