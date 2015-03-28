@@ -229,7 +229,7 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 				<script type="text/javascript">
 					/*var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
 					if (top_matches.length < 1) {
-						document.write("Rate more movies, bitch!");
+						document.write("Rate more movies");
 					} else {
 						var match;
 						for (var i = 0; i < 3; i++) {
