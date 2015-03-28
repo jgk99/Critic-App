@@ -124,6 +124,7 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 		<p class="text-left">
 		<div class="rating text-left">
 			<form action="" method="post" id="register">
+			<?php echo $old_rating; ?>
 			<span class="star"><input type="radio" name="star" id="star5" value="5" <?php if ($old_rating === 5) echo 'checked="checked"'; ?>><label for="star5"></label></span>
 			<span class="star"><input type="radio" name="star" id="star4" value="4" <?php if ($old_rating === 4) echo 'checked="checked"'; ?>><label for="star4"></label></span>
 			<span class="star"><input type="radio" name="star" id="star3" value="3" <?php if ($old_rating === 3) echo 'checked="checked"'; ?>><label for="star3"></label></span>
