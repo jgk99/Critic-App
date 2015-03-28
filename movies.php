@@ -2,7 +2,7 @@
 require_once("includes/forcessl.php");
 require_once("includes/restricted.php");
 $box_office = file_get_contents('http://api.rottentomatoes.com/api/public/v1.0/lists/movies/box_office.json?apikey=nqr68qe538tc2hsub2c5fubt');
-$movielist = json_decode($box_office);
+$toprentals = file_get_contents('http://api.rottentomatoes.com/api/public/v1.0/lists/dvds/top_rentals.json?apikey=nqr68qe538tc2hsub2c5fubt');
 
 ?>
 
@@ -26,6 +26,7 @@ $movielist = json_decode($box_office);
 
 	<script type="text/javascript">
 		var movies = <?php echo $box_office ?>;
+		var rentals = <?php echo $toprentals ?>;
 		var i = 0;
 	</script>
 
@@ -160,7 +161,7 @@ $movielist = json_decode($box_office);
 							</script> class="thumbnail">
 							<script type="text/javascript">
 								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + movies.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
-								i++;          
+								i = 0;          
 							</script>
 						</a>
 						</div>
@@ -170,6 +171,150 @@ $movielist = json_decode($box_office);
 			 
 			<a class="left carousel-control" href="#myCarousel" data-slide="prev">‹</a>
 			<a class="right carousel-control" href="#myCarousel" data-slide="next">›</a>
+		</div>
+    </div>
+    <h2>Top Rentals</h2>
+    <div class="well well-large">
+		<div id="rentalCarousel" class="carousel slide">
+			<div class="carousel-inner">
+				<div class="item active">
+					<div class="row">
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i++;          
+							</script>
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i++;          
+							</script>
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i++;          
+							</script>
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i;          
+							</script>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="row">
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i++;          
+							</script>
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i++;          
+							</script>
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i++;          
+							</script>
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i;          
+							</script>
+							</a>
+						</div>
+					</div>
+				</div>
+
+				<div class="item">
+					<div class="row">
+						<div class="col-xs-3">
+						<script type="text/javascript">
+							document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+						</script> class="thumbnail">
+						<script type="text/javascript">
+							document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+							i++;          
+						</script>
+						</a>
+						</div>
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i++;          
+							</script>
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i++;          
+							</script>
+							</a>
+						</div>
+						<div class="col-xs-3">
+							<script type="text/javascript">
+								document.write("<a href=\"movie.php?id=" + rentals.movies[i].alternate_ids['imdb'] + "\"");         
+							</script> class="thumbnail">
+							<script type="text/javascript">
+								document.write("<img src=\"http://img.omdbapi.com/?i=tt" + rentals.movies[i].alternate_ids['imdb'] + "&apikey=51ced2f\" />");
+								i++;          
+							</script>
+						</a>
+						</div>
+					</div>
+				</div>
+			</div>
+			 
+			<a class="left carousel-control" href="#rentalCarousel" data-slide="prev">‹</a>
+			<a class="right carousel-control" href="#rentalCarousel" data-slide="next">›</a>
 		</div>
     </div>
 </div>
