@@ -82,6 +82,7 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 		$(document).ready(function() {
 			$('.rating input:radio').attr('checked', false);
 			$('.rating #star<?php echo $old_rating ?>').prop("checked", true);
+			$('.rating #star<?php echo $old_rating ?>').parent().addClass('checked');
 			$('.rating input').click(function() {
 				$('.rating span.' + event.target.name).removeClass('checked');
 				$(this).parent().addClass('checked');
