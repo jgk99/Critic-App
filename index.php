@@ -58,8 +58,8 @@ else {
 	$match_ratings[] = $match ."<br />";
 	}
 
-	echo '<script type ="text/javascript">';
-	echo' var match_ratings = '.json_encode($match_ratings).';
+	echo '<h2>Your Top Critics Are:</h2>';
+	echo'<script type ="text/javascript"> var match_ratings = '.json_encode($match_ratings).';
 
 					if (match_ratings.length < 5 || match_ratings === undefined || match_ratings === null) {
 						document.write("Rate more movies to find some similar critics.");
