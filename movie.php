@@ -49,6 +49,7 @@ if (isset($_POST['submit'])) {
 		} else {
 			store_user_ratings($_SESSION['id'], $_GET['id'], $user_rating);
 		}
+		$old_rating = $user_rating;
 	}
 }
 
@@ -125,11 +126,11 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 		<div class="rating text-left">
 			<form action="" method="post" id="register">
 			<?php echo $old_rating; ?>
-			<span class="star"><input type="radio" name="star" id="star5" value="5" <?php if ($old_rating === 5) echo 'checked="checked"'; ?>><label for="star5"></label></span>
-			<span class="star"><input type="radio" name="star" id="star4" value="4" <?php if ($old_rating === 4) echo 'checked="checked"'; ?>><label for="star4"></label></span>
-			<span class="star"><input type="radio" name="star" id="star3" value="3" <?php if ($old_rating === 3) echo 'checked="checked"'; ?>><label for="star3"></label></span>
-			<span class="star"><input type="radio" name="star" id="star2" value="2" <?php if ($old_rating === 2) echo 'checked="checked"'; ?>><label for="star2"></label></span>
-			<span class="star"><input type="radio" name="star" id="star1" value="1" <?php if ($old_rating === 1) echo 'checked="checked"'; ?>><label for="star1"></label></span><br /><br />
+			<span class="star"><input type="radio" name="star" id="star5" value="5" <?php if ($old_rating === '5') echo 'checked="checked"'; ?>><label for="star5"></label></span>
+			<span class="star"><input type="radio" name="star" id="star4" value="4" <?php if ($old_rating === '4') echo 'checked="checked"'; ?>><label for="star4"></label></span>
+			<span class="star"><input type="radio" name="star" id="star3" value="3" <?php if ($old_rating === '3') echo 'checked="checked"'; ?>><label for="star3"></label></span>
+			<span class="star"><input type="radio" name="star" id="star2" value="2" <?php if ($old_rating === '2') echo 'checked="checked"'; ?>><label for="star2"></label></span>
+			<span class="star"><input type="radio" name="star" id="star1" value="1" <?php if ($old_rating === '1') echo 'checked="checked"'; ?>><label for="star1"></label></span><br /><br />
 			<input type="submit" name="submit" value="Rate" class="btn btn-md btn-primary" /></input>
 		</div>
 		</p>
