@@ -61,7 +61,7 @@ if (isset($_POST['submit'])) {
 				<br/>
 				<font color="red"><?php
 				echo $notUser;
-				 ?></font>
+				 ?></font><br />
 
 				<tr>
 					<td></td>
