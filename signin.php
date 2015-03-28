@@ -18,7 +18,7 @@ if (isset($_POST['submit'])) {
 		exit();
 	}
 	else{
-		$notUser="Your username or password is incorrect, please try again."
+		$notUser="Your username or password is incorrect, please try again.";
 
 	}
 }
