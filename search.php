@@ -1,5 +1,3 @@
-
-
 <?php
 require_once("includes/forcessl.php");
 require_once("includes/restricted.php");
@@ -20,7 +18,8 @@ if (isset($_POST["query"])) {
 			die();
 		}
 	}
-} else {
+} 
+else {
 	header("Location: index.php");
 	die();
 
