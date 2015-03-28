@@ -143,5 +143,10 @@ function store_critic_ratings($movieID) {
 		$con->close();
 	}
 }
+function store_user_ratings($userid, $movieid, $userrating) {
+	$userrating = $userrating/20;
+	$con = dbconnect();
+	$rating_insert = "INSERT INTO `userreviews` (`UserID`, `MovieID`, `Rating`) VALUES ('$userid', '$movieid', '$userrating')";
+}
 
 ?>
