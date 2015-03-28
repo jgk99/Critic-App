@@ -69,9 +69,12 @@ function get_similarities($userID) {
 
 function get_top_matches($userID, $quantity) {
 	$similarities = get_similarities($userID);
-	asort($similarities);
-	//$criticNames = array_keys($similarities);
-	return array_slice($similarities, 0, $quantity);
+	if ($similarities !== false) {
+		asort($similarities);
+		return array_slice($similarities, 0, $quantity);
+	} else {
+		return false;
+	}
 }
 
 function get_rating_from_critic($critic_name, $movie_id, $con) {
