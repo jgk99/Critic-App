@@ -68,7 +68,7 @@ if (isset($_POST['submit'])) {
 				$dupeField = $errArr[5];
 				$noredirect = "true";
 				if ($dupeField = 'username') {
-					$unameTaken ='<font color=red>Your username is already taken by another user. Please make another one.</font>';
+					$unameTaken ='<font color=red>Your username, your email, or both are already taken by another user. Please make another one.</font>';
 				}
 				if ($dupeField === 'Email') {
 					$emailTaken ='<font color=red>Your email is already taken by another user. Please make another one.</font>';
