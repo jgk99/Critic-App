@@ -72,7 +72,7 @@ if (isset($_POST['submit'])) {
 					$taken .='<font color=red>Your username, your email, or both are already taken by another user. Please make another one.</font>';
 				}
 				if ($dupeField === 'Email') {
-					$taken .=4'<font color=red>Your email is already taken by another user. Please make another one.</font>';
+					$taken .='<font color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
 			}
  		}
