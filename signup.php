@@ -67,10 +67,10 @@ if (isset($_POST['submit'])) {
 				$dupeField = $errArr[5];
 				$noredirect = "true";
 			
-				if ($dupeField = 'username') {
-					$utaken .= '<font color=red>Your username, your email, or both are already taken by another user. Please make another one.</font>';
+				if ($dupeField == 'username') {
+					$utaken .= '<font color=red>Your username is already taken by another user. Please make another one.</font>';
 				}
-				if ($dupeField === 'Email') {
+				if ($dupeField == 'Email') {
 					$etaken .= '<font color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
 			
@@ -139,8 +139,9 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Confirm Password: </td>
-					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /><?php echo $pmatch; ?><br /><?php echo $utaken; ?><br /><?php echo $etaken; ?></td>
+					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /></td>
 				</tr>
+				<tr><td><?php echo $pmatch; ?><br /><?php echo $utaken; ?><br /><?php echo $etaken; ?></td></tr>
 				<tr>
 					<td></td>
 					<td><input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary" /></td>
