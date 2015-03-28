@@ -62,17 +62,13 @@ if (isset($_POST['submit'])) {
 			addUser($lastname, $firstname, $username, $email, $password1);
 		} catch (mysqli_sql_exception $e) {
  			$errArr = explode(' ', $e->getMessage());
- 			print_r($errArr);
 			if ($errArr[0] == 'Duplicate') {
-				echo "Duplicate found";
 				$dupeField = $errArr[5];
 				$noredirect = "true";
 				if ($dupeField == "'username'") {
-					echo "dup username found";
 					$utaken = '<font color=red>Your username is already taken by another user. Please make another one.</font>';
 				}
 				if ($dupeField == "'Email'") {
-					echo "dup email found";
 					$etaken = '<font color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
 			
@@ -143,7 +139,7 @@ if (isset($_POST['submit'])) {
 					<td class="form-label">Confirm Password: </td>
 					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /></td>
 				</tr>
-				<tr><td><?php echo $pmatch; ?><br /><?php echo $utaken; ?><br /><?php echo $etaken; ?></td></tr>
+				<br/><?php echo $pmatch; ?><br /><?php echo $utaken; ?><br /><?php echo $etaken; ?>
 				<tr>
 					<td></td>
 					<td><input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary" /></td>
