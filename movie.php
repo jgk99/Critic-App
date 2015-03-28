@@ -226,7 +226,7 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 					var match_ratings = <?php echo json_encode($match_ratings); ?>;
 					var rate_more_movies = <?php echo $rate_more_movies ? '1' : '"false"'; ?>;
 
-					if (rate_more_movies == "false") {
+					if (rate_more_movies == "true") {
 						document.write("Rate more movies to find some similar critics.");
 					} else {
 						for (var i = 0; i < match_ratings.length; i++) {
