@@ -67,11 +67,12 @@ if (isset($_POST['submit'])) {
 			if ($errArr[0] === 'Duplicate') {
 				$dupeField = $errArr[5];
 				$noredirect = "true";
+				$taken = ""
 				if ($dupeField = 'username') {
-					$unameTaken ='<font color=red>Your username, your email, or both are already taken by another user. Please make another one.</font>';
+					$taken .='<font color=red>Your username, your email, or both are already taken by another user. Please make another one.</font>';
 				}
 				if ($dupeField === 'Email') {
-					$emailTaken ='<font color=red>Your email is already taken by another user. Please make another one.</font>';
+					$taken .=4'<font color=red>Your email is already taken by another user. Please make another one.</font>';
 				}
 			}
  		}
@@ -138,7 +139,7 @@ if (isset($_POST['submit'])) {
 				</tr>
 				<tr>
 					<td class="form-label">Confirm Password: </td>
-					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /><?php echo $pmatch; ?><?php echo $unameTaken; ?></td>
+					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /><?php echo $pmatch; ?><?php echo $taken; ?></td>
 				</tr>
 				<tr>
 					<td></td>
