@@ -50,7 +50,6 @@ if($signedIn=="false"){
 	</div>";
 	}
 else {
-	echo '<script type ="text/javascript">';
 	$con = dbconnect();
 	$matches = get_top_matches($_SESSION['id'], 5);
 	foreach (array_keys($matches) as $match) {
