@@ -179,8 +179,7 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 					<?php
 
 					$con = dbconnect();
-					$matches = get_top_matches(1, 5);//Eventually the 1 should be changed to $userId
-					$match_ratings = array();
+					$matches = get_top_matches($_SESSION['id'], 5);
 
 					foreach (array_keys($matches) as $match) {
 						$rating = get_rating_from_critic($match, $_GET['id'], $con);
@@ -212,19 +211,13 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 					
 					var match_ratings = <?php echo json_encode($match_ratings); ?>;
 
-					for (var i = 0; i < match_ratings.length; i++) {
-						document.write(match_ratings[i]);
-					}
-
-					/*var top_matches = <?php echo json_encode(get_top_matches(1, 3)); ?>;
-					if (top_matches.length < 1) {
-						document.write("Rate more movies, bitch!");
+					if (match_ratings.length < 5) {
+						document.write("Rate more movies to find some similar critics.");
 					} else {
-						var match;
-						for (var i = 0; i < 3; i++) {
-							document.write(top_matches[i]);
+						for (var i = 0; i < match_ratings.length; i++) {
+							document.write(match_ratings[i]);
 						}
-					}*/
+					}
 				</script>
 			</div>
 		</div>
