@@ -185,19 +185,19 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 						$rating = get_rating_from_critic($match, $_GET['id'], $con);
 						if ($rating !== false) {
 							
-							if($rating>=0 && $rating<=1){
+							if($rating>=0 && $rating<1.5){
 								$chosenStar=$stars1;
 							}
-							if($rating>=1 && $rating<=2){
+							if($rating>=1.5 && $rating<2.5){
 								$chosenStar=$stars2;
 							}
-							if($rating>=2 && $rating<=3){
+							if($rating>=2.5 && $rating<3.5){
 								$chosenStar=$stars3;
 							}
-							if($rating>=3 && $rating<=4){
+							if($rating>=3.5 && $rating<4.5){
 								$chosenStar=$stars4;
 							}
-							if($rating>=4 && $rating<=5){
+							if($rating>=4.5 && $rating<=5){
 								$chosenStar=$stars5;
 							}
 							
