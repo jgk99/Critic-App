@@ -69,7 +69,7 @@ else {
 							document.write(match_ratings[i]);
 						}
 					}
-			</script>'
+			</script>';
 		}
 	?>
 </div>
