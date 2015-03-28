@@ -143,6 +143,7 @@ function store_critic_ratings($movieID) {
 		$con->close();
 	}
 }
+
 function store_user_ratings($userid, $movieid, $userrating) {
 	$userrating = $userrating ;
 	$con = dbconnect();

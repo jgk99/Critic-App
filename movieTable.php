@@ -2,8 +2,6 @@
 
 require_once("includes/forcessl.php");
 require_once("includes/restricted.php");
-require_once("includes/dbfuncs.php");
-require_once("includes/similarity_algorithm.php");
 
 if (isset($_GET['id'])) { 
 } else {
@@ -11,54 +9,12 @@ if (isset($_GET['id'])) {
 	die();
 }
 
-$con = dbconnect();
-
-$check_query = "SELECT * FROM `userreviews` WHERE `UserID` = '" . $_SESSION['id'] . "' AND `MovieID` = '" . $_GET['id'] . "'";
-$check_query_sql = $con->query($check_query);
-
-$exists = false;
-$old_rating = 0;
-while ($row = mysqli_fetch_assoc($check_query_sql)) {
-	$exists = true;
-	$old_rating = $row["Rating"];
-}
-
-if (isset($_POST['submit'])) {
-	$user_rating = 0;
-
-	if ($_POST['star'] === '5') {
-		$user_rating = 5;
-	} else if ($_POST['star'] === '4') {
-		$user_rating = 4;
-	} else if ($_POST['star'] === '3') {
-		$user_rating = 3;
-	} else if ($_POST['star'] === '2') {
-		$user_rating = 2;
-	} else if ($_POST['star'] === '1') {
-		$user_rating = 1;
-	} else {
-		$user_rating = 0;
-	}
-
-	if ($user_rating !== 0) {
-		if ($exists) {
-			$query = "UPDATE `userreviews` SET `Rating` = '" . $user_rating . "' WHERE `UserID` = '" . $_SESSION['id'] . "'";
-			if (!$con->query($query)) {
-				throw new Exception("Query failed with error: $con->sqlstate");
-			}
-		} else {
-			store_user_ratings($_SESSION['id'], $_GET['id'], $user_rating);
-		}
-		$old_rating = $user_rating;
-	}
-}
-
-$stars0 = '<img src="starpics/0stars.jpg" alt="0 stars" width="100">';
-$stars1 = '<img src="starpics/1star.jpg" alt="1 stars" width="100">';
-$stars2 = '<img src="starpics/2star.jpg" alt="2 stars" width="100">';
-$stars3 = '<img src="starpics/3star.jpg" alt="3 stars" width="100">';
-$stars4 = '<img src="starpics/4stars.jpg" alt="4 stars" width="100">';
-$stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
+$stars0 ='<img src="starpics/0stars.jpg" alt="0 stars" width="100">';
+$stars1 ='<img src="starpics/1star.jpg" alt="1 stars" width="100">';
+$stars2='<img src="starpics/2star.jpg" alt="2 stars" width="100">';
+$stars3 ='<img src="starpics/3star.jpg" alt="3 stars" width="100">';
+$stars4 ='<img src="starpics/4stars.jpg" alt="4 stars" width="100">';
+$stars5 ='<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 //$userId=$_SESSION["id"];
 ?>
 
@@ -73,13 +29,6 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script>
 	<script src="js/bootstrap.min.js"></script>
 	<script type="text/javascript" src="js/ratings.js"></script>
-<style type="text/css">
-.star {
-float: left;
-
-}
-
-</style>
 </head>
 <body>
 
@@ -105,8 +54,12 @@ float: left;
 			$id_exists = true;
 			if ($happy === "localhost" || $happy === "localhost:8888") {
 	
-			} else {
-				store_critic_ratings($_GET["id"]);
+			}
+
+			else {
+	
+			store_critic_ratings($_GET["id"]);
+			
 			}
 		}
 	}
@@ -124,38 +77,30 @@ float: left;
 			document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\>"); */
 		}
 	</script>
-
+<table width="1200" border="0">
+	<tr width ="300">
+		<td>
 	<div class ="col-md-3 col-lg-3 col-sm-3 col-xs-3">
+		<p>
 		<script type="text/javascript">
 			document.write("<img src=\"http://img.omdbapi.com/?apikey=51ced2f&i=tt" + movie.alternate_ids['imdb'] + "\" width=\"\"/ class='img-responsive' />");
-		</script>
-<<<<<<< HEAD
-		<div class="rating">
+		</script></p>
+		<p class="text-left">
+		<div class="rating text-left">
 			<form action="movie.php" method="post" id="register">
-			<div class="pull-left">
 			<span class="star"><input type="radio" name="star" id="star5" value="5"><label for="star5"></label></span>
 			<span class="star"><input type="radio" name="star" id="star4" value="4"><label for="star4"></label></span>
 			<span class="star"><input type="radio" name="star" id="star3" value="3"><label for="star3"></label></span>
 			<span class="star"><input type="radio" name="star" id="star2" value="2"><label for="star2"></label></span>
-			<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span>
-			</div>
-			<input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary pull-right"/></input>
-			</form>
+			<span class="star"><input type="radio" name="star" id="star1" value="1"><label for="star1"></label></span><br /><br />
+			<input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary" /></input>
 		
-=======
-		<p class="text-left">
-		<div class="rating text-left">
-			<form action="" method="post" id="register">
-			<?php echo '"' . $old_rating . '"'; ?>
-			<span class="star"><input type="radio" name="star" id="star5" value="5" <?php if ($old_rating === '5') echo 'checked="checked"'; ?>><label for="star5"></label></span>
-			<span class="star"><input type="radio" name="star" id="star4" value="4" <?php if ($old_rating === '4') echo 'checked="checked"'; ?>><label for="star4"></label></span>
-			<span class="star"><input type="radio" name="star" id="star3" value="3" <?php if ($old_rating === '3') echo 'checked="checked"'; ?>><label for="star3"></label></span>
-			<span class="star"><input type="radio" name="star" id="star2" value="2" <?php if ($old_rating === '2') echo 'checked="checked"'; ?>><label for="star2"></label></span>
-			<span class="star"><input type="radio" name="star" id="star1" value="1" <?php if ($old_rating === '1') echo 'checked="checked"'; ?>><label for="star1"></label></span><br /><br />
-			<input type="submit" name="submit" value="Rate" class="btn btn-md btn-primary" /></input>
->>>>>>> origin/master
 		</div>
+		</p>
 	</div>
+</td>
+<td width="900">
+
 
 	<div class ="col-md-8 ">
 		<script type="text/javascript">
@@ -180,7 +125,7 @@ float: left;
 		</div>
 	</div>
 
-	<div class="col-md-8 col-md-offset-4">
+	<div class="col-md-8 col-md-offset-1">
 		<div class="row">
 			<div class="well">
 				<h4>Your Top Critics:</h4>
@@ -259,6 +204,9 @@ float: left;
 			</div>
 		</div>
 	</div>
+</td>
+</tr>
+</table>
 </div>
 <br /><br />
 <?php require_once("includes/footer.php"); ?>
