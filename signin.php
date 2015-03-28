@@ -3,11 +3,12 @@ require_once("includes/forcessl.php");
 require_once("includes/goodrestricted.php");
 require_once("includes/dbfuncs.php");
 error_reporting(E_ALL | ~E_ubTRICT);
+$notUser="";
 
 if (isset($_POST['submit'])) {
 	$username = $_POST["username"]; 
 	$password = $_POST["pw"];
-	$notUser="";
+	
 	
 	$success = validateUser($username, $password);
 
