@@ -180,38 +180,53 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 
 					$con = dbconnect();
 					$matches = get_top_matches($_SESSION['id'], 5);
-
-					foreach (array_keys($matches) as $match) {
-						$rating = get_rating_from_critic($match, $_GET['id'], $con);
-						if ($rating !== false) {
-							
-							if($rating>=0 && $rating<1.5){
-								$chosenStar=$stars1;
-							}
-							if($rating>=1.5 && $rating<2.5){
-								$chosenStar=$stars2;
-							}
-							if($rating>=2.5 && $rating<3.5){
-								$chosenStar=$stars3;
-							}
-							if($rating>=3.5 && $rating<4.5){
-								$chosenStar=$stars4;
-							}
-							if($rating>=4.5 && $rating<=5){
-								$chosenStar=$stars5;
-							}
-							
-							$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar to you) rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. ".$chosenStar."<br />";
-						} else {
-							$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar to you) hasn't rated this movie. <br />";
+					$rate_more_movies = false;
+					$match_ratings = array();
+					if ($matches !== false) {
+						foreach (array_keys($matches) as $match) {
+							$rating = get_rating_from_critic($match, $_GET['id'], $con);
+							$match_ratings[] = $match . "<br />";
 						}
+					} else {
+						$rate_more_movies = true;
+					}
+
+					if ($matches !== false) {
+						foreach (array_keys($matches) as $match) {
+							$rating = get_rating_from_critic($match, $_GET['id'], $con);
+							if ($rating !== false) {
+								
+								if($rating>=0 && $rating<1.5){
+									$chosenStar=$stars1;
+								}
+								if($rating>=1.5 && $rating<2.5){
+									$chosenStar=$stars2;
+								}
+								if($rating>=2.5 && $rating<3.5){
+									$chosenStar=$stars3;
+								}
+								if($rating>=3.5 && $rating<4.5){
+									$chosenStar=$stars4;
+								}
+								if($rating>=4.5 && $rating<=5){
+									$chosenStar=$stars5;
+								}
+								
+								$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar to you) rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. ".$chosenStar."<br />";
+							} else {
+								$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar to you) hasn't rated this movie. <br />";
+							}
+						}
+					} else {
+						$rate_more_movie = true;
 					}
 
 					?>
 					
 					var match_ratings = <?php echo json_encode($match_ratings); ?>;
+					var rate_more_movies = <?php echo $bool_val ? '1' : ""; ?>
 
-					if (match_ratings.length < 5 || match_ratings === undefined || match_ratings === null) {
+					if (if (rate_more_movies == "")) {
 						document.write("Rate more movies to find some similar critics.");
 					} else {
 						for (var i = 0; i < match_ratings.length; i++) {

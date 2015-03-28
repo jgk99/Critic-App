@@ -40,36 +40,43 @@ else{
 	
 <br /><br /><br />
 	<div class="well lead col-md-4 text-center">
-		<?php 
-if($signedIn=="false"){
-	echo
-	"
-	<p>If you don't have an account you should sign up here now.</p>
-		<a href='signup.php' class='btn btn-default'>Sign Up</a><br /><br />
-		<p>If you have an account <a href='signin.php'>sign in</a> and search the movies that you are curious about in the search bar above. Your critic will tell you everything that you want to know.</p>
-	</div>";
+	<?php
+
+	if($signedIn=="false"){
+		echo
+		"
+		<p>If you don't have an account you should sign up here now.</p>
+			<a href='signup.php' class='btn btn-default'>Sign Up</a><br /><br />
+			<p>If you have an account <a href='signin.php'>sign in</a> and search the movies that you are curious about in the search bar above. Your critic will tell you everything that you want to know.</p>
+		</div>";
 	}
-else {
-	$con = dbconnect();
-	$matches = get_top_matches($_SESSION['id'], 5);
-	foreach (array_keys($matches) as $match) {
-						$rating = get_rating_from_critic($match, $_GET['id'], $con);
-
-	$match_ratings[] = $match ."<br />";
-	}
-
-	echo '<h2>Your Top Critics Are:</h2>';
-	echo'<script type ="text/javascript"> var match_ratings = '.json_encode($match_ratings).';
-
-					if (match_ratings.length < 5 || match_ratings === undefined || match_ratings === null) {
-						document.write("Rate more movies to find some similar critics.");
-					} else {
-						for (var i = 0; i < match_ratings.length; i++) {
-							document.write(match_ratings[i]);
-						}
-					}
-			</script>';
+	else {
+		$con = dbconnect();
+		$matches = get_top_matches($_SESSION['id'], 5);
+		$rate_more_movies = false;
+		$match_ratings = array();
+		if ($matches !== false) {
+			foreach (array_keys($matches) as $match) {
+				$rating = get_rating_from_critic($match, $_GET['id'], $con);
+				$match_ratings[] = $match . "<br />";
+			}
+		} else {
+			$rate_more_movies = true;
 		}
+
+		echo '<h2>Your Top Critics Are:</h2>';
+		echo '<script type ="text/javascript">
+				if (' . $rate_more_movies . ' == "") {
+					document.write("Rate more movies to find some similar critics.");
+				} else {
+					var match_ratings = ' . json_encode($match_ratings) . ';
+					for (var i = 0; i < match_ratings.length; i++) {
+						document.write(match_ratings[i]);
+					}
+				}
+			</script>';
+	}
+
 	?>
 </div>
 <br/>
