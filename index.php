@@ -62,8 +62,7 @@ else{
 					$match_ratings[] = $match . "<br />";
 				}
 			} else {
-				echo count($matches);
-				$rate_more_movies = false;
+				$rate_more_movies = true;
 			}
 		} else {
 			$rate_more_movies = true;
