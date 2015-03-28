@@ -70,6 +70,7 @@ else {
 						}
 					}
 			</script>'
+		}
 	?>
 </div>
 <br/>
