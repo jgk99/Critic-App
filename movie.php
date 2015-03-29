@@ -59,12 +59,12 @@ if (isset($_POST['submit'])) {
 	}
 }
 
-$stars0 = '<img src="starpics/0stars.jpg" alt="0 stars" width="100">';
-$stars1 = '<img src="starpics/1star.jpg" alt="1 stars" width="100">';
-$stars2 = '<img src="starpics/2star.jpg" alt="2 stars" width="100">';
-$stars3 = '<img src="starpics/3star.jpg" alt="3 stars" width="100">';
-$stars4 = '<img src="starpics/4stars.jpg" alt="4 stars" width="100">';
-$stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
+$stars0 = '<img src="images/stars/0star.jpg" alt="0 stars" width="100">';
+$stars1 = '<img src="images/stars/1star.jpg" alt="1 stars" width="100">';
+$stars2 = '<img src="images/stars/2star.jpg" alt="2 stars" width="100">';
+$stars3 = '<img src="images/stars/3star.jpg" alt="3 stars" width="100">';
+$stars4 = '<img src="images/stars/4star.jpg" alt="4 stars" width="100">';
+$stars5 = '<img src="images/stars/5star.jpg" alt="5 stars" width="100">';
 
 ?>
 
@@ -196,20 +196,20 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 							$link = get_critic_link($match, $con);
 
 							if ($rating !== false) {
-								if($rating>=0 && $rating<1.5){
-									$chosenStar=$stars1;
+								if($rating >= 0 && $rating < 1.5){
+									$chosenStar = $stars1;
 								}
-								if($rating>=1.5 && $rating<2.5){
-									$chosenStar=$stars2;
+								if($rating >= 1.5 && $rating < 2.5){
+									$chosenStar = $stars2;
 								}
-								if($rating>=2.5 && $rating<3.5){
-									$chosenStar=$stars3;
+								if($rating >= 2.5 && $rating < 3.5){
+									$chosenStar = $stars3;
 								}
-								if($rating>=3.5 && $rating<4.5){
-									$chosenStar=$stars4;
+								if($rating >= 3.5 && $rating < 4.5){
+									$chosenStar = $stars4;
 								}
-								if($rating>=4.5 && $rating<=5){
-									$chosenStar=$stars5;
+								if($rating >= 4.5 && $rating <= 5){
+									$chosenStar = $stars5;
 								}
 
 								if ($link !== false) {
