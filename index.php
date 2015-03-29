@@ -42,6 +42,7 @@ else{
 	<div class="well lead col-md-4 text-center">
 	<?php
 
+	if($signedIn == "false") {
 		echo
 		"
 		<p>If you don't have an account you should sign up here now.</p>
