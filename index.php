@@ -56,7 +56,7 @@ else{
 		$rate_more_movies = false;
 		$match_ratings = array();
 		if ($matches !== false) {
-			if (count($matches) < 5) {
+			if (count($matches) === 5) {
 				foreach (array_keys($matches) as $match) {
 					$rating = get_rating_from_critic($match, $_GET['id'], $con);
 					$match_ratings[] = $match . "<br />";
