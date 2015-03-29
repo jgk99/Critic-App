@@ -59,7 +59,12 @@ else{
 			if (count($matches) === 5) {
 				foreach (array_keys($matches) as $match) {
 					$rating = get_rating_from_critic($match, $_GET['id'], $con);
-					$match_ratings[] = $match . "<br />";
+					$link = get_critic_link($match, $con);
+					if ($link !== false) {
+						$match_ratings[] = "<a href=\"" . $link . "\">" . $match . "</a><br />";
+					} else {
+						$match_ratings[] = $match . "<br />";
+					}
 				}
 			} else {
 				$rate_more_movies = true;

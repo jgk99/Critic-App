@@ -193,8 +193,9 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 					if ($matches !== false) {
 						foreach (array_keys($matches) as $match) {
 							$rating = get_rating_from_critic($match, $_GET['id'], $con);
+							$link = get_critic_link($match, $con);
+
 							if ($rating !== false) {
-								
 								if($rating>=0 && $rating<1.5){
 									$chosenStar=$stars1;
 								}
@@ -210,10 +211,18 @@ $stars5 = '<img src="starpics/5stars.jpg" alt="5 stars" width="100">';
 								if($rating>=4.5 && $rating<=5){
 									$chosenStar=$stars5;
 								}
-								
-								$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar to you) rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. ".$chosenStar."<br />";
+
+								if ($link !== false) {
+									$match_ratings[] = "<a href=\"" . $link . "\">" . $match . "</a> (" . round((5 - $matches[$match])*20) . "% similar to you) rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. ".$chosenStar."<br />";
+								} else {
+									$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar to you) rated this movie " . get_rating_from_critic($match, $_GET['id'], $con) . "/5. ".$chosenStar."<br />";
+								}
 							} else {
-								$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar to you) hasn't rated this movie. <br />";
+								if ($link !== false) {
+									$match_ratings[] = "<a href=\"" . $link . "\">" . $match . "</a> (" . round((5 - $matches[$match])*20) . "% similar to you) hasn't rated this movie. <br />";
+								} else {
+									$match_ratings[] = $match . " (" . round((5 - $matches[$match])*20) . "% similar to you) hasn't rated this movie. <br />";
+								}
 							}
 						}
 					} else {

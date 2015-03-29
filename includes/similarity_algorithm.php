@@ -159,4 +159,23 @@ function store_user_ratings($userid, $movieid, $userrating) {
 	}
 }
 
+function get_critic_link($critic_name, $con) {
+	$query = "SELECT `Link` FROM `criticreviews` WHERE `Name` = '" . $critic_name . "' LIMIT 1";
+	$query_sql = $con->query($query);
+
+	$exists = false;
+	$link = 0;
+	if ($row = mysqli_fetch_assoc($query_sql)) {
+		$exists = true;
+		$link = $row["Link"];
+		$link = "http://www.metacritic.com/critic/" . $link;
+	}
+
+	if ($exists) {
+		return $link;
+	} else {
+		return false;
+	}
+}
+
 ?>
