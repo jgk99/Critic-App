@@ -42,7 +42,6 @@ else{
 	<div class="well lead col-md-4 text-center">
 	<?php
 
-	if($signedIn=="false"){
 		echo
 		"
 		<p>If you don't have an account you should sign up here now.</p>
@@ -63,16 +62,17 @@ else{
 				}
 			} else {
 				$rate_more_movies = true;
+				echo '.' . count($matches) . '.';
 			}
 		} else {
 			$rate_more_movies = true;
 		}
 
-		echo '<h2>Your Top Critics Are:</h2>';
 		echo '<script type ="text/javascript">
 				if (' . $rate_more_movies . ' == 1) {
-					document.write("Rate more movies to find some similar critics.<br /><br /><br /><br /><br /><br />");
+					document.write("Rate more movies to find some similar critics.<br /><br /><br /><br /><br /><br /><br /><br />");
 				} else {
+					document.write("<h2>Your Top Critics:</h2>");
 					var match_ratings = ' . json_encode($match_ratings) . ';
 					for (var i = 0; i < match_ratings.length; i++) {
 						document.write(match_ratings[i]);
