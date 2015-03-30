@@ -4,7 +4,7 @@ echo '
 	<div class="footer col-md-12" style="text-align: center;">
 
 		<div class="row">
-			<p class="text-muted">Designed By:
+			<p class="text-muted">Coded By:
 				<br />
 				Jonathan Kogan | 
 				Jonathan Stempel | 
