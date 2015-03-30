@@ -67,15 +67,15 @@ else{
 					}
 				}
 			} else {
-				$rate_more_movies = true;
+				$rate_more_movies = "";
 				echo '.' . count($matches) . '.';
 			}
 		} else {
-			$rate_more_movies = true;
+			$rate_more_movies = "";
 		}
 
 		echo '<script type ="text/javascript">
-				if ("$rate_more_movies" == "1") {
+				if ("'.$rate_more_movies.'" == "") {
 					document.write("Rate more movies to find some similar critics.<br /><br /><br /><br /><br /><br /><br /><br />");
 				} else {
 					document.write("<h2>Your Top Critics:</h2>");
