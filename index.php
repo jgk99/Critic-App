@@ -30,13 +30,13 @@ else{
 	<div class="col-md-8">
 		<h2> Our Mission</h2>
 		<p>
-			Imagine it's a saturday, you and some friends want to get together and watch a movie. It's all great until you can't decide what movie you want to see. Someone suggests a movie and you're all excited, but you go on a website like rotten tomatoes and see that it has a terrible score. You don't know why it's bad, but you just assume it is because of the low score. You might want to see it anyways, but your friends are scared off by the low score, and rightly so. Maybe you would have all loved the movie despite what the score says, but there's always a chance that you just wasted two hours that you'll never get back.</p> <p>
+			Imagine it's a Saturday, you and some friends want to go to the movies. Everything’s fine until you can't decide what movie to see. One friend suggests a particular movie that looks awesome: the preview was epic and the special effects look incredible. But you then go on rotten tomatoes and see a terrible score. The other movie playing at the theater got a great review, but the preview was unimpressive. You decide to see the movie with the better review but you hate it. A few weeks later when the other movie that you originally wanted to see is on Netflix, you see it and love it. You wish that you had spent your time and money to see that movie on the IMAX screen, rather than the other one. This leads many people to disregard critics entirely. We believe that our site <strong>mymoviecritic.com</strong> is the answer to this problem.
+</p><p>
+<strong>My Movie Critic</strong> eliminates the problem of relying on one critic or the critic consensus in the case of popular services like Rotten Tomatoes. We accomplish this task by asking you to rate movies that you have already seen so we get a feel for your personality. Then when we have enough information about your movie tastes, we match you up with the five critics in our database with views most similar to yours. Then you can look up any movie and see what your personal movie critic says about it. We are confident that My Movie Critic will improve the experience of moviegoers throughout the world forever.</p>
 
-			Society has come up with some ways to partially get around this problem though. Critics can provide a better view into movies, and more in depth reviews past a score. But this again poses its own problem: Critics are people, and people have opinions. Do their opinions match yours?</p> <p>
 
-			The answer lies in our website, My Movie Critic. My Movie Critic eliminates the problem of which critic to believe. First our website has you rate a few movies that you have already seen so that we can better get to know you and your taste in movies. When you look up movies from then on, you can see reviews of critics who have similar tastes to you, greatly increasing your chance of a positive movie watching experience.
-		</p>
-	</div>
+
+			
 	
 <br /><br /><br />
 	<div class="well lead col-md-4 text-center">
