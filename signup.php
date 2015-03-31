@@ -110,9 +110,7 @@ if (isset($_POST['submit'])) {
 		<br /><br />
 		<h2>Sign Up</h2>
 		<br />
-		<script src="js/jquery-1.11.2.min.js"></script>
 		<!-- <script src="http://ajax.googleapis.com/ajax/libs/jquery/2.0.0/jquery.min.js"></script> -->
-		<script src="js/parsley.min.js"></script>
 		<form action="signup.php" method="post" id="register" data-parsley-validate>
 			<table align="left">
 				<tr>
