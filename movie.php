@@ -196,7 +196,7 @@ $stars5 = '<img src="images/stars/5star.jpg" alt="5 stars" width="100">';
 							$link = get_critic_link($match, $con);
 							$hallah=="0";
 if($rating==""&& $hallah=="0"){
-	echo "You have not rated enough movies for us to pair you with your critics. Rate More Movies!!!";
+	echo "<div class='lead'>You have not rated enough movies for us to pair you with your critics. Rate More Movies!!!<div>";
 	$hallah=1;
 }
 							if ($rating !== false) {
