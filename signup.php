@@ -48,6 +48,21 @@ if (isset($_POST['submit'])) {
 	$password1 = $_POST["pw"];
 	$password2 = $_POST["pw-verify"];
 
+
+	
+	if($firstname == "" || $lastname == "") {
+		$error = "happened";
+		$pmatch .='<br><font color=red>Please enter your name</font>';
+	}
+	if($email == "") {
+		$error = "happened";
+		$pmatch .='<br><font color=red>Please enter an email</font>';
+	}
+	if($username == "") {
+		$error = "happened";
+		$pmatch .='<br><font color=red>Please enter a username</font>';
+	}
+
 	if ($password1 == "") {
 		$error = "happened";
 		$pmatch .='<br><font color=red>Please enter a password</font>';
@@ -62,18 +77,7 @@ if (isset($_POST['submit'])) {
 		$error = "happened";
 		$pmatch .='<br><font color=red>Password must be 8 characters in length</font>';
 	}
-	if($firstname == "" || $lastname == "") {
-		$error = "happened";
-		$pmatch .='<br><font color=red>Please enter your name</font>';
-	}
-	if($email == "") {
-		$error = "happened";
-		$pmatch .='<br><font color=red>Please enter an email</font>';
-	}
-	if($username == "") {
-		$error = "happened";
-		$pmatch .='<br><font color=red>Please enter a username</font>';
-	}
+
 	/* session_start();
 	$_SESSION["in"]="378";
 	$_SESSION["name"]="$name";
@@ -161,7 +165,7 @@ if (isset($_POST['submit'])) {
 					<td class="form-label">Confirm Password: </td>
 					<td align="left"><input type="password" name="pw-verify" data-parsley-equalto="#pw" class="form-control"  value="<?php echo $password2; ?>" required /></td>
 				</tr>
-				<br/><?php echo $pmatch; ?><br /><?php echo $utaken; ?><br /><?php echo $etaken; ?>
+				<br/><?php echo $pmatch; ?><?php echo $utaken; ?><?php echo $etaken; ?>
 				<tr>
 					<td></td>
 					<td><input type="submit" name="submit" value="Submit" class="btn btn-md btn-primary" /></td>
