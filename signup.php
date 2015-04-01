@@ -53,7 +53,7 @@ if (isset($_POST['submit'])) {
 	if($firstname == "" || $lastname == "") {
 		$error = "happened";
 
-		$pmatch .='<br><font color=red>Please enter your name</font>';
+		$pmatch .='<br><font color=red>Please enter your whole name</font>';
 	}
 	if($username == "") {
 		$error = "happened";
@@ -64,8 +64,7 @@ if (isset($_POST['submit'])) {
 		$error = "happened";
 		$pmatch .='<br><font color=red>Please enter a valid email</font>';
 
-		$pmatch .='<br><font color=red>Please enter your whole name</font>';
-
+		
 	}
 	
 	
