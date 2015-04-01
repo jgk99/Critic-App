@@ -38,6 +38,8 @@ $email = "";
 $password1 = "";
 $lname = "";
 
+
+
 if (isset($_POST['submit'])) {
 	$firstname = $_POST["firstname"];
 	$lastname = $_POST["lastname"];
@@ -46,9 +48,26 @@ if (isset($_POST['submit'])) {
 	$password1 = $_POST["pw"];
 	$password2 = $_POST["pw-verify"];
 
-	if($password1!=$password2){
-		$error="happened";
-		$pmatch='<font color=red>Passwords do not match</font>';
+	if ($password1 == "") {
+		$error = "happened";
+		$pmatch .='<br><font color=red>Please enter a password</font>';
+	}
+
+	else if($password1!=$password2){
+		$error = "happened";
+		$pmatch .='<br><font color=red>Passwords do not match</font>';
+	}
+	if($firstname == "" || $lastname == "") {
+		$error = "happened";
+		$pmatch .='<br><font color=red>Please enter your name</font>';
+	}
+	if($email == "") {
+		$error = "happened";
+		$pmatch .='<br><font color=red>Please enter an email</font>';
+	}
+	if($username == "") {
+		$error = "happened";
+		$pmatch .='<br><font color=red>Please enter a username</font>';
 	}
 	/* session_start();
 	$_SESSION["in"]="378";
