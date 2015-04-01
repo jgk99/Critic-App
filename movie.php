@@ -194,7 +194,11 @@ $stars5 = '<img src="images/stars/5star.jpg" alt="5 stars" width="100">';
 						foreach (array_keys($matches) as $match) {
 							$rating = get_rating_from_critic($match, $_GET['id'], $con);
 							$link = get_critic_link($match, $con);
-
+							$hallah=="0"
+if($rating==""&& $hallah=="0"){
+	echo "You have not rated enough movies for us to pair you with your critics. Rate More Movies!!!";
+	$hallah=1;
+}
 							if ($rating !== false) {
 								if($rating >= 0 && $rating < 1.5){
 									$chosenStar = $stars1;
