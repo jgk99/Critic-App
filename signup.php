@@ -52,16 +52,23 @@ if (isset($_POST['submit'])) {
 	
 	if($firstname == "" || $lastname == "") {
 		$error = "happened";
+
 		$pmatch .='<br><font color=red>Please enter your name</font>';
-	}
-	if($email == "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
-		$error = "happened";
-		$pmatch .='<br><font color=red>Please enter a valid email</font>';
 	}
 	if($username == "") {
 		$error = "happened";
 		$pmatch .='<br><font color=red>Please enter a username</font>';
 	}
+
+	if($email == "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
+		$error = "happened";
+		$pmatch .='<br><font color=red>Please enter a valid email</font>';
+
+		$pmatch .='<br><font color=red>Please enter your whole name</font>';
+
+	}
+	
+	
 
 	if ($password1 == "") {
 		$error = "happened";
