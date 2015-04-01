@@ -57,6 +57,11 @@ if (isset($_POST['submit'])) {
 		$error = "happened";
 		$pmatch .='<br><font color=red>Passwords do not match</font>';
 	}
+
+	else if (strlen($password1) < 8) {
+		$error = "happened";
+		$pmatch .='<br><font color=red>Password must be 8 characters in length</font>';
+	}
 	if($firstname == "" || $lastname == "") {
 		$error = "happened";
 		$pmatch .='<br><font color=red>Please enter your name</font>';
