@@ -37,7 +37,10 @@ if (isset($_POST['submit'])) {
 <div class="container">
 	<?php require_once("includes/header.php"); ?>
 <br> <br> <br> <br> <br> <br> 
-<h2 class="text-center">Congratulations, your My Movie Critic Account is Complete!!!</h2><br> <p class="text-center lead">You should start rating movies that you have already seen now!<br /><br /><br />That way you will have your similar movie critics ready when you actually need to find out about a movie!!!</p>
+<h2 class="text-center">Congratulations, your My Movie Critic Account is Complete!!!</h2>
+<br> <p class="text-center lead">You should start rating movies that you have already seen now!<br /><br />
+<a href='movies.php' class='btn btn-primary'>Rate Movies Here</a>
+<br /><br />That way you will have your similar movie critics ready when you actually need to find out about a movie!!!</p>
 
 
 
