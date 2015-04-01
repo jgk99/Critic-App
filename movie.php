@@ -194,7 +194,7 @@ $stars5 = '<img src="images/stars/5star.jpg" alt="5 stars" width="100">';
 						foreach (array_keys($matches) as $match) {
 							$rating = get_rating_from_critic($match, $_GET['id'], $con);
 							$link = get_critic_link($match, $con);
-							
+
 							if ($rating !== false) {
 								if($rating >= 0 && $rating < 1.5){
 									$chosenStar = $stars1;
