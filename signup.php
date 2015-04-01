@@ -54,9 +54,9 @@ if (isset($_POST['submit'])) {
 		$error = "happened";
 		$pmatch .='<br><font color=red>Please enter your name</font>';
 	}
-	if($email == "") {
+	if($email == "" || !filter_var($email, FILTER_VALIDATE_EMAIL)) {
 		$error = "happened";
-		$pmatch .='<br><font color=red>Please enter an email</font>';
+		$pmatch .='<br><font color=red>Please enter a valid email</font>';
 	}
 	if($username == "") {
 		$error = "happened";
