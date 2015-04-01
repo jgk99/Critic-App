@@ -4,7 +4,7 @@ session_start();
 
 $happy = $_SERVER["HTTP_HOST"];
 
-if ($happy === "localhost" || $happy === "localhost:8888") {
+if ($happy === "localhost" || $happy === "localhost:8888" || $happy === "test.mymoviecritic.com") {
 	
 }
 
